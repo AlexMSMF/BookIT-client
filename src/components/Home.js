@@ -10,7 +10,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://localhost:5000/api/events`).then(res => {
+    axios.get(`https://restcountries.eu/rest/v2/all`).then(res => {
       const item = res.data;
       console.log(item);
       this.setState({
@@ -20,12 +20,9 @@ class Home extends Component {
   }
 
   render() {
-    const { item } = this.state;
     return (
       <div>
-        {item.map(el => {
-          return <img src={el.flag} style={{ width: "30px" }} alt="" />;
-        })}
+        <h1>HOME SOMETHING</h1>
       </div>
     );
   }
