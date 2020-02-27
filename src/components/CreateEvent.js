@@ -4,18 +4,19 @@ import axios from "axios";
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", description: "" };
+    this.state = { name: "", date: "", local: "" };
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const title = this.state.title;
-    const description = this.state.description;
+    const name = this.state.name;
+    const date = this.state.date;
+    const local = this.state.local;
     axios
-      .post("http://localhost:5000/api/events", { title, description })
+      .post("http://localhost:5000/api/events", { name, date, local })
       .then(() => {
         // this.props.getData();
-        this.setState({ title: "", description: "" });
+        this.setState({ name: "", date: "", local: "" });
       })
       .catch(error => console.log(error));
   };
@@ -29,17 +30,23 @@ class CreateEvent extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Title:</label>
+          <label>Name of the Event:</label>
           <input
             type="text"
-            name="title"
-            value={this.state.title}
+            name="name"
+            value={this.state.name}
             onChange={e => this.handleChange(e)}
           />
-          <label>Description:</label>
+          <label>Date of the Event:</label>
           <textarea
-            name="description"
-            value={this.state.description}
+            name="date"
+            value={this.state.date}
+            onChange={e => this.handleChange(e)}
+          />
+          <label>Local of the Event:</label>
+          <textarea
+            name="local"
+            value={this.state.local}
             onChange={e => this.handleChange(e)}
           />
 
