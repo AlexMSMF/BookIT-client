@@ -1,12 +1,52 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { title: "", description: "" };
   }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const title = this.state.title;
+    const description = this.state.description;
+    axios
+      .post("http://localhost:5000/api/events", { title, description })
+      .then(() => {
+        // this.props.getData();
+        this.setState({ title: "", description: "" });
+      })
+      .catch(error => console.log(error));
+  };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
-    return <h1>CREATE EVENT PAGE</h1>;
+    return (
+      <div>
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={this.state.title}
+            onChange={e => this.handleChange(e)}
+          />
+          <label>Description:</label>
+          <textarea
+            name="description"
+            value={this.state.description}
+            onChange={e => this.handleChange(e)}
+          />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    );
   }
 }
 
