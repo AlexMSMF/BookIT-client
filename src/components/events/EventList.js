@@ -40,9 +40,11 @@ class EventList extends Component {
     return(
       <div>
         <div style={{width: '60%', float:"left"}}>
+        <h3>Your Events</h3>
           {arrayOfEventsDivs}
         </div>
         <div style={{width: '40%', float:"right"}}>
+        <h3>Create your Event</h3>
             <CreateEvent getData={() => this.getAllEvents()}/> {/* <== !!! */}
         </div>
       </div>

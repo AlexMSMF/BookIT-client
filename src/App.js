@@ -3,7 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./components/Home";
 import About from "./components/About";
-import EventList from "./components/events/EventList"
+import EventList from "./components/events/EventList";
+import ZomatoApi from "./components/events/ZomatoApi";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/events" component={EventList} />
           <Route exact path="/events/:id" component={EventDetails} />
+          <Route exact path="/Zomato" component={ZomatoApi} />
         </Switch>
       </div>
     );

@@ -45,7 +45,7 @@ class EventDetails extends Component {
     axios
       .delete(`http://localhost:5000/api/events/${params.id}`)
       .then(() => {
-        this.props.history.push("/events"); // !!!
+        this.props.history.push("/events");
       })
       .catch(err => {
         console.log(err);
@@ -59,7 +59,7 @@ class EventDetails extends Component {
         <div>{this.renderEditForm()} </div>
         <button onClick={() => this.deleteEvent()}>Delete event</button>
         <br />
-        <Link to={"/events"}>Back to Events</Link>
+        <Link to={"/events"}> Back to Events </Link>
       </div>
     );
   }
