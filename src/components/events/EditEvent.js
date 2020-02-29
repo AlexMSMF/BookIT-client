@@ -48,15 +48,20 @@ class EditEvent extends Component {
     return (
       <div>
         <hr />
-        <h3>Edit form</h3>
+        <h3>Edit</h3>
         <form onSubmit={this.handleFormSubmit}>
           <label>Name of the Event:</label>
+          <br/>
           <input type="text" name="name" value={this.state.name} onChange={e => this.handleChangeName(e)}/>
+          <br/>
           <label>Date of the Event:</label>
-          <textarea name="date" value={this.state.date} onChange={e => this.handleChangeDate(e)} />
+          <br/>
+          <input name="date" value={this.state.date} onChange={e => this.handleChangeDate(e)} />
+          <br/>
           <label>Local of the Event:</label>
-          <textarea name="local" value={this.state.local} onChange={e => this.handleChangeLocal(e)} />
-          
+          <br/>
+          <input name="local" value={this.state.local} onChange={e => this.handleChangeLocal(e)} />
+          <br/>
           <input type="submit" value="Submit" />
         </form>
       </div>
