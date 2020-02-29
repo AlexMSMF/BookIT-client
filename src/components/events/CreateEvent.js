@@ -4,7 +4,11 @@ import axios from "axios";
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", date: "", local: "" };
+    this.state = { 
+      name: "", 
+      date: "", 
+      local: "",
+    };
   }
 
   handleFormSubmit = event => {
@@ -25,6 +29,12 @@ class CreateEvent extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+  handleClickSubmit = event => {
+    this.setState(
+
+    )
+  }
 
   render() {
     return (
