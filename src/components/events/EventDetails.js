@@ -55,10 +55,10 @@ class EventDetails extends Component {
   render() {
     return (
       <div>
-        <h1> {this.state.name} </h1> <p> {this.state.date} </p>{" "}
-        <p> {this.state.local} </p> <div> {this.renderEditForm()} </div>{" "}
-        <button onClick={() => this.deleteEvent()}> Delete event </button>{" "}
-        {/ * <= = !!! * /} <br />
+        <h1> {this.state.name} </h1> <p> {this.state.date} </p>
+        <p> {this.state.local} </p> <div> {this.renderEditForm()} </div>
+        <button onClick={() => this.deleteEvent()}> Delete event </button>
+        <br />
         <Link to={"/events"}> Back to Events </Link>{" "}
       </div>
     );
