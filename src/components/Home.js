@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class Home extends Component {
     return (
       <div>
         <h1>HOME SOMETHING</h1>
+        <Link to="/events">Events</Link>
       </div>
     );
   }

@@ -30,27 +30,34 @@ class CreateEvent extends Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Name of the Event:</label>
+          <label>Name of the Event: </label>
+          <br />
           <input
             type="text"
             name="name"
             value={this.state.name}
             onChange={e => this.handleChange(e)}
           />
-          <label>Date of the Event:</label>
-          <textarea
+          <br />
+          <label>Date of the Event: </label>
+          <br />
+          <input
             name="date"
             value={this.state.date}
             onChange={e => this.handleChange(e)}
           />
-          <label>Local of the Event:</label>
-          <textarea
+          <br />
+          <label>Local of the Event: </label>
+          <br />
+          <input
             name="local"
             value={this.state.local}
             onChange={e => this.handleChange(e)}
           />
+          <br />
 
           <input type="submit" value="Submit" />
+
         </form>
       </div>
     );

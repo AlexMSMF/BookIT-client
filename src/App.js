@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import Home from "./components/Home";
 import About from "./components/About";
-import CreateEvent from "./components/CreateEvent";
+import EventList from "./components/events/EventList"
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import EventDetails from "./components/events/EventDetails";
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/newevent" component={CreateEvent} />
+          <Route path="/events" component={EventList} />
+          <Route path="/events/:id" component={EventDetails} />
         </Switch>
       </div>
     );
