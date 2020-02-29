@@ -13,7 +13,7 @@ class ZomatoApi extends Component {
     axios({
       method: "GET",
       url:
-        "https://developers.zomato.com/api/v2.1/search?entity_id=82&entity_type=city&q=mexican&count=5",
+        "https://developers.zomato.com/api/v2.1/search?entity_id=82&entity_type=city&q=&count=5",
       headers: {
         "user-key": "e5974e8939c8556291798f25f46fd433",
         "content-type": "application/json"

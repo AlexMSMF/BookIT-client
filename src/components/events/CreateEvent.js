@@ -56,8 +56,15 @@ class CreateEvent extends Component {
           />
           <br />
 
+          <label for="city">Choose a city:</label>
+          <select id="city" name="cities">
+            <option value="lisbon">Lisboa</option>
+            <option value="porto">Porto</option>
+            <option value="setubal">Setubal</option>
+            <option value="faro">Faro</option>
+          </select>
+          <br />
           <input type="submit" value="Submit" />
-
         </form>
       </div>
     );
