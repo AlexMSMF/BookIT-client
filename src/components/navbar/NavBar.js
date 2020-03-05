@@ -1,11 +1,34 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  renderAuthLinks() {
+    // console.log("navbar: props.loggedInUser -> ", this.props.loggedInUser);
+    const { loggedInUser, logoutFbase } = this.props;
+    if (!loggedInUser) {
+      return (
+        <>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/login">Log In</Link>
+          </li>
+        </>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <li>Welcome, {loggedInUser.email}</li>
+          <li>
+            <Link to="/" onClick={logoutFbase}>
+              Log Out
+            </Link>
+          </li>
+        </React.Fragment>
+      );
+    }
   }
-
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -69,6 +92,7 @@ class NavBar extends Component {
             </li>
           </ul>
         </div>
+        <ul>{this.renderAuthLinks()}</ul>
       </nav>
     );
   }
