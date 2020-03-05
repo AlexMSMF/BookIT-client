@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-//import CreateEvent from "./CreateEvent"; // <== !!!
+import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
@@ -45,11 +45,11 @@ class EventList extends Component {
         </div>
         <div style={{ width: "40%", float: "right" }}>
           <h3>Create your Event</h3>
-          {/* <CreateEvent
+          <CreateEvent
             hist={this.props.history}
             getData={() => this.getAllEvents()}
-          /> */}
-          <Link to='/createEvent'>HERE!</Link>
+          />
+          {/* <Link to='/createEvent'>HERE!</Link> */}
         </div>
       </div>
     );

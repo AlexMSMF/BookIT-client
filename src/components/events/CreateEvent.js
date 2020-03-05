@@ -61,7 +61,8 @@ class CreateEvent extends Component {
             onChange={e => this.handleChange(e)}
           />
         </form>
-        <Link type="submit" to="/zomato">Next</Link>
+        <input type="submit" value="Submit" />
+        {/* <Link type="submit" to="/zomato">Next</Link> */}
       </div>
     );
   }
