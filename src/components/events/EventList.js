@@ -20,6 +20,7 @@ class EventList extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.history);
     this.getAllEvents();
   }
 

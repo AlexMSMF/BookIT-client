@@ -35,10 +35,8 @@ class CreateEvent extends Component {
   };
 
   handleClickSubmit = event => {
-    this.setState(
-
-    )
-  }
+    this.setState();
+  };
 
   render() {
     return (
