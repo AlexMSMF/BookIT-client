@@ -12,7 +12,9 @@ import firebase from "firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EventDetails from "./components/events/EventDetails";
-import CreateEvent from "./components/events/CreateEvent";
+//import ZomatoList from "./components/events/ZomatoList";
+import CreateEvent from "./components/events/CreateEvent"
+
 
 class App extends Component {
   constructor(props) {
@@ -116,6 +118,7 @@ class App extends Component {
               <Login loginFbaseUser={this.loginFbaseUser} {...props} />
             )}
           />
+          <Route exact path="/createEvent" component={CreateEvent} />
           <Route exact path="/events" component={EventList} />
           <Route
             exact
@@ -123,7 +126,7 @@ class App extends Component {
             render={props => <CreateEvent jwt={this.state.jwt} {...props} />}
           />
           <Route exact path="/events/:id" component={EventDetails} />
-          <Route exact path="/Zomato" component={ZomatoApi} />
+          <Route exact path="/zomato" component={ZomatoApi} />
         </Switch>
       </div>
     );
