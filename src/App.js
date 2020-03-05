@@ -118,12 +118,11 @@ class App extends Component {
               <Login loginFbaseUser={this.loginFbaseUser} {...props} />
             )}
           />
-          <Route exact path="/createEvent" component={CreateEvent} />
           <Route exact path="/events" component={EventList} />
           <Route
             exact
             path="/createEvent"
-            render={props => <CreateEvent jwt={this.state.jwt} {...props} />}
+            render={props => <CreateEvent jwt={this.state.jwt} {...props}/>}
           />
           <Route exact path="/events/:id" component={EventDetails} />
           <Route exact path="/zomato" component={ZomatoApi} />

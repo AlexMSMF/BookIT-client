@@ -11,32 +11,32 @@ class CreateEvent extends Component {
     };
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    const name = this.state.name;
-    const date = this.state.date;
-    axios
-      .post("http://localhost:5000/api/events", { name, date })
-      .then((res) => {
-        // this.props.getData();
-        console.log(`=>`, res)
-        this.setState({
-            name: "",
-            date: "",
-          });
-        this.props.hist.push(`/zomato/${res.data._id}`);
-      })
-      .catch(error => console.log(error));
-  };
+  // handleFormSubmit = event => {
+  //   console.log('hist', this.props.history)
+  //   event.preventDefault();
+  //   const name = this.state.name;
+  //   const date = this.state.date;
+  //   axios
+  //     .post("http://localhost:5000/api/events", { name, date })
+  //     .then((res) => {
+  //       //this.props.getData();
+  //       console.log(`=>`, res)
+  //       this.setState({
+  //         name: "",
+  //         date: "",
+  //       });
+  //       this.props.history.push('/zomato');
+  //       //${res.data._id}
+  //     })
+  //     .catch(error => console.log(error));
+  // };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleClickSubmit = event => {
-    this.setState();
-  };
+
 
   render() {
     return (
@@ -58,9 +58,17 @@ class CreateEvent extends Component {
             value={this.state.date}
             onChange={e => this.handleChange(e)}
           />
+          <br />
+            <Link to={{
+              pathname: '/zomato',
+              state: {
+                name: this.state.name,
+                date: this.state.date
+              }
+            }}>Next</Link>
         </form>
-        <input type="submit" value="Submit" />
-        {/* <Link type="submit" to="/zomato">Next</Link> */}
+
+
       </div>
     );
   }

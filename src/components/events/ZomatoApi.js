@@ -55,14 +55,23 @@ class ZomatoApi extends Component {
       });
   }
 
-  componentDidMount() {
+  // componentDidMount() {
     
-  }
+  // }
 
   render() {
+    const date = this.props.location.state.date
+    const name = this.props.location.state.name
+    
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <div style={{ width: "60%", float: "left" }}>
+          {name}
+          <br/>
+          {date}
+        </div>
+        
+        <form onSubmit={this.handleFormSubmit} style={{ width: "40%", float: "right" }}>
           <label>City of the Event: </label>
           <br />
           <select

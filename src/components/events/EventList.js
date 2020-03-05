@@ -12,7 +12,7 @@ class EventList extends Component {
 
   getAllEvents = () => {
     axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
-      //console.log(responseFromApi.data)
+      console.log(responseFromApi.data)
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -20,7 +20,7 @@ class EventList extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.history);
+    //console.log(this.props.history);
     this.getAllEvents();
   }
 
@@ -46,11 +46,11 @@ class EventList extends Component {
         </div>
         <div style={{ width: "40%", float: "right" }}>
           <h3>Create your Event</h3>
-          <CreateEvent
+          {/* <CreateEvent
             hist={this.props.history}
             getData={() => this.getAllEvents()}
-          />
-          {/* <Link to='/createEvent'>HERE!</Link> */}
+          /> */}
+          <Link to='/createEvent'>HERE!</Link>
         </div>
       </div>
     );
