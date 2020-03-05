@@ -60,9 +60,14 @@ class EditEvent extends Component {
           <br/>
           <label>Local of the Event:</label>
           <br/>
-          <input name="local" value={this.state.local} onChange={e => this.handleChangeLocal(e)} />
+          <select name="local" value={this.state.local} onChange={e => this.handleChangeLocal(e)} >
+            <option value="Lisboa">Lisboa</option>
+            <option value="Porto">Porto</option>
+            <option value="Setúbal">Setubal</option>
+            <option value="Faro">Faro</option>
+          </select>
           <br/>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Edit" />
         </form>
       </div>
     )

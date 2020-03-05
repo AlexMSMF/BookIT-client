@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      name: "", 
-      date: "", 
-      local: "",
+    this.state = {
+      name: "",
+      date: "",
     };
   }
 
@@ -15,12 +15,16 @@ class CreateEvent extends Component {
     event.preventDefault();
     const name = this.state.name;
     const date = this.state.date;
-    const local = this.state.local;
     axios
-      .post("http://localhost:5000/api/events", { name, date, local })
-      .then(() => {
+      .post("http://localhost:5000/api/events", { name, date })
+      .then((res) => {
         // this.props.getData();
-        this.setState({ name: "", date: "", local: "" });
+        console.log(`=>`, res)
+        this.setState({
+            name: "",
+            date: "",
+          });
+        this.props.hist.push(`/zomato/${res.data._id}`);
       })
       .catch(error => console.log(error));
   };
@@ -56,26 +60,8 @@ class CreateEvent extends Component {
             value={this.state.date}
             onChange={e => this.handleChange(e)}
           />
-          <br />
-          <label>Local of the Event: </label>
-          <br />
-          <input
-            name="local"
-            value={this.state.local}
-            onChange={e => this.handleChange(e)}
-          />
-          <br />
-
-          <label for="city">Choose a city:</label>
-          <select id="city" name="cities">
-            <option value="lisbon">Lisboa</option>
-            <option value="porto">Porto</option>
-            <option value="setubal">Setubal</option>
-            <option value="faro">Faro</option>
-          </select>
-          <br />
-          <input type="submit" value="Submit" />
         </form>
+        <Link type="submit" to="/zomato">Next</Link>
       </div>
     );
   }
