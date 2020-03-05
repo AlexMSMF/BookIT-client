@@ -36,8 +36,9 @@ class ZomatoApi extends Component {
   apiCallZomato() {
     axios({
       method: "GET",
-      url: `https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&count=10&cuisines=${this.state.cuisine}&sort=rating&order=desc`,
+      url: `https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&q=${this.state.cuisine}&count=5`,
       //https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&q=${this.state.cuisine}&count=5
+      //https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&count=10&cuisines=${this.state.cuisine}&sort=rating&order=desc
       headers: {
         "user-key": "e5974e8939c8556291798f25f46fd433",
         "content-type": "application/json"
@@ -65,13 +66,13 @@ class ZomatoApi extends Component {
     
     return (
       <div>
-        <div style={{ width: "60%", float: "left" }}>
+        <div style={{ width: "20%", float: "left" }}>
           {name}
           <br/>
           {date}
         </div>
         
-        <form onSubmit={this.handleFormSubmit} style={{ width: "40%", float: "right" }}>
+        <form onSubmit={this.handleFormSubmit} style={{ width: "30%", float: "right" }}>
           <label>City of the Event: </label>
           <br />
           <select
@@ -88,18 +89,33 @@ class ZomatoApi extends Component {
             <option value="306">San Francisco</option>
           </select>
           <br />
-          <label>Type of cuisine: </label>
-          <br />
-          <input
+          <br/>
+          <label>Type of Cuisine: </label>
+          <br/>
+          {/* <input
             type="text"
             name="cuisine"
             value={this.state.cuisine}
             onChange={e => this.handleCuisineInput(e)}
-          />
+          /> */}
+          <select
+            type="text"
+            value={this.state.cuisine}
+            onChange={e => this.handleCuisineInput(e)}
+            name="cuisine"
+          >
+            <option>Select a Cuisine</option>
+            <option value="portuguese">Portuguese</option>
+            <option value="italian">italian</option>
+            <option value="mexican">mexican</option>
+            <option value="american">american</option>
+            <option value="chinese">chinese</option>
+          </select>
           <br />
           <input type="submit" value="Submit" />
         </form>
 
+        <div style={{ width: "50%", float: "left" }}>
         {this.state.restaurants.map((item, index) => {
           return (
             <div key={index} className="container">
@@ -114,6 +130,7 @@ class ZomatoApi extends Component {
             </div>
           );
         })}
+        </div>
       </div>
     );
   }
