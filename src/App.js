@@ -14,6 +14,7 @@ import "./App.css";
 import EventDetails from "./components/events/EventDetails";
 //import ZomatoList from "./components/events/ZomatoList";
 import CreateEvent from "./components/events/CreateEvent"
+import Guests from "./components/events/Guests"
 
 
 class App extends Component {
@@ -126,6 +127,7 @@ class App extends Component {
           />
           <Route exact path="/events/:id" component={EventDetails} />
           <Route exact path="/zomato" component={ZomatoApi} />
+          <Route exact path="/guests" component={Guests} />
         </Switch>
       </div>
     );
