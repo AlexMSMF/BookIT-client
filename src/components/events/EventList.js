@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import CreateEvent from "./CreateEvent";
-// import CreateEvent from "./CreateEvent";
-// import EventDetails from "./EventDetails";
+
+import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
@@ -13,7 +12,7 @@ class EventList extends Component {
 
   getAllEvents = () => {
     axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
-      //console.log(responseFromApi.data)
+      console.log(responseFromApi.data);
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -21,7 +20,7 @@ class EventList extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.history);
+    //console.log(this.props.history);
     this.getAllEvents();
   }
 
@@ -52,8 +51,21 @@ class EventList extends Component {
         </div>
         <div style={{ width: "40%", float: "right" }}>
           <h3>Create your Event</h3>
-
-          <Link to="/createEvent">HERE!</Link>
+        </div>
+        <Link to="/createEvent">HERE!</Link>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h3>Your Events</h3>
+              {arrayOfEventsDivs}
+            </div>
+            <div class="col">
+              <h3>Create your Event</h3>
+              <Link to="/createEvent" className="btn btn-primary">
+                HERE!
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -11,24 +11,6 @@ class CreateEvent extends Component {
     };
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    const name = this.state.name;
-    const date = this.state.date;
-    const headers = { Authorization: this.props.jwt };
-    axios
-      .post("http://localhost:5000/api/events", { name, date }, { headers })
-      .then(() => {
-        this.props.getData();
-
-        this.setState({
-          name: "",
-          date: ""
-        });
-      })
-      .catch(error => console.log(error));
-  };
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -36,29 +18,47 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Name of the Event: </label>
-          <br />
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={e => this.handleChange(e)}
-          />
-          <br />
-          <label>Date of the Event: </label>
-          <br />
-          <input
-            name="date"
-            value={this.state.date}
-            onChange={e => this.handleChange(e)}
-          />
-          <input type="submit" to="/events" />
-        </form>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm">
+          </div>
+          <div className="col-6">
+            <form onSubmit={this.handleFormSubmit}>
+              <label>Name of the Event: </label>
+              <br />
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={e => this.handleChange(e)}
+              />
+              <br />
+              <label>Date of the Event: </label>
+              <br />
+              <input
+                className="form-control"
+                name="date"
+                value={this.state.date}
+                onChange={e => this.handleChange(e)}
+              />
+              <br />
+              <Link to={{
+                pathname: '/zomato',
+                state: {
+                  name: this.state.name,
+                  date: this.state.date
+                }
+              }} className="btn btn-primary">Next</Link>
+            </form>
+          </div>
+          <div className="col-sm">
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default CreateEvent;
+

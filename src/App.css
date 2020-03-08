@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-primary {
+  margin-top: 5px;
+}
+
+.btn-success {
+  margin-top: 5px;
+}
+
+.backgroundImage {
+  background-image: url('./images/shawn-ang-nmpW_WwwVSc-unsplash.jpg');
+  background-size: cover;
+}
+
+.div-size {
+  height: 800px;
+}
+
+.div-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.btn-events {
+  background-color: #07b86b;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 5px;
+}
+
+.h1-home-text {
+  text-align: left;
+}
+
+.footer {
+  background-color: ##07b86b;
+  
+}

@@ -13,7 +13,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EventDetails from "./components/events/EventDetails";
 //import ZomatoList from "./components/events/ZomatoList";
-import CreateEvent from "./components/events/CreateEvent";
+import CreateEvent from "./components/events/CreateEvent"
+import Guests from "./components/events/Guests"
+
 
 class App extends Component {
   constructor(props) {
@@ -119,20 +121,14 @@ class App extends Component {
               <Login loginFbaseUser={this.loginFbaseUser} {...props} />
             )}
           />
+          <Route exact path="/events" component={EventList} />
           <Route
             exact
-            path="/events"
-            render={props => (
-              <EventList uid={uid} jwt={this.state.jwt} {...props} />
-            )}
-          />
-          <Route
-            exact
-            path="/events/:id"
-            render={props => <EventDetails uid={uid} jwt={jwt} {...props} />}
-          />{" "}
+            path="/createEvent"
+            render={props => <CreateEvent jwt={this.state.jwt} {...props}/>}
           />
           <Route exact path="/zomato" component={ZomatoApi} />
+          <Route exact path="/guests" component={Guests} />
         </Switch>
       </div>
     );
