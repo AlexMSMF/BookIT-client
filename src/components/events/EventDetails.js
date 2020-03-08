@@ -52,12 +52,25 @@ class EventDetails extends Component {
       });
   };
 
+  renderEventOwnerSection() {
+    if (this.state.owner === this.props.uid) {
+      return (
+        <div>
+          {this.renderEditForm()}
+          <button onClick={() => this.deleteEvent()}>Delete Event</button>
+     
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
         <h1>{this.state.name}</h1>
         <div>{this.renderEditForm()} </div>
-        <br/>
+        <div> {this.renderEventOwnerSection()} </div>
+        <br />
         <button onClick={() => this.deleteEvent()}>Delete event</button>
         <br />
         <Link to={"/events"}> Back to Events </Link>

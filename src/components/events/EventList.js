@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-//import CreateEvent from "./CreateEvent"; // <== !!!
+import CreateEvent from "./CreateEvent";
+// import CreateEvent from "./CreateEvent";
+// import EventDetails from "./EventDetails";
 
 class EventList extends Component {
   constructor() {
@@ -38,19 +39,21 @@ class EventList extends Component {
       );
     });
 
+    const addEventComponent = (
+      <CreateEvent jwt={this.props.jwt} getData={() => this.getAllEvents()} />
+    );
+
     return (
       <div>
+        {this.props.uid && addEventComponent}
         <div style={{ width: "60%", float: "left" }}>
           <h3>Your Events</h3>
           {arrayOfEventsDivs}
         </div>
         <div style={{ width: "40%", float: "right" }}>
           <h3>Create your Event</h3>
-          {/* <CreateEvent
-            hist={this.props.history}
-            getData={() => this.getAllEvents()}
-          /> */}
-          <Link to='/createEvent'>HERE!</Link>
+
+          <Link to="/createEvent">HERE!</Link>
         </div>
       </div>
     );

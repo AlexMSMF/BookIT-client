@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      date: "",
+      date: ""
     };
   }
 
@@ -15,16 +15,16 @@ class CreateEvent extends Component {
     event.preventDefault();
     const name = this.state.name;
     const date = this.state.date;
+    const headers = { Authorization: this.props.jwt };
     axios
-      .post("http://localhost:5000/api/events", { name, date })
-      .then((res) => {
-        // this.props.getData();
-        console.log(`=>`, res)
+      .post("http://localhost:5000/api/events", { name, date }, { headers })
+      .then(() => {
+        this.props.getData();
+
         this.setState({
-            name: "",
-            date: "",
-          });
-        this.props.hist.push(`/zomato/${res.data._id}`);
+          name: "",
+          date: ""
+        });
       })
       .catch(error => console.log(error));
   };
@@ -32,10 +32,6 @@ class CreateEvent extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  };
-
-  handleClickSubmit = event => {
-    this.setState();
   };
 
   render() {
@@ -58,8 +54,8 @@ class CreateEvent extends Component {
             value={this.state.date}
             onChange={e => this.handleChange(e)}
           />
+          <input type="submit" to="/events" />
         </form>
-        <Link type="submit" to="/zomato">Next</Link>
       </div>
     );
   }
