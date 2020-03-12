@@ -5,34 +5,44 @@ class Guests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guests: "",
       name: this.props.location.state.name,
       date: this.props.location.state.date,
       restaurantName: this.props.location.state.restaurantId.name,
-      restaurantAddress: this.props.location.state.restaurantId.location.address
+      restaurantAddress: this.props.location.state.restaurantId.location
+        .address,
+      guests: ""
     };
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
+
+    const name = this.props.location.state.name;
+    const date = this.props.location.state.date;
+    const restaurantName = this.props.location.state.restaurantId.name;
+    const restaurantAddress = this.props.location.state.restaurantId.location
+      .address;
     const guests = this.state.guests;
-    const name = this.props.location.state.name
-    const date = this.props.location.state.date
-    const restaurantName = this.props.location.state.restaurantId.name
-    const restaurantAddress = this.props.location.state.restaurantId.location.address
+
     axios
-      .post("http://localhost:5000/api/events", { guests, name, date, restaurantName, restaurantAddress })
-      .then((res) => {
+      .post("http://localhost:5000/api/events", {
+        name,
+        date,
+        restaurantName,
+        restaurantAddress,
+        guests
+      })
+      .then(res => {
         //this.props.getData();
-        console.log(`=>`, res)
+        console.log(`=>`, res);
         this.setState({
           name: this.props.location.state.name,
           date: this.props.location.state.date,
           restaurantName: this.props.location.state.restaurantId.name,
-          restaurantAddress: this.props.location.state.restaurantId.location.address,
-          guests: "",
+          restaurantAddress: this.props.location.state.restaurantId.location
+            .address,
+          guests: ""
         });
-        //${res.data._id}
       })
       .catch(error => console.log(error));
   };
@@ -42,12 +52,10 @@ class Guests extends Component {
     this.setState({ [name]: value });
   };
 
-
-
   render() {
-    const date = this.props.location.state.date
-    const name = this.props.location.state.name
-    const restaurantId = this.props.location.state.restaurantId
+    const date = this.props.location.state.date;
+    const name = this.props.location.state.name;
+    const restaurantId = this.props.location.state.restaurantId;
 
     return (
       <div>
@@ -66,9 +74,7 @@ class Guests extends Component {
               <h5>Nome do Restaurante:</h5>
               {restaurantId.name}
             </div>
-            <div className="col-sm">
-              ONDE VÃO APARECER OS FORMS
-            </div>
+            <div className="col-sm">ONDE VÃO APARECER OS FORMS</div>
             <div className="col-sm">
               <form onSubmit={this.handleFormSubmit}>
                 <label>Number of the Guests: </label>
@@ -79,13 +85,16 @@ class Guests extends Component {
                   value={this.state.guests}
                   onChange={e => this.handleChange(e)}
                 />
-                <input type="submit" value="Submit" className="btn btn-primary"/>
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-primary"
+                />
               </form>
             </div>
           </div>
         </div>
       </div>
-
     );
   }
 }

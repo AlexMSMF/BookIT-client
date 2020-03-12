@@ -42,7 +42,7 @@ class ZomatoApi extends Component {
       //https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&q=${this.state.cuisine}&count=5
       //https://developers.zomato.com/api/v2.1/search?entity_id=${this.state.city}&entity_type=city&count=10&cuisines=${this.state.cuisine}&sort=rating&order=desc
       headers: {
-        "user-key": "e5974e8939c8556291798f25f46fd433",
+        "user-key": process.env.REACT_APP_ZOMATO_API_KEY,
         "content-type": "application/json"
       }
     })

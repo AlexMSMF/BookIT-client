@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// import CreateEvent from "./CreateEvent";
 
-import CreateEvent from "./CreateEvent"; // <== !!!
+// import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
@@ -26,25 +27,23 @@ class EventList extends Component {
 
   render() {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
-      return (
-        <div key={event._id}>
+      const addEventComponent = (
+        <div
+          key={event._id}
+          jwt={this.props.jwt}
+          getData={() => this.getAllEvents()}
+        >
           <Link to={`/events/${event._id}`}>
             <ul>
               <li>{event.name}</li>
             </ul>
           </Link>
-          <p>{event.local} </p>
         </div>
       );
+      return <div> {this.props.uid && addEventComponent}</div>;
     });
-
-    const addEventComponent = (
-      <CreateEvent jwt={this.props.jwt} getData={() => this.getAllEvents()} />
-    );
-
-    return (
+    const piçodocu = (
       <div>
-        {this.props.uid && addEventComponent}
         <div style={{ width: "60%", float: "left" }}>
           <h3>Your Events</h3>
           {arrayOfEventsDivs}
@@ -53,22 +52,10 @@ class EventList extends Component {
           <h3>Create your Event</h3>
         </div>
         <Link to="/createEvent">HERE!</Link>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h3>Your Events</h3>
-              {arrayOfEventsDivs}
-            </div>
-            <div class="col">
-              <h3>Create your Event</h3>
-              <Link to="/createEvent" className="btn btn-primary">
-                HERE!
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     );
+
+    return <div>{this.props.uid && piçodocu}</div>;
   }
 }
 

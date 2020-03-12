@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import FooterPage from "./FooterPage"
+// import FooterPage from "./FooterPage"
 
 
 class Home extends Component {
