@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import CreateEvent from "./CreateEvent";
+// import GoogleMap from "../GoogleMap"
 
 // import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
     super();
-    this.state = { listOfEvents: [] };
+    this.state = { 
+      listOfEvents: [] 
+    };
   }
 
   getAllEvents = () => {
     axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
-      console.log(responseFromApi.data);
+      //console.log(responseFromApi.data);
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -44,14 +46,23 @@ class EventList extends Component {
     });
     const piçodocu = (
       <div>
-        <div style={{ width: "60%", float: "left" }}>
-          <h3>Your Events</h3>
-          {arrayOfEventsDivs}
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h3>Your Events</h3>
+              <br/>
+              {arrayOfEventsDivs}
+            </div>
+            <div className="col">
+              <h3>Create your Event</h3>
+              <br/>
+              <Link to="/createEvent" className="btn btn-primary">
+                HERE!
+              </Link>
+            </div>
+          </div>
         </div>
-        <div style={{ width: "40%", float: "right" }}>
-          <h3>Create your Event</h3>
-        </div>
-        <Link to="/createEvent">HERE!</Link>
+
       </div>
     );
 

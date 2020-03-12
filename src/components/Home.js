@@ -12,15 +12,15 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.get(`https://localhost:5000/api/events`).then(res => {
-      const item = res.data;
-      console.log(item);
-      this.setState({
-        item: res.data
-      });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get(`https://localhost:5000/api/events`).then(res => {
+  //     const item = res.data;
+  //     console.log(item);
+  //     this.setState({
+  //       item: res.data
+  //     });
+  //   });
+  // }
 
   render() {
     return (

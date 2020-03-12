@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "firebase": "^7.9.3",
+    "google-maps-react": "^2.0.2",
     "jquery": "^3.4.1",
     "mdreact": "^0.1.5",
     "popper.js": "^1.16.1",

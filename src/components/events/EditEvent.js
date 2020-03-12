@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ZomatoEdit from "./ZomatoEdit";
 
 class EditEvent extends Component {
   constructor(props) {
@@ -10,12 +11,19 @@ class EditEvent extends Component {
       date: this.props.theEvent.date,
       restaurantName: this.props.theEvent.restaurantName,
       restaurantAddress: this.props.theEvent.restaurantAddress,
-      guests: this.props.theEvent.guests
+      guests: this.props.theEvent.guests,
+      restId: this.props.theEvent._id
     };
   }
 
   handleFormSubmit = event => {
-    const { name, date, restaurantName, restaurantAddress, guests } = this.state;
+    const {
+      name,
+      date,
+      restaurantName,
+      restaurantAddress,
+      guests
+    } = this.state;
 
     event.preventDefault();
     axios
@@ -52,12 +60,25 @@ class EditEvent extends Component {
     });
   };
 
+
+  getSingleEvent = () => {
+    const { params } = this.props.match;
+    axios
+      .get(`http://localhost:5000/api/events/${params.id}`)
+      .then(responseFromApi => {
+        const theEvent = responseFromApi.data;
+        this.setState(theEvent);
+      })
+      .catch(err => console.log(err));
+  };
+
+
   render() {
     return (
       <div>
         <hr />
         <h3>Details </h3>
-        <br/>
+        <br />
         <form onSubmit={this.handleFormSubmit}>
           <label>Name of the Event:</label>
           <br />
@@ -79,6 +100,7 @@ class EditEvent extends Component {
           <label>Number of guests:</label>
           <br />
           <input
+            type="number"
             name="guests"
             value={this.state.guests}
             onChange={e => this.handleChangeGuests(e)}
@@ -86,22 +108,30 @@ class EditEvent extends Component {
           <br />
           <input type="submit" value="Edit" className="btn btn-success" />
         </form>
-        <br/>
+        <br />
         <h5>Name and Address of the Restaurant</h5>
         <h6>{this.state.restaurantName}</h6>
-        <h7>{this.state.restaurantAddress}</h7>
-        <br/>
-        <br/>
-        <Link to={{
-          pathname: '/zomato',
-          state: {
-            name: this.state.name,
-            date: this.state.date,
-            _id: this.props.theEvent._id
-          }
-        }} className="btn btn-info">
+        <h6>{this.state.restaurantAddress}</h6>
+        <br />
+        <br />
+        {/* <Link
+          to={{
+            pathname: `/zomato`,
+            state: {
+              name: this.state.name,
+              date: this.state.date,
+              restId: this.state.restId
+            }
+          }}
+          className="btn btn-info"
+        >
           Change Restaurant
-        </Link>
+        </Link> */}
+        <ZomatoEdit
+          theEvent={this.state}
+          getTheEvent={this.getSingleEvent}
+          {...this.props}
+        />
       </div>
     );
   }

@@ -29,7 +29,22 @@ class ZomatoApi extends Component {
   // Função que ao submeter irá mudar através do state o site abaixo da zomato.
   handleFormSubmit = event => {
     //alert(`${this.state.city} ${this.state.cuisine}`);
+    const {
+      restaurantName,
+      restaurantAddress,
+    } = this.state;
     event.preventDefault();
+    axios
+      .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
+        restaurantName,
+        restaurantAddress,
+      })
+      .then(() => {
+        this.props.getTheEvent();
+        // after submitting the form, redirect to '/events'
+        this.props.history.push("/events");
+      })
+      .catch(error => console.log(error));
     this.apiCallZomato();
   };
 
@@ -58,67 +73,15 @@ class ZomatoApi extends Component {
   }
 
   // função para editar os restaurantes em EDIT EVENT
-  // componentDidMount() {
-  //   const restId = this.props.location.state.restId
-  //   const {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   } = this.state;
+  // handleEditRestaurant() {
 
-  //   if (restId) 
-  //   axios
-  //   .put(`http://localhost:5000/api/events/${restId}`, {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   })
-  //   .then(() => {
-  //     this.props.getTheEvent();
-  //     // after submitting the form, redirect to '/events'
-  //     this.props.history.push("/events");
-  //   })
-  //   .catch(error => console.log(error));
   // }
-
-  // handleEditRestaurants() {
-  //   const date = this.props.location.state.date
-  //   const name = this.props.location.state.name
-  //   const restId = this.props.location.state.restId
-
-  //   if (restId)
-  //     return <input type="submit" value="submit"/>
-  //   else 
-  //   return (
-  //     <Link to={{
-  //       pathname: '/guests',
-  //       state: {
-  //         name,
-  //         date,
-  //         city: this.state.city,
-  //       }
-  //     }} className="btn btn-primary">Next</Link>
-  //   )
-  // }
-    
-  
 
   render() {
-    const date = this.props.location.state.date
-    const name = this.props.location.state.name
-    //const restId = this.props.location.state.restId
-
     return (
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-lg">
-              <div >
-                <h5>Nome do Evento:</h5>
-                {name}
-                <br />
-                <h5>Data do Evento</h5>
-                {date}
-              </div>
-            </div>
             <div className="col-lg">
               <div className="row">
                 {this.state.restaurants.map((item, index) => {
@@ -130,14 +93,7 @@ class ZomatoApi extends Component {
                         <p className="card-text"> {item.restaurant.location.address} </p>
                         <p className="card-text"> {item.restaurant.user_rating.aggregate_rating} </p>
                         <p className="card-text"> {item.restaurant.user_rating.rating_text} </p>
-                        <Link to={{
-                          pathname: '/guests',
-                          state: {
-                            name,
-                            date,
-                            restaurantId: item.restaurant
-                          }
-                        }} className="btn btn-primary">Next</Link>
+                        <input type="submit" value="Submit" />
                       </div>
                     </div>
                   );
