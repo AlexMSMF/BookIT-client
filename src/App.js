@@ -96,6 +96,8 @@ class App extends Component {
   };
 
   render() {
+    const { loggedInUser, jwt } = this.state;
+    const uid = loggedInUser ? loggedInUser.uid : null;
     return (
       <div className="App">
         <NavBar
@@ -125,7 +127,6 @@ class App extends Component {
             path="/createEvent"
             render={props => <CreateEvent jwt={this.state.jwt} {...props}/>}
           />
-          <Route exact path="/events/:id" component={EventDetails} />
           <Route exact path="/zomato" component={ZomatoApi} />
           <Route exact path="/guests" component={Guests} />
         </Switch>

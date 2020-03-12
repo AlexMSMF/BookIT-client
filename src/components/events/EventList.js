@@ -40,12 +40,31 @@ class EventList extends Component {
       );
     });
 
+    const addEventComponent = (
+      <CreateEvent jwt={this.props.jwt} getData={() => this.getAllEvents()} />
+    );
+
     return (
       <div>
+<<<<<<< HEAD
         {/* <GoogleMap /> */}
         <div className="container">
           <div className="row">
             <div className="col">
+=======
+        {this.props.uid && addEventComponent}
+        <div style={{ width: "60%", float: "left" }}>
+          <h3>Your Events</h3>
+          {arrayOfEventsDivs}
+        </div>
+        <div style={{ width: "40%", float: "right" }}>
+          <h3>Create your Event</h3>
+        </div>
+        <Link to="/createEvent">HERE!</Link>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+>>>>>>> 3fed3eb3233e583213749787bdf5f66fe0c45d94
               <h3>Your Events</h3>
               <br/>
               {arrayOfEventsDivs}
