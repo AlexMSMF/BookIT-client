@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     firebase.initializeApp({
-      apiKey: "AIzaSyALDSQqzryAURa89F-SlMcaQxMzElwERMg",
+      apiKey: process.env.REACT_APP_MY_GOOGLE_API_KEY,
       authDomain: "bookit-ad3fd.firebaseapp.com",
       databaseURL: "https://bookit-ad3fd.firebaseio.com",
       projectId: "bookit-ad3fd",

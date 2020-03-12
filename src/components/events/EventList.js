@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import GoogleMap from "../GoogleMap"
 
 import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
     super();
-    this.state = { listOfEvents: [] };
+    this.state = { 
+      listOfEvents: [] 
+    };
   }
 
   getAllEvents = () => {
     axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
-      console.log(responseFromApi.data);
+      //console.log(responseFromApi.data);
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -33,21 +36,23 @@ class EventList extends Component {
               <li>{event.name}</li>
             </ul>
           </Link>
-          <p>{event.local} </p>
         </div>
       );
     });
 
     return (
       <div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
+        {/* <GoogleMap /> */}
+        <div className="container">
+          <div className="row">
+            <div className="col">
               <h3>Your Events</h3>
+              <br/>
               {arrayOfEventsDivs}
             </div>
-            <div class="col">
+            <div className="col">
               <h3>Create your Event</h3>
+              <br/>
               <Link to="/createEvent" className="btn btn-primary">
                 HERE!
               </Link>
