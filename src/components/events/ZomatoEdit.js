@@ -33,7 +33,9 @@ class ZomatoApi extends Component {
       restaurantName,
       restaurantAddress,
     } = this.state;
+    
     event.preventDefault();
+    this.apiCallZomato();
     axios
       .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
         restaurantName,
@@ -45,7 +47,6 @@ class ZomatoApi extends Component {
         this.props.history.push("/events");
       })
       .catch(error => console.log(error));
-    this.apiCallZomato();
   };
 
   //API da zomato que nos mostra os restaurantes após escolhermos a cidade e cozinha no form.

@@ -46,12 +46,6 @@ class EventList extends Component {
 
     return (
       <div>
-<<<<<<< HEAD
-        {/* <GoogleMap /> */}
-        <div className="container">
-          <div className="row">
-            <div className="col">
-=======
         {this.props.uid && addEventComponent}
         <div style={{ width: "60%", float: "left" }}>
           <h3>Your Events</h3>
@@ -64,7 +58,6 @@ class EventList extends Component {
         <div class="container">
           <div class="row">
             <div class="col">
->>>>>>> 3fed3eb3233e583213749787bdf5f66fe0c45d94
               <h3>Your Events</h3>
               <br/>
               {arrayOfEventsDivs}
