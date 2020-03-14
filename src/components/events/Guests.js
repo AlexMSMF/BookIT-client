@@ -6,11 +6,10 @@ class Guests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.location.state.name,
-      date: this.props.location.state.date,
-      restaurantName: this.props.location.state.restaurantId.name,
-      restaurantAddress: this.props.location.state.restaurantId.location
-        .address,
+      name: "",
+      date: "",
+      restaurantName: "",
+      restaurantAddress: "",
       guests: ""
     };
   }
@@ -21,8 +20,7 @@ class Guests extends Component {
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
     const restaurantName = this.props.location.state.restaurantId.name;
-    const restaurantAddress = this.props.location.state.restaurantId.location
-      .address;
+    const restaurantAddress = this.props.location.state.restaurantId.location.address;
     const guests = this.state.guests;
 
     axios

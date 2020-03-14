@@ -57,50 +57,6 @@ class ZomatoApi extends Component {
       });
   }
 
-  // função para editar os restaurantes em EDIT EVENT
-  // componentDidMount() {
-  //   const restId = this.props.location.state.restId
-  //   const {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   } = this.state;
-
-  //   if (restId) 
-  //   axios
-  //   .put(`http://localhost:5000/api/events/${restId}`, {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   })
-  //   .then(() => {
-  //     this.props.getTheEvent();
-  //     // after submitting the form, redirect to '/events'
-  //     this.props.history.push("/events");
-  //   })
-  //   .catch(error => console.log(error));
-  // }
-
-  // handleEditRestaurants() {
-  //   const date = this.props.location.state.date
-  //   const name = this.props.location.state.name
-  //   const restId = this.props.location.state.restId
-
-  //   if (restId)
-  //     return <input type="submit" value="submit"/>
-  //   else 
-  //   return (
-  //     <Link to={{
-  //       pathname: '/guests',
-  //       state: {
-  //         name,
-  //         date,
-  //         city: this.state.city,
-  //       }
-  //     }} className="btn btn-primary">Next</Link>
-  //   )
-  // }
-    
-  
-
   render() {
     const date = this.props.location.state.date
     const name = this.props.location.state.name
@@ -122,7 +78,7 @@ class ZomatoApi extends Component {
             <div className="col-lg">
               <div className="row">
                 {this.state.restaurants.map((item, index) => {
-                  console.log(item)
+                  //console.log(item)
                   return (
                     <div key={index} className="card" style={{ width: "18rem" }}>
                       <div className="card-body">
