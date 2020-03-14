@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import forkKnife from '../../images/indian-cuisine.jpg'
+import forkKnife from "../../images/indian-cuisine.jpg";
 
 class ZomatoApi extends Component {
   constructor(props) {
@@ -21,32 +21,58 @@ class ZomatoApi extends Component {
     });
   };
 
-
   // Função que recente o input das cozinhas(cuisines) na pagina zomato
-  handleCuisineInput = (event) => {
-
+  handleCuisineInput = event => {
     this.setState({
-      cuisine: event.target.value,
+      cuisine: event.target.value
     });
- 
-};
-
-handleImageCuisine = (value) => {
-  switch(value) {
-    case "indian":
-      this.state.cuisineImg = '../../images/indian-cuisine.jpg';
-      break;
-    case "portuguese":
-      this.state.cuisineImg = '../../images/portuguese-cuisine.jpg';
-      break;
-    case "japanese":
-      this.state.cuisineImg = "../../images/japanese-cuisine.jpg";
-      break;
-    default:
-      this.state.cuisineImg = "I have never heard of that fruit...";
-  }
-}
-
+    switch (event.target.value) {
+      case "indian":
+        this.setState({
+          cuisineImg: "images/indian-cuisine.jpg"
+        });
+        break;
+      case "brasilian":
+        this.setState({
+          cuisineImg: "images/brasilian-cuisine.jpg"
+        });
+        break;
+      case "mexican":
+        this.setState({
+          cuisineImg: "images/mexican-cuisine.jpg"
+        });
+        break;
+      case "italian":
+        this.setState({
+          cuisineImg: "images/italian-cuisine.jpg"
+        });
+        break;
+      case "chinese":
+        this.setState({
+          cuisineImg: "images/chinese-cuisine.jpg"
+        });
+        break;
+      case "american":
+        this.setState({
+          cuisineImg: "images/american-cuisine.jpg"
+        });
+        break;
+      case "portuguese":
+        this.setState({
+          cuisineImg: "images/portuguese-cuisine.jpg"
+        });
+        break;
+      case "japanese":
+        this.setState({
+          cuisineImg: "images/japanese-cuisine.jpg"
+        });
+        break;
+      default:
+        this.setState({
+          cuisineImg: "images/forkknife.png"
+        });
+    }
+  };
 
   // Função que ao submeter irá mudar através do state o site abaixo da zomato.
   handleFormSubmit = event => {
@@ -79,38 +105,44 @@ handleImageCuisine = (value) => {
       });
   }
 
-
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
     //const restId = this.props.location.state.restId
 
- 
     return (
       <div>
         <div className="container">
           <div className="row">
             <div className="col-sm">
-            
-                <h5>Nome do Evento:</h5>
-                {name}
-                <br />
-                <h5>Data do Evento</h5>
-                {date}
-             
+              <h5>Nome do Evento:</h5>
+              {name}
+              <br />
+              <h5>Data do Evento</h5>
+              {date}
             </div>
             <div className="col-sm">
-            <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
-            <img className="mb-4" src={this.state.cuisineImg} alt="Event" width="72" height="72" />
-            <h1 className="h3 mb-3 font-weight-normal">Choose a Restaurant and Cuisine</h1>
-            <label className="sr-only">City of the Event: </label>
+              <form
+                className="creatingEventForm form-signin"
+                onSubmit={this.handleFormSubmit}
+              >
+                <img
+                  className="mb-4"
+                  src={this.state.cuisineImg}
+                  alt="Event"
+                  width="200"
+                  height="200"
+                />
+                <h1 className="h3 mb-3 font-weight-normal">
+                  Choose a Restaurant and Cuisine
+                </h1>
+                <label className="sr-only">City of the Event: </label>
                 <br />
                 <select
                   className="form-control"
                   type="text"
                   value={this.state.city}
-                  onChange={e =>  this.handleCityInput(e)}
-            
+                  onChange={e => this.handleCityInput(e)}
                   name="city"
                 >
                   <option>Select a City</option>
@@ -139,12 +171,12 @@ handleImageCuisine = (value) => {
                   <option value="american">American</option>
                   <option value="chinese">Chinese</option>
                   <option value="indian">Indian</option>
-                
+
                   <option value="japanese">Japanese</option>
                 </select>
                 <br />
                 <input
-                 className="btn btn-success "
+                  className="btn btn-success "
                   type="submit"
                   value="Search"
                 />
@@ -155,20 +187,21 @@ handleImageCuisine = (value) => {
                 console.log(item);
                 return (
                   <div key={index} className="card" style={{ width: "18rem" }}>
-                     <img className='cuisinesImage' src={this.state.cuisineImg} alt="Hello"/>
+                    <img
+                      className="cuisinesImage"
+                      src={this.state.cuisineImg}
+                      alt="Hello"
+                    />
                     <div className="card-body">
                       <h1 className="card-title"> {item.restaurant.name} </h1>
                       <p className="card-text">
-                        {" "}
-                        {item.restaurant.location.address}{" "}
+                        {item.restaurant.location.address}
                       </p>
                       <p className="card-text">
-                        {" "}
-                        {item.restaurant.user_rating.aggregate_rating}{" "}
+                        {item.restaurant.user_rating.aggregate_rating}
                       </p>
                       <p className="card-text">
-                        {" "}
-                        {item.restaurant.user_rating.rating_text}{" "}
+                        {item.restaurant.user_rating.rating_text}
                       </p>
                       <Link
                         to={{

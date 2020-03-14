@@ -81,18 +81,10 @@ class Guests extends Component {
               {restaurantId.name}
             </div>
             <div className="col-sm">
-              <SendEmail name={name} date={date} restaurantId={restaurantId} />
+              <SendEmail name={name} date={date} restaurantId={restaurantId} submit={this.handleFormSubmit}/>
             </div>
             <div className="col-sm">
-              <form onSubmit={this.handleFormSubmit}>
-                <label>TO Submit the info </label>
-                <br />
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="btn btn-primary"
-                />
-              </form>
+              
             </div>
           </div>
         </div>

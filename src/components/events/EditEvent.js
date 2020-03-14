@@ -11,7 +11,6 @@ class EditEvent extends Component {
       date: this.props.theEvent.date,
       restaurantName: this.props.theEvent.restaurantName,
       restaurantAddress: this.props.theEvent.restaurantAddress,
-      guests: this.props.theEvent.guests,
       restId: this.props.theEvent._id
     };
   }
@@ -22,7 +21,6 @@ class EditEvent extends Component {
       date,
       restaurantName,
       restaurantAddress,
-      guests
     } = this.state;
 
     event.preventDefault();
@@ -32,7 +30,6 @@ class EditEvent extends Component {
         date,
         restaurantName,
         restaurantAddress,
-        guests
       })
       .then(() => {
         this.props.getTheEvent();
@@ -53,13 +50,6 @@ class EditEvent extends Component {
       date: event.target.value
     });
   };
-
-  handleChangeGuests = event => {
-    this.setState({
-      guests: event.target.guests
-    });
-  };
-
 
   getSingleEvent = () => {
     const { params } = this.props.match;
@@ -95,15 +85,6 @@ class EditEvent extends Component {
             name="date"
             value={this.state.date}
             onChange={e => this.handleChangeDate(e)}
-          />
-          <br />
-          <label>Number of guests:</label>
-          <br />
-          <input
-            type="number"
-            name="guests"
-            value={this.state.guests}
-            onChange={e => this.handleChangeGuests(e)}
           />
           <br />
           <input type="submit" value="Edit" className="btn btn-success" />
