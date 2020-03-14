@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import GoogleMap from "../GoogleMap"
+// import GoogleMap from "../GoogleMap"
 
-import CreateEvent from "./CreateEvent"; // <== !!!
+// import CreateEvent from "./CreateEvent"; // <== !!!
 
 class EventList extends Component {
   constructor() {
     super();
-    this.state = { 
-      listOfEvents: [] 
+    this.state = {
+      listOfEvents: []
     };
   }
 
@@ -29,8 +29,12 @@ class EventList extends Component {
 
   render() {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
-      return (
-        <div key={event._id}>
+      const addEventComponent = (
+        <div
+          key={event._id}
+          jwt={this.props.jwt}
+          getData={() => this.getAllEvents()}
+        >
           <Link to={`/events/${event._id}`}>
             <ul>
               <li>{event.name}</li>
@@ -38,33 +42,20 @@ class EventList extends Component {
           </Link>
         </div>
       );
+      return <div> {this.props.uid && addEventComponent}</div>;
     });
-
-    const addEventComponent = (
-      <CreateEvent jwt={this.props.jwt} getData={() => this.getAllEvents()} />
-    );
-
-    return (
+    const piçodocu = (
       <div>
-        {this.props.uid && addEventComponent}
-        <div style={{ width: "60%", float: "left" }}>
-          <h3>Your Events</h3>
-          {arrayOfEventsDivs}
-        </div>
-        <div style={{ width: "40%", float: "right" }}>
-          <h3>Create your Event</h3>
-        </div>
-        <Link to="/createEvent">HERE!</Link>
-        <div class="container">
-          <div class="row">
-            <div class="col">
+        <div className="container">
+          <div className="row">
+            <div className="col">
               <h3>Your Events</h3>
-              <br/>
+              <br />
               {arrayOfEventsDivs}
             </div>
             <div className="col">
               <h3>Create your Event</h3>
-              <br/>
+              <br />
               <Link to="/createEvent" className="btn btn-primary">
                 HERE!
               </Link>
@@ -73,6 +64,8 @@ class EventList extends Component {
         </div>
       </div>
     );
+
+    return <div>{this.props.uid && piçodocu}</div>;
   }
 }
 

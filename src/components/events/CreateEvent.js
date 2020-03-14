@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -12,10 +11,28 @@ class CreateEvent extends Component {
     };
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const { title, description } = this.state;
+    const headers = { Authorization: this.props.jwt };
+    axios
+      .post(
+        "http://localhost:5000/api/projects",
+        { title, description },
+        { headers }
+      )
+      .then(() => {
+        this.props.getData();
+        this.setState({ title: "", description: "" });
+      })
+      .catch(error => console.log(error));
+  };
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+  
 
   render() {
     return (
@@ -45,7 +62,7 @@ class CreateEvent extends Component {
               />
               <br />
               <Link to={{
-                pathname: '/zomato',
+                pathname:'/zomato',
                 state: {
                   name: this.state.name,
                   date: this.state.date

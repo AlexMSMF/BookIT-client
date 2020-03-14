@@ -13,15 +13,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EventDetails from "./components/events/EventDetails";
 //import ZomatoList from "./components/events/ZomatoList";
-import CreateEvent from "./components/events/CreateEvent"
-import Guests from "./components/events/Guests"
-
+import CreateEvent from "./components/events/CreateEvent";
+import Guests from "./components/events/Guests";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loggedInUser: null, jwt: "" };
+    this.state = {
+      loggedInUser: null,
+      jwt: ""
+    };
   }
 
   componentDidMount() {
@@ -47,12 +49,13 @@ class App extends Component {
       .getIdToken()
       .then(resp => {
         this.setState({ jwt: resp });
-
+        // https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
         window.sessionStorage.setItem("fbaseUser", JSON.stringify(user));
         window.sessionStorage.setItem("fbaseJwt", resp);
       })
       .catch(err => console.log(err));
   }
+
   createNewFbaseUser = (email, password, callbackNavToProj) => {
     // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#createuserwithemailandpassword
     firebase
@@ -60,7 +63,9 @@ class App extends Component {
       .createUserWithEmailAndPassword(email, password)
       .then(resp => {
         // console.log(resp);
-        this.setState({ loggedInUser: resp.user });
+        this.setState({
+          loggedInUser: resp.user
+        });
         this.getJWT(resp.user);
         callbackNavToProj();
       })
@@ -74,7 +79,9 @@ class App extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(resp => {
         console.log(resp);
-        this.setState({ loggedInUser: resp.user });
+        this.setState({
+          loggedInUser: resp.user
+        });
         this.getJWT(resp.user);
         callbackNavToProj();
       })
@@ -87,8 +94,11 @@ class App extends Component {
       .auth()
       .signOut()
       .then(() => {
-        // console.log("User has been logged out");
-        this.setState({ loggedInUser: null, jwt: "" });
+        console.log("User has been logged out");
+        this.setState({
+          loggedInUser: null,
+          jwt: ""
+        });
         window.sessionStorage.removeItem("fbaseUser");
         window.sessionStorage.removeItem("fbaseJwt");
       })
@@ -98,38 +108,49 @@ class App extends Component {
   render() {
     const { loggedInUser, jwt } = this.state;
     const uid = loggedInUser ? loggedInUser.uid : null;
+    //console.log(uid);
     return (
       <div className="App">
         <NavBar
           loggedInUser={this.state.loggedInUser}
           logoutFbase={this.logoutFbaseUser}
-        />
+        />{" "}
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+          <Route exact path="/" component={Home} />{" "}
+          <Route exact path="/about" component={About} />{" "}
           <Route
             exact
             path="/signup"
             render={props => (
               <SignUp createNewFbaseUser={this.createNewFbaseUser} {...props} />
             )}
-          />
+          />{" "}
           <Route
             exact
             path="/login"
             render={props => (
               <Login loginFbaseUser={this.loginFbaseUser} {...props} />
             )}
-          />
-          <Route exact path="/events" component={EventList} />
+          />{" "}
           <Route
             exact
-            path="/createEvent"
-            render={props => <CreateEvent jwt={this.state.jwt} {...props}/>}
+            path="/events"
+            render={props => <EventList uid={uid} jwt={jwt} {...props} />}
           />
-          <Route exact path="/zomato" component={ZomatoApi} />
-          <Route exact path="/guests" component={Guests} />
-        </Switch>
+          <Route
+            exact
+            path="/events"
+            render={props => <EventList uid={uid} jwt={jwt} {...props} />}
+          />
+          <Route exact path="/createEvent" component={CreateEvent} />
+          <Route
+            exact
+            path="/events/:id"
+            render={props => <EventDetails uid={uid} {...props} />}
+          />
+          <Route exact path="/zomato" component={ZomatoApi} />{" "}
+          <Route exact path="/guests"  component={Guests} />{" "}
+        </Switch>{" "}
       </div>
     );
   }
