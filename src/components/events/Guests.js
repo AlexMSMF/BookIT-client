@@ -23,18 +23,24 @@ class Guests extends Component {
     const restaurantAddress = this.props.location.state.restaurantId.location
       .address;
     const guests = this.state.guests;
+    const headers = { Authorization: this.props.jwt };
 
     axios
-      .post("http://localhost:5000/api/events", {
-        name,
-        date,
-        restaurantName,
-        restaurantAddress,
-        guests
-      })
+      .post(
+        "http://localhost:5000/api/events",
+        {
+          name,
+          date,
+          restaurantName,
+          restaurantAddress,
+          guests
+        },
+        { headers }
+      )
       .then(res => {
         //this.props.getData();
         console.log(`=>`, res);
+
         this.setState({
           name: this.props.location.state.name,
           date: this.props.location.state.date,

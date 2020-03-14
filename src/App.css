@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -63,7 +64,7 @@
 
 .btn-events {
   background-color: #07b86b;
-  color: black;
+  color: white;
   padding: 10px 50px;
   border-radius: 5px;
 }
@@ -73,6 +74,82 @@
 }
 
 .footer {
-  background-color: ##07b86b;
-  
+  background-color: #07b86b;
+}
+
+.greenTitle {
+  color: #07b86b;
+  list-style-type: none;
+  font-size: 1.3rem
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+}
+
+.saveDate {
+  width: 300px;
+  height: 300px;
+  background-color: white
+}
+
+.saveDate>p {
+  font-weight: bold;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+.socialMedia {
+  width: 300px;
+  height: 300px;
+  background-color: white
+}
+
+.redTextFooter {
+  color: rgb(236, 69, 41);
+
+}
+
+.socialMediaIcons {
+  display: flex;
+  justify-content: center;
+  margin: 20px
+}
+
+.socialMediaText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.navegacao {
+  height: 300px;
+}
+
+.navegacao>p {
+  color: rgb(124, 124, 124);
+  line-height: 1.5rem;
+}
+
+.loginDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px
+}
+
+.creatingEventForm {
+  width: 20rem;
+}
+
+.cuisinesImage{
+  width: 50px;
+  height: 50px
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import forkKnife from '../../images/forkknife.png'
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -13,13 +14,13 @@ class CreateEvent extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { title, description } = this.state;
-    const headers = { Authorization: this.props.jwt };
+    const { name, date } = this.state;
+ 
     axios
       .post(
         "http://localhost:5000/api/projects",
-        { title, description },
-        { headers }
+        { name, date },
+      
       )
       .then(() => {
         this.props.getData();
@@ -36,12 +37,13 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container ">
         <div className="row">
-          <div className="col-sm">
-          </div>
-          <div className="col-6">
-            <form onSubmit={this.handleFormSubmit}>
+ 
+          <div className="col">
+            <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
+            <img className="mb-4" src={forkKnife} alt="Event" width="72" height="72" />
+            <h1 className="h3 mb-3 font-weight-normal">Create your event</h1>
               <label>Name of the Event: </label>
               <br />
               <input
@@ -67,7 +69,7 @@ class CreateEvent extends Component {
                   name: this.state.name,
                   date: this.state.date
                 }
-              }} className="btn btn-primary">Next</Link>
+              }} className="btn btn-success ">Next</Link>
             </form>
           </div>
           <div className="col-sm">

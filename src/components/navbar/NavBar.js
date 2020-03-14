@@ -8,23 +8,32 @@ class NavBar extends Component {
     if (!loggedInUser) {
       return (
         <>
-          <li>
-            <Link to="/signup">Sign Up</Link>
+          <li className="nav-item">
+            <Link className="nav-link greenTitle" to={`/login`}>
+              <ul>
+                <li className=" greenTitle">LogIn</li>
+              </ul>
+            </Link>
           </li>
-          <li>
-            <Link to="/login">Log In</Link>
+          <li className="nav-item">
+            <Link className="nav-link greenTitle" to={`/signup`}>
+              <ul>
+                <li className=" greenTitle">Sign Up</li>
+              </ul>
+            </Link>
           </li>
         </>
       );
     } else {
       return (
         <React.Fragment>
-          <li>Welcome, {loggedInUser.email}</li>
-          <li>
-            <Link to="/" onClick={logoutFbase}>
-              Log Out
-            </Link>
+          <li className="greenTitle nav-link ">
+            <span className=" greenTitle">Welcome, {loggedInUser.email}</span>
           </li>
+
+          <Link className="nav-link" to="/" onClick={logoutFbase}>
+            <li className=" greenTitle">Log Out</li>
+          </Link>
         </React.Fragment>
       );
     }
@@ -32,9 +41,9 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
-          BookIT
-        </a>
+        <Link className="navbar-brand" to={`/`}>
+          <li className="greenTitle">BookIT</li>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -48,51 +57,13 @@ class NavBar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown link
-              </a>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </div>
-            </li>
+            <Link className="nav-link greenTitle" to={`/events`}>
+              <li className=" greenTitle">Events</li>
+            </Link>
+
+            {this.renderAuthLinks()}
           </ul>
         </div>
-        <ul>{this.renderAuthLinks()}</ul>
       </nav>
     );
   }

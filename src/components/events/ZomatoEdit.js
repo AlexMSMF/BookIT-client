@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class ZomatoApi extends Component {
   constructor(props) {
@@ -29,23 +29,25 @@ class ZomatoApi extends Component {
   // Função que ao submeter irá mudar através do state o site abaixo da zomato.
   handleFormSubmit = event => {
     //alert(`${this.state.city} ${this.state.cuisine}`);
-    const {
-      restaurantName,
-      restaurantAddress,
-    } = this.state;
+    // const {
+    //   restaurantName,
+    //   restaurantAddress,
+    // } = this.state;
+    
     event.preventDefault();
-    axios
-      .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
-        restaurantName,
-        restaurantAddress,
-      })
-      .then(() => {
-        this.props.getTheEvent();
-        // after submitting the form, redirect to '/events'
-        this.props.history.push("/events");
-      })
-      .catch(error => console.log(error));
     this.apiCallZomato();
+    // axios
+    //   .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
+    //     restaurantName,
+    //     restaurantAddress,
+    //   })
+    //   .then(() => {
+    //     this.props.getTheEvent();
+    //     // after submitting the form, redirect to '/events'
+    //     this.props.history.push("/events");
+    //   })
+    //   .catch(error => console.log(error));
+    
   };
 
   //API da zomato que nos mostra os restaurantes após escolhermos a cidade e cozinha no form.

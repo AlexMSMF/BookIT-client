@@ -137,20 +137,19 @@ class App extends Component {
             path="/events"
             render={props => <EventList uid={uid} jwt={jwt} {...props} />}
           />
-          <Route
-            exact
-            path="/events"
-            render={props => <EventList uid={uid} jwt={jwt} {...props} />}
-          />
           <Route exact path="/createEvent" component={CreateEvent} />
           <Route
             exact
             path="/events/:id"
             render={props => <EventDetails uid={uid} {...props} />}
           />
-          <Route exact path="/zomato" component={ZomatoApi} />{" "}
-          <Route exact path="/guests"  component={Guests} />{" "}
-        </Switch>{" "}
+          <Route exact path="/zomato" component={ZomatoApi} />
+          <Route
+            exact
+            path="/guests"
+            render={props => <Guests uid={uid} jwt={jwt} {...props} />}
+          />
+        </Switch>
       </div>
     );
   }

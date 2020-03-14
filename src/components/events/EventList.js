@@ -15,7 +15,7 @@ class EventList extends Component {
 
   getAllEvents = () => {
     axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
-      //console.log(responseFromApi.data);
+      console.log(responseFromApi.data);
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -23,7 +23,7 @@ class EventList extends Component {
   };
 
   componentDidMount() {
-    //console.log(this.props.history);
+ 
     this.getAllEvents();
   }
 
@@ -33,7 +33,7 @@ class EventList extends Component {
         <div
           key={event._id}
           jwt={this.props.jwt}
-          getData={() => this.getAllEvents()}
+          getdata={() => this.getAllEvents()}
         >
           <Link to={`/events/${event._id}`}>
             <ul>
@@ -44,7 +44,7 @@ class EventList extends Component {
       );
       return <div> {this.props.uid && addEventComponent}</div>;
     });
-    const piçodocu = (
+    const eventsAppearing = (
       <div>
         <div className="container">
           <div className="row">
@@ -56,7 +56,7 @@ class EventList extends Component {
             <div className="col">
               <h3>Create your Event</h3>
               <br/>
-              <Link to="/createEvent" className="btn btn-primary">
+              <Link to="/createEvent" className="btn btn-success">
                 HERE!
               </Link>
             </div>
@@ -66,7 +66,7 @@ class EventList extends Component {
       </div>
     );
 
-    return <div>{this.props.uid && piçodocu}</div>;
+    return <div>{this.props.uid && eventsAppearing}</div>;
   }
 }
 

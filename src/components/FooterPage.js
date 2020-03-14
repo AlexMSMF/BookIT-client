@@ -1,44 +1,55 @@
-// import React from "react";
-// import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 
-// const FooterPage = () => {
-//   return (
-//     <MDBFooter color="blue" className="font-small pt-4 mt-4">
-//       <MDBContainer fluid className="text-center text-md-left">
-//         <MDBRow>
-//           <MDBCol md="6">
-//             <h5 className="title">Footer Content</h5>
-//             <p>
-//               Here you can use rows and columns here to organize your footer
-//               content.
-//             </p>
-//           </MDBCol>
-//           <MDBCol md="6">
-//             <h5 className="title">Links</h5>
-//             <ul>
-//               <li className="list-unstyled">
-//                 <a href="#!">Link 1</a>
-//               </li>
-//               <li className="list-unstyled">
-//                 <a href="#!">Link 2</a>
-//               </li>
-//               <li className="list-unstyled">
-//                 <a href="#!">Link 3</a>
-//               </li>
-//               <li className="list-unstyled">
-//                 <a href="#!">Link 4</a>
-//               </li>
-//             </ul>
-//           </MDBCol>
-//         </MDBRow>
-//       </MDBContainer>
-//       <div className="footer-copyright text-center py-3">
-//         <MDBContainer fluid>
-//           &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
-//         </MDBContainer>
-//       </div>
-//     </MDBFooter>
-//   );
-// }
+class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <footer className="footerContainer">
+        <section className="saveDate">
+          <h4 className="redTextFooter">Creators</h4>
+          <br />
 
-// export default FooterPage;
+          <h3>Ironhack Lisboa 2020</h3>
+          <br />
+
+          <p>Tiago Pereira & Alexandre Florindo</p>
+
+          <p>Heden Santa Apolónia</p>
+          <p>Portugal</p>
+        </section>
+        <section className="socialMedia">
+          <h4 className="redTextFooter">SOCIAL MEDIA</h4>
+
+          <div className="socialMediaIcons">
+            <img
+              src="../public/images/icons8-facebook-f-250.png"
+              alt="Github"
+            />
+           
+          </div>
+          <div className="socialMediaText">
+            <div className="navegacao">
+              <h3>About Us</h3>
+              <br />
+              <p>Contacts</p>
+              <p></p>
+            </div>
+            <div className="navegacao">
+              <h3>Recursos</h3>
+              <br />
+              <p>Zomato.com</p>
+              <p>Google Firebase</p>
+              <p>FAQs</p>
+            </div>
+          </div>
+        </section>
+      </footer>
+    );
+  }
+}
+
+export default Footer;
