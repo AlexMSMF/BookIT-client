@@ -14,8 +14,11 @@ class EventList extends Component {
   }
 
   getAllEvents = () => {
-    axios.get(`http://localhost:5000/api/events`).then(responseFromApi => {
+    const headers = { Authorization: this.props.jwt };
+    axios.get(`http://localhost:5000/api/events`,{ headers }).then(responseFromApi => {
       console.log(responseFromApi.data);
+      console.log(headers)
+
       this.setState({
         listOfEvents: responseFromApi.data
       });
@@ -28,7 +31,7 @@ class EventList extends Component {
 
   render() {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
-      console.log(this.props.uid);
+      
       const addEventComponent = (
         <div key={event._id} jwt={this.props.jwt}>
           <Link to={`/events/${event._id}`}>
@@ -47,7 +50,7 @@ class EventList extends Component {
             <div className="col">
               <h3>Your Events</h3>
               <br />
-              {this.props.uid && arrayOfEventsDivs}
+              {arrayOfEventsDivs}
             </div>
             <div className="col">
               <h3>Create your Event</h3>
