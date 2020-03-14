@@ -85,16 +85,19 @@ class ZomatoApi extends Component {
         <div className="container">
           <div className="row">
             <div className="col-sm">
-              <h5>Nome do Evento:</h5>
-              {name}
-              <br />
-              <h5>Data do Evento</h5>
-              {date}
+            
+                <h5>Nome do Evento:</h5>
+                {name}
+                <br />
+                <h5>Data do Evento</h5>
+                {date}
+             
             </div>
-
-            <div className="col-lg">
-              <form onSubmit={this.handleFormSubmit}>
-                <label>City of the Event: </label>
+            <div className="col-sm">
+            <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
+            <img className="mb-4" src={this.state.cuisineImg} alt="Event" width="72" height="72" />
+            <h1 className="h3 mb-3 font-weight-normal">Choose a Restaurant and Cuisine</h1>
+            <label className="sr-only">City of the Event: </label>
                 <br />
                 <select
                   className="form-control"
@@ -123,6 +126,7 @@ class ZomatoApi extends Component {
                 >
                   <option>Select a Cuisine</option>
                   <option value="portuguese">Portuguese</option>
+                  <option value="brasilian">Brasilian</option>
                   <option value="italian">Italian</option>
                   <option value="mexican">Mexican</option>
                   <option value="american">American</option>

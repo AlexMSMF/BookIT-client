@@ -20,7 +20,8 @@ class Guests extends Component {
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
     const restaurantName = this.props.location.state.restaurantId.name;
-    const restaurantAddress = this.props.location.state.restaurantId.location.address;
+    const restaurantAddress = this.props.location.state.restaurantId.location
+      .address;
     const guests = this.state.guests;
     const headers = { Authorization: this.props.jwt };
 
@@ -80,18 +81,12 @@ class Guests extends Component {
               {restaurantId.name}
             </div>
             <div className="col-sm">
-              <SendEmail />
+              <SendEmail name={name} date={date} restaurantId={restaurantId} />
             </div>
             <div className="col-sm">
               <form onSubmit={this.handleFormSubmit}>
-                <label>Submit the info </label>
+                <label>TO Submit the info </label>
                 <br />
-                {/* <input
-                  type="text"
-                  name="guests"
-                  value={this.state.guests}
-                  onChange={e => this.handleChange(e)}
-                /> */}
                 <input
                   type="submit"
                   value="Submit"
