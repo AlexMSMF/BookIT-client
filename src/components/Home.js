@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+//import axios from "axios";
+>>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
 import { Link } from "react-router-dom";
 import FooterPage from "./FooterPage"
 

@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
+import SendEmail from "../email/SendEmail";
 
 class Guests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.location.state.name,
-      date: this.props.location.state.date,
-      restaurantName: this.props.location.state.restaurantId.name,
-      restaurantAddress: this.props.location.state.restaurantId.location
-        .address,
+      name: "",
+      date: "",
+      restaurantName: "",
+      restaurantAddress: "",
       guests: ""
     };
   }
@@ -20,8 +20,7 @@ class Guests extends Component {
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
     const restaurantName = this.props.location.state.restaurantId.name;
-    const restaurantAddress = this.props.location.state.restaurantId.location
-      .address;
+    const restaurantAddress = this.props.location.state.restaurantId.location.address;
     const guests = this.state.guests;
     const headers = { Authorization: this.props.jwt };
 
@@ -80,17 +79,19 @@ class Guests extends Component {
               <h5>Nome do Restaurante:</h5>
               {restaurantId.name}
             </div>
-            <div className="col-sm">ONDE VÃO APARECER OS FORMS</div>
+            <div className="col-sm">
+              <SendEmail />
+            </div>
             <div className="col-sm">
               <form onSubmit={this.handleFormSubmit}>
-                <label>Number of the Guests: </label>
+                <label>Submit the info </label>
                 <br />
-                <input
+                {/* <input
                   type="text"
                   name="guests"
                   value={this.state.guests}
                   onChange={e => this.handleChange(e)}
-                />
+                /> */}
                 <input
                   type="submit"
                   value="Submit"

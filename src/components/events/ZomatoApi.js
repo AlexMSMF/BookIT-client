@@ -79,6 +79,7 @@ handleImageCuisine = (value) => {
       });
   }
 
+<<<<<<< HEAD
   // função para editar os restaurantes em EDIT EVENT
   // componentDidMount() {
   //   const restId = this.props.location.state.restId
@@ -121,6 +122,8 @@ handleImageCuisine = (value) => {
   //   )
   // }
 
+=======
+>>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
@@ -140,11 +143,42 @@ handleImageCuisine = (value) => {
                 {date}
              
             </div>
+<<<<<<< HEAD
             <div className="col-sm">
             <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
             <img className="mb-4" src={this.state.cuisineImg} alt="Event" width="72" height="72" />
             <h1 className="h3 mb-3 font-weight-normal">Choose a Restaurant and Cuisine</h1>
             <label className="sr-only">City of the Event: </label>
+=======
+            <div className="col-lg">
+              <div className="row">
+                {this.state.restaurants.map((item, index) => {
+                  //console.log(item)
+                  return (
+                    <div key={index} className="card" style={{ width: "18rem" }}>
+                      <div className="card-body">
+                        <h1 className="card-title"> {item.restaurant.name} </h1>
+                        <p className="card-text"> {item.restaurant.location.address} </p>
+                        <p className="card-text"> {item.restaurant.user_rating.aggregate_rating} </p>
+                        <p className="card-text"> {item.restaurant.user_rating.rating_text} </p>
+                        <Link to={{
+                          pathname: '/guests',
+                          state: {
+                            name,
+                            date,
+                            restaurantId: item.restaurant
+                          }
+                        }} className="btn btn-primary">Next</Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-lg">
+              <form onSubmit={this.handleFormSubmit} >
+                <label>City of the Event: </label>
+>>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
                 <br />
                 <select
                   className="form-control"

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 // import { Link } from "react-router-dom";
+=======
+//import { Link } from "react-router-dom";
+>>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
 
 class ZomatoApi extends Component {
   constructor(props) {
@@ -8,7 +12,8 @@ class ZomatoApi extends Component {
     this.state = {
       restaurants: [],
       restaurantName: "",
-      restaurantAddress: ""
+      restaurantAddress: "",
+      showForm: false
     };
   }
 
@@ -26,8 +31,13 @@ class ZomatoApi extends Component {
     });
   };
 
+  handleSearch = event => {
+    event.preventDefault();
+    this.apiCallZomato();
+  }
+
   // Função que ao submeter irá mudar através do state o site abaixo da zomato.
-  handleFormSubmit = event => {
+  handleSubmit = event => {
     //alert(`${this.state.city} ${this.state.cuisine}`);
     // const {
     //   restaurantName,
@@ -35,6 +45,7 @@ class ZomatoApi extends Component {
     // } = this.state;
     
     event.preventDefault();
+<<<<<<< HEAD
     this.apiCallZomato();
     // axios
     //   .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
@@ -48,6 +59,19 @@ class ZomatoApi extends Component {
     //   })
     //   .catch(error => console.log(error));
     
+=======
+    axios
+      .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
+        restaurantName,
+        restaurantAddress,
+      })
+      .then(() => {
+        this.props.getTheEvent();
+        // after submitting the form, redirect to '/events'
+        this.props.history.push("/events");
+      })
+      .catch(error => console.log(error));
+>>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
   };
 
   //API da zomato que nos mostra os restaurantes após escolhermos a cidade e cozinha no form.
@@ -74,78 +98,88 @@ class ZomatoApi extends Component {
       });
   }
 
-  // função para editar os restaurantes em EDIT EVENT
-  // handleEditRestaurant() {
+  showForm() {
+    this.setState({
+      showForm: true
+    })
+  }
 
-  // }
+  showFormHandler() {
+    if (this.state.showForm) {
+      return (
+        <div>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg">
+                <div className="row">
+                  {this.state.restaurants.map((item, index) => {
+                    console.log(item)
+                    return (
+                      <div key={index} className="card" style={{ width: "18rem" }}>
+                        <div className="card-body">
+                          <h1 className="card-title"> {item.restaurant.name} </h1>
+                          <p className="card-text"> {item.restaurant.location.address} </p>
+                          <p className="card-text"> {item.restaurant.user_rating.aggregate_rating} </p>
+                          <p className="card-text"> {item.restaurant.user_rating.rating_text} </p>
+                          <input type="submit" value="Submit" onSubmit={this.handleSubmit} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="col-lg">
+                <form onSubmit={this.handleSearch} >
+                  <label>City of the Event: </label>
+                  <br />
+                  <select
+                    className="form-control"
+                    type="text"
+                    value={this.state.city}
+                    onChange={e => this.handleCityInput(e)}
+                    name="city"
+                  >
+                    <option>Select a City</option>
+                    <option value="82">Lisboa</option>
+                    <option value="311">Porto</option>
+                    <option value="61">London</option>
+                    <option value="280">New York</option>
+                    <option value="306">San Francisco</option>
+                  </select>
+                  <br />
+                  <br />
+                  <label>Type of Cuisine: </label>
+                  <br />
+                  <select
+                    className="form-control"
+                    type="text"
+                    value={this.state.cuisine}
+                    onChange={e => this.handleCuisineInput(e)}
+                    name="cuisine"
+                  >
+                    <option>Select a Cuisine</option>
+                    <option value="portuguese">Portuguese</option>
+                    <option value="italian">Italian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="american">American</option>
+                    <option value="chinese">Chinese</option>
+                  </select>
+                  <br />
+                  <input className="btn btn-primary" type="submit" value="Search" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  }
 
   render() {
     return (
       <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg">
-              <div className="row">
-                {this.state.restaurants.map((item, index) => {
-                  console.log(item)
-                  return (
-                    <div key={index} className="card" style={{ width: "18rem" }}>
-                      <div className="card-body">
-                        <h1 className="card-title"> {item.restaurant.name} </h1>
-                        <p className="card-text"> {item.restaurant.location.address} </p>
-                        <p className="card-text"> {item.restaurant.user_rating.aggregate_rating} </p>
-                        <p className="card-text"> {item.restaurant.user_rating.rating_text} </p>
-                        <input type="submit" value="Submit" />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="col-lg">
-              <form onSubmit={this.handleFormSubmit} >
-                <label>City of the Event: </label>
-                <br />
-                <select
-                  className="form-control"
-                  type="text"
-                  value={this.state.city}
-                  onChange={e => this.handleCityInput(e)}
-                  name="city"
-                >
-                  <option>Select a City</option>
-                  <option value="82">Lisboa</option>
-                  <option value="311">Porto</option>
-                  <option value="61">London</option>
-                  <option value="280">New York</option>
-                  <option value="306">San Francisco</option>
-                </select>
-                <br />
-                <br />
-                <label>Type of Cuisine: </label>
-                <br />
-                <select
-                  className="form-control"
-                  type="text"
-                  value={this.state.cuisine}
-                  onChange={e => this.handleCuisineInput(e)}
-                  name="cuisine"
-                >
-                  <option>Select a Cuisine</option>
-                  <option value="portuguese">Portuguese</option>
-                  <option value="italian">Italian</option>
-                  <option value="mexican">Mexican</option>
-                  <option value="american">American</option>
-                  <option value="chinese">Chinese</option>
-                </select>
-                <br />
-                <input className="btn btn-primary" type="submit" value="Search" />
-              </form>
-            </div>
-          </div>
-        </div>
-
-
+        {this.showFormHandler()}
+        <button onClick={() => this.showForm()}>Edit Restaurant</button>
       </div>
     );
   }

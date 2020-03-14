@@ -108,7 +108,7 @@ class App extends Component {
   render() {
     const { loggedInUser, jwt } = this.state;
     const uid = loggedInUser ? loggedInUser.uid : null;
-    console.log(uid);
+    //console.log(uid);
     return (
       <div className="App">
         <NavBar
