@@ -79,51 +79,7 @@ handleImageCuisine = (value) => {
       });
   }
 
-<<<<<<< HEAD
-  // função para editar os restaurantes em EDIT EVENT
-  // componentDidMount() {
-  //   const restId = this.props.location.state.restId
-  //   const {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   } = this.state;
 
-  //   if (restId)
-  //   axios
-  //   .put(`http://localhost:5000/api/events/${restId}`, {
-  //     restaurantName,
-  //     restaurantAddress,
-  //   })
-  //   .then(() => {
-  //     this.props.getTheEvent();
-  //     // after submitting the form, redirect to '/events'
-  //     this.props.history.push("/events");
-  //   })
-  //   .catch(error => console.log(error));
-  // }
-
-  // handleEditRestaurants() {
-  //   const date = this.props.location.state.date
-  //   const name = this.props.location.state.name
-  //   const restId = this.props.location.state.restId
-
-  //   if (restId)
-  //     return <input type="submit" value="submit"/>
-  //   else
-  //   return (
-  //     <Link to={{
-  //       pathname: '/guests',
-  //       state: {
-  //         name,
-  //         date,
-  //         city: this.state.city,
-  //       }
-  //     }} className="btn btn-primary">Next</Link>
-  //   )
-  // }
-
-=======
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
@@ -143,42 +99,11 @@ handleImageCuisine = (value) => {
                 {date}
              
             </div>
-<<<<<<< HEAD
             <div className="col-sm">
             <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
             <img className="mb-4" src={this.state.cuisineImg} alt="Event" width="72" height="72" />
             <h1 className="h3 mb-3 font-weight-normal">Choose a Restaurant and Cuisine</h1>
             <label className="sr-only">City of the Event: </label>
-=======
-            <div className="col-lg">
-              <div className="row">
-                {this.state.restaurants.map((item, index) => {
-                  //console.log(item)
-                  return (
-                    <div key={index} className="card" style={{ width: "18rem" }}>
-                      <div className="card-body">
-                        <h1 className="card-title"> {item.restaurant.name} </h1>
-                        <p className="card-text"> {item.restaurant.location.address} </p>
-                        <p className="card-text"> {item.restaurant.user_rating.aggregate_rating} </p>
-                        <p className="card-text"> {item.restaurant.user_rating.rating_text} </p>
-                        <Link to={{
-                          pathname: '/guests',
-                          state: {
-                            name,
-                            date,
-                            restaurantId: item.restaurant
-                          }
-                        }} className="btn btn-primary">Next</Link>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="col-lg">
-              <form onSubmit={this.handleFormSubmit} >
-                <label>City of the Event: </label>
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
                 <br />
                 <select
                   className="form-control"
@@ -208,6 +133,7 @@ handleImageCuisine = (value) => {
                 >
                   <option>Select a Cuisine</option>
                   <option value="portuguese">Portuguese</option>
+                  <option value="brasilian">Brasilian</option>
                   <option value="italian">Italian</option>
                   <option value="mexican">Mexican</option>
                   <option value="american">American</option>

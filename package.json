@@ -9,12 +9,8 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-<<<<<<< HEAD
-    "firebase": "^7.11.0",
-=======
     "emailjs-com": "^2.4.1",
     "firebase": "^7.9.3",
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
     "google-maps-react": "^2.0.2",
     "jquery": "^3.4.1",
     "mdreact": "^0.1.5",

@@ -35,22 +35,27 @@ class SendEmail extends Component {
   };
 
   render() {
+    
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Name:</label>
-        <br />
-        <input type="text" name="name" onChange={this.handleChange} />
-        <br />
-        <label>Email:</label>
-        <br />
-        <input type="email" name="email" onChange={this.handleChange} />
-        <br />
-        <label>Message:</label>
-        <br />
-        <input type="textarea" name="message" onChange={this.handleChange} />
-        <br />
-        <button>Send</button>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Name:</label>
+          <br />
+          <input type="text" name="name" className="form-control" id="exampleInputEmail1" placeholder="Inser your name" onChange={this.handleChange} />
+          <br />
+          <label>Email:</label>
+          <br />
+          <input type="email" name="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" onChange={this.handleChange} />
+          <br />
+          <label>Message:</label>
+          <br />
+          <textarea name="message" className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handleChange}></textarea>
+          <br />
+          <button className="btn btn-primary">Send</button>
+        </form>
+      </div>
+
     );
   }
 }

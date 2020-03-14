@@ -55,13 +55,8 @@ class EventList extends Component {
             </div>
             <div className="col">
               <h3>Create your Event</h3>
-<<<<<<< HEAD
-              <br/>
-              <Link to="/createEvent" className="btn btn-success">
-=======
               <br />
               <Link to="/createEvent" className="btn btn-primary">
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
                 HERE!
               </Link>
             </div>
