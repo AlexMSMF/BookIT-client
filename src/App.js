@@ -44,7 +44,7 @@ class App extends Component {
     }
   }
 
-  getJWT(user) {
+  getJWT(user, callbackNavToProj) {
     user
       .getIdToken()
       .then(resp => {
@@ -52,6 +52,7 @@ class App extends Component {
         // https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
         window.sessionStorage.setItem("fbaseUser", JSON.stringify(user));
         window.sessionStorage.setItem("fbaseJwt", resp);
+        callbackNavToProj();
       })
       .catch(err => console.log(err));
   }
@@ -82,8 +83,8 @@ class App extends Component {
         this.setState({
           loggedInUser: resp.user
         });
-        this.getJWT(resp.user);
-        callbackNavToProj();
+        this.getJWT(resp.user, callbackNavToProj);
+       
       })
       .catch(err => alert(err));
   };
