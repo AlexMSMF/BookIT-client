@@ -71,10 +71,6 @@ class EventDetails extends Component {
         <br/>
         <button onClick={() => this.deleteEvent()} className="btn-danger">Delete event</button>
         <br />
-<<<<<<< HEAD
-       
-=======
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
         <br />
         <Link to={"/events"}> Back to Events </Link>
       </div>

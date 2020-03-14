@@ -23,18 +23,14 @@ class EventList extends Component {
   };
 
   componentDidMount() {
- 
     this.getAllEvents();
   }
 
   render() {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
+      console.log(this.props.uid);
       const addEventComponent = (
-        <div
-          key={event._id}
-          jwt={this.props.jwt}
-          getdata={() => this.getAllEvents()}
-        >
+        <div key={event._id} jwt={this.props.jwt}>
           <Link to={`/events/${event._id}`}>
             <ul>
               <li>{event.name}</li>
@@ -51,17 +47,12 @@ class EventList extends Component {
             <div className="col">
               <h3>Your Events</h3>
               <br />
-              {arrayOfEventsDivs}
+              {this.props.uid && arrayOfEventsDivs}
             </div>
             <div className="col">
               <h3>Create your Event</h3>
-<<<<<<< HEAD
-              <br/>
-              <Link to="/createEvent" className="btn btn-success">
-=======
               <br />
               <Link to="/createEvent" className="btn btn-primary">
->>>>>>> 5430ffec9a592fc9a97d87580ec1e410e8f3cf7e
                 HERE!
               </Link>
             </div>
