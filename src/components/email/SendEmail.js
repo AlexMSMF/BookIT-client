@@ -22,8 +22,7 @@ class SendEmail extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name, date, restaurantId} = this.props
-    //console.log('restaurant', restaurantId)
+    const { name, date, restaurantId } = this.props
     const { eName, email, message } = this.state;
     axios
       .post(
@@ -37,7 +36,7 @@ class SendEmail extends Component {
   };
 
   render() {
-    
+
 
     return (
       <div>

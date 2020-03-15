@@ -42,7 +42,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to={`/`}>
-          <li className="greenTitle">BookIT</li>
+          <li className="greenTitle"><img src="/images/logo.png" alt="logo" width="65px"/></li>
         </Link>
         <button
           className="navbar-toggler"

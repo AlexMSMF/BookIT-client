@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import forkKnife from "../../images/indian-cuisine.jpg";
+// import forkKnife from '../../images/indian-cuisine.jpg'
 
 class ZomatoApi extends Component {
   constructor(props) {
@@ -171,7 +171,6 @@ class ZomatoApi extends Component {
                   <option value="american">American</option>
                   <option value="chinese">Chinese</option>
                   <option value="indian">Indian</option>
-
                   <option value="japanese">Japanese</option>
                 </select>
                 <br />
