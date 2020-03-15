@@ -40,7 +40,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar navbar-color navbar-dark">
         <Link className="navbar-brand" to={`/`}>
           <li className="greenTitle"><img src="/images/logo.png" alt="logo" width="65px"/></li>
         </Link>

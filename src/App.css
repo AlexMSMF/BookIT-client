@@ -38,6 +38,11 @@
   }
 }
 
+/* NAVBAR  */
+.navbar-color {
+  background-color: #18181a;
+}
+
 .btn-primary {
   margin-top: 5px;
 }
@@ -178,7 +183,7 @@
   display: block;
   margin: 0 auto;
   width: 1100px;
-  height: 100px;
+  height: 90px;
 }
 
 .tiago-inner-footer .tiago-logo-container {
@@ -204,7 +209,7 @@
   margin-right: 0;
 }
 
-.tiago-inner-footer .tiago-footer-third h3{
+.tiago-inner-footer .tiago-footer-third h4{
   font-family: 'arial';
   font-size: 22px;
   color: white;
@@ -228,4 +233,33 @@
   font-style: italic;
   font-size: 12px;
   padding-top: 10px;
+}
+
+.tiago-design {
+  border-radius: 10px;
+  padding: 150px;
+}
+
+.container-tiago {
+  padding-top: 20px;
+}
+
+.li-font {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
+  list-style-type: none;
+}
+
+.h3-create-event {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+}
+
+.create-background {
+  background-color: #ebf2f2;
+  background-image: url('./images/create-page-background.jpg');
+  background-size: 100% 845px;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 845px;
 }
