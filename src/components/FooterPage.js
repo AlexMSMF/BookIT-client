@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 class Footer extends Component {
@@ -49,23 +50,23 @@ class Footer extends Component {
           </div>
           <div className="tiago-footer-third">
             <h3>Need Help?</h3>
-            <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Private Policy</a>
+            <Link to="/">Terms &amp; Conditions</Link>
+            <Link to="/">Private Policy</Link>
           </div>
 
           <div className="tiago-footer-third">
             <h3>Creators</h3>
-            <a href="#">Tiago Pereira (Web Developer)</a>
-            <a href="#">Alexandre Florindo (Web Developer)</a>
-            <a href="#">Alexandra Sergiel (UX/UI)</a>
+            <Link to="/">Tiago Pereira (Web Developer)</Link>
+            <Link to="/">Alexandre Florindo (Web Developer)</Link>
+            <Link to="/">Alexandra Sergiel (UX/UI)</Link>
           </div>
 
           <div className="tiago-footer-third">
             <h3>Resources</h3>
-            <a href="#">BootStrap</a>
-            <a href="#">React JS</a>
-            <a href="#">Firebase</a>
-            <a href="#">Github</a>
+            <Link to="/">BootStrap</Link>
+            <Link to="/">React JS</Link>
+            <Link to="/">Firebase</Link>
+            <Link to="/">Github</Link>
           </div>
         </div>
       </footer>

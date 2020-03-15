@@ -34,7 +34,7 @@ class EventList extends Component {
       
       const addEventComponent = (
         <div key={event._id} jwt={this.props.jwt}>
-          <Link to={`/events/${event._id}`}>
+          <Link  key={event._id} to={`/events/${event._id}`}>
             <ul>
               <li>{event.name}</li>
             </ul>
