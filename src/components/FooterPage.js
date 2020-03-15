@@ -49,24 +49,24 @@ class Footer extends Component {
             <address className="address">IronHack, <br/> Heden Santa Apolónia, Lisbon, Portugal</address>
           </div>
           <div className="tiago-footer-third">
-            <h3>Need Help?</h3>
-            <Link to="/">Terms &amp; Conditions</Link>
-            <Link to="/">Private Policy</Link>
+            <h4>Need Help?</h4>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Private Policy</a>
           </div>
 
           <div className="tiago-footer-third">
-            <h3>Creators</h3>
-            <Link to="/">Tiago Pereira (Web Developer)</Link>
-            <Link to="/">Alexandre Florindo (Web Developer)</Link>
-            <Link to="/">Alexandra Sergiel (UX/UI)</Link>
+            <h4>Creators</h4>
+            <a href="#">Tiago Pereira (Web Developer)</a>
+            <a href="#">Alexandre Florindo (Web Developer)</a>
+            <a href="#">Alexandra Sergiel (UX/UI)</a>
           </div>
 
           <div className="tiago-footer-third">
-            <h3>Resources</h3>
-            <Link to="/">BootStrap</Link>
-            <Link to="/">React JS</Link>
-            <Link to="/">Firebase</Link>
-            <Link to="/">Github</Link>
+            <h4>Resources</h4>
+            <a href="#">BootStrap</a>
+            <a href="#">React JS</a>
+            <a href="#">Firebase</a>
+            <a href="#">Github</a>
           </div>
         </div>
       </footer>

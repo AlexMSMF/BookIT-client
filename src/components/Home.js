@@ -36,7 +36,7 @@ class Home extends Component {
         >
           <div>
             <h1 className="h1-home-text">
-              Book Event <br /> & <br /> Have a Good Time
+              Book an Event <br /> & <br /> Have a Good Time
             </h1>
             <br />
             <p className="home-text">
