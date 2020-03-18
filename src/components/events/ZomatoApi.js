@@ -112,27 +112,27 @@ class ZomatoApi extends Component {
 
     return (
       <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-sm">
+        <div class="container">
+          <div class="row">
+            <div class="col">
               <h5>Nome do Evento:</h5>
               {name}
               <br />
               <h5>Data do Evento</h5>
               {date}
             </div>
-            <div className="col-sm">
+            <div class="col">
               <form
                 className="creatingEventForm form-signin"
                 onSubmit={this.handleFormSubmit}
               >
-                <img
+                {/* <img
                   className="mb-4"
                   src={this.state.cuisineImg}
                   alt="Event"
                   width="200"
                   height="200"
-                />
+                /> */}
                 <h1 className="h3 mb-3 font-weight-normal">
                   Choose a Restaurant and Cuisine
                 </h1>
@@ -180,19 +180,22 @@ class ZomatoApi extends Component {
                   value="Search"
                 />
               </form>
+              <br />
             </div>
-            <div className="col-sm">
+          </div>
+          <div class="row">
+            <div class="row justify-content-center ">
               {this.state.restaurants.map((item, index) => {
                 console.log(item);
                 return (
-                  <div key={index} className="card" style={{ width: "18rem" }}>
-                    <img
+                  <div key={index} className="card zomatoResponse">
+                    {/* <img
                       className="cuisinesImage"
                       src={this.state.cuisineImg}
                       alt="Hello"
-                    />
+                    /> */}
                     <div className="card-body">
-                      <h1 className="card-title"> {item.restaurant.name} </h1>
+                      <h1 className="card-title titleRest"> {item.restaurant.name} </h1>
                       <p className="card-text">
                         {item.restaurant.location.address}
                       </p>
@@ -213,13 +216,15 @@ class ZomatoApi extends Component {
                         }}
                         className="btn btn-success"
                       >
-                        Next
+                        Choose
                       </Link>
                     </div>
                   </div>
                 );
               })}
             </div>
+            {/* <div class="col">2 of 3</div>
+            <div class="col">3 of 3</div> */}
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ class EventList extends Component {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
       const addEventComponent = (
         <div key={event._id} jwt={this.props.jwt}>
-          <Link to={`/events/${event._id}`}>
+          <Link  key={event._id} to={`/events/${event._id}`}>
             <ul>
               <li className="li-font">{event.name}</li>
               <hr/>
