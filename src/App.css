@@ -52,7 +52,7 @@
 }
 
 .backgroundImage {
-  background-image: url('./images/home-page4-picture.jpg');
+  background-image: url("./images/home-page4-picture.jpg");
   background-size: cover;
   background-position: right;
   border: 2px solid #18181a;
@@ -79,7 +79,6 @@
   padding: 10px 50px;
   border-radius: 5px;
   border: 2px solid black;
-  ;
 }
 
 .h1-home-text {
@@ -93,7 +92,7 @@
 .greenTitle {
   color: #07b86b;
   list-style-type: none;
-  font-size: 1.3rem
+  font-size: 1.3rem;
 }
 
 .footerContainer {
@@ -107,10 +106,10 @@
 .saveDate {
   width: 300px;
   height: 300px;
-  background-color: white
+  background-color: white;
 }
 
-.saveDate>p {
+.saveDate > p {
   font-weight: bold;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -119,18 +118,17 @@
 .socialMedia {
   width: 300px;
   height: 300px;
-  background-color: white
+  background-color: white;
 }
 
 .redTextFooter {
   color: rgb(236, 69, 41);
-
 }
 
 .socialMediaIcons {
   display: flex;
   justify-content: center;
-  margin: 20px
+  margin: 20px;
 }
 
 .socialMediaText {
@@ -139,13 +137,11 @@
   align-items: center;
 }
 
-
-
 .navegacao {
   height: 300px;
 }
 
-.navegacao>p {
+.navegacao > p {
   color: rgb(124, 124, 124);
   line-height: 1.5rem;
 }
@@ -154,7 +150,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px
+  height: 400px;
 }
 
 .creatingEventForm {
@@ -163,9 +159,8 @@
 
 .cuisinesImage {
   width: 50px;
-  height: 50px
+  height: 50px;
 }
-
 
 /* Tiago footer */
 
@@ -210,8 +205,8 @@
   margin-right: 0;
 }
 
-.tiago-inner-footer .tiago-footer-third h4{
-  font-family: 'arial';
+.tiago-inner-footer .tiago-footer-third h4 {
+  font-family: "arial";
   font-size: 22px;
   color: white;
   display: block;
@@ -220,7 +215,7 @@
 }
 
 .tiago-inner-footer .tiago-footer-third a {
-  font-family: 'arial';
+  font-family: "arial";
   font-size: 12px;
   color: white;
   display: block;
@@ -246,21 +241,43 @@
 }
 
 .li-font {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: black;
   list-style-type: none;
 }
 
 .h3-create-event {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: black;
 }
 
 .create-background {
   background-color: #ebf2f2;
-  background-image: url('./images/create-page-background.jpg');
+  background-image: url("./images/create-page-background.jpg");
   background-size: 100% 845px;
   background-repeat: no-repeat;
   background-position: top;
   height: 845px;
+}
+
+.zomatoResponse {
+  margin: 10px;
+  width: 18rem;
+}
+
+.formNameDate {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #07b86b;
+}
+
+.namedate {
+  font-size: 1.3rem;
+}
+
+.formNameDateRow {
+  display: flex;
+  justify-content: center;
 }

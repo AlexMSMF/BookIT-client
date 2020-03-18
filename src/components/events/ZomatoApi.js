@@ -108,7 +108,13 @@ class ZomatoApi extends Component {
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
-    //const restId = this.props.location.state.restId
+    const divStyle = {
+      background: `linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url(${this.state.cuisineImg})`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      color: "#000",
+      fontWeight: "bold"
+    };
 
     return (
       <div>
@@ -188,14 +194,16 @@ class ZomatoApi extends Component {
               {this.state.restaurants.map((item, index) => {
                 console.log(item);
                 return (
-                  <div key={index} className="card zomatoResponse">
-                    {/* <img
-                      className="cuisinesImage"
-                      src={this.state.cuisineImg}
-                      alt="Hello"
-                    /> */}
+                  <div
+                    style={divStyle}
+                    key={index}
+                    className="card zomatoResponse"
+                  >
                     <div className="card-body">
-                      <h1 className="card-title titleRest"> {item.restaurant.name} </h1>
+                      <h1 className="card-title titleRest">
+                        {" "}
+                        {item.restaurant.name}{" "}
+                      </h1>
                       <p className="card-text">
                         {item.restaurant.location.address}
                       </p>
