@@ -32,9 +32,10 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div className="container mt-5 formNameDateRow ">
-        <div className="row mb-2 w-50 ">
-          <div className="col formNameDate">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm">
             <form
               className="creatingEventForm form-signin"
               onSubmit={this.handleFormSubmit}
@@ -46,8 +47,8 @@ class CreateEvent extends Component {
                 width="72"
                 height="72"
               />
-              <h1 className="h1 mb-3 font-weight-normal">Create your event</h1>
-              <label className="namedate">Name of the Event: </label>
+              <h1 className="h3 mb-3 font-weight-normal">Create your event</h1>
+              <label>Name of the Event: </label>
               <br />
               <input
                 className="form-control"
@@ -75,17 +76,13 @@ class CreateEvent extends Component {
                     date: this.state.date
                   }
                 }}
-                className="btn btn-danger mb-3"
+                className="btn btn-success "
               >
                 Next
               </Link>
             </form>
           </div>
-        </div>
-        <div className="container">
-          <div className="col">
-            <h1>How to Zomato san?</h1>
-          </div>
+          <div class="col-sm"></div>
         </div>
       </div>
     );

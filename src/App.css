@@ -232,12 +232,15 @@
 }
 
 .tiago-design {
+  border: 2px solid #18181a;
   border-radius: 10px;
-  padding: 150px;
+  margin: 20px;
+  padding: 20px 5px;
+  background-color: #ebf2f2;
 }
 
 .container-tiago {
-  padding-top: 20px;
+  padding-top: 250px;
 }
 
 .li-font {
@@ -245,6 +248,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: black;
   list-style-type: none;
+  text-align: left;
 }
 
 .h3-create-event {

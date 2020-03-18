@@ -19,44 +19,65 @@ class SendEmail extends Component {
     this.setState({ [name]: value });
   };
 
-
-  handleSubmit = event => {
+  sendEmail = event => {
     event.preventDefault();
-    const { name, date, restaurantId } = this.props
     const { eName, email, message } = this.state;
+    const { name, date, restaurantId } = this.props;
     axios
-      .post(
-        "http://localhost:5000/api/guests",
-        { eName, email, message, name, date, restaurantId },
-      )
+      .post("http://localhost:5000/api/guests", {
+        eName,
+        email,
+        message,
+        name,
+        date,
+        restaurantId
+      })
       .then(() => {
         this.props.getData();
+        this.submit();
       })
       .catch(error => console.log(error));
   };
 
   render() {
-
-
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.sendEmail}>
           <label>Name:</label>
           <br />
-          <input type="text" name="eName" className="form-control" id="exampleInputEmail1" placeholder="Inser your name" onChange={this.handleChange} />
+          <input
+            type="text"
+            name="eName"
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Inser your name"
+            onChange={this.handleChange}
+          />
           <br />
           <label>Email:</label>
           <br />
-          <input type="email" name="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" onChange={this.handleChange} />
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+            onChange={this.handleChange}
+          />
           <br />
           <label>Personalize your message: (optional)</label>
           <br />
-          <textarea name="message" className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handleChange}></textarea>
+          <textarea
+            name="message"
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            onChange={this.handleChange}
+          ></textarea>
           <br />
-          <button className="btn btn-primary" onClick={this.props.submit}>Send</button>
+          <button className="btn btn-primary">Send</button>
         </form>
       </div>
-
     );
   }
 }

@@ -38,6 +38,7 @@ class EventList extends Component {
           <Link  key={event._id} to={`/events/${event._id}`}>
             <ul>
               <li className="li-font">{event.name}</li>
+              <hr/>
             </ul>
           </Link>
         </div>
