@@ -16,7 +16,6 @@ class Guests extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
     const restaurantName = this.props.location.state.restaurantId.name;
@@ -40,7 +39,7 @@ class Guests extends Component {
       .then(res => {
         //this.props.getData();
         console.log(`=>`, res);
-
+        // this.sendEmail();
         this.setState({
           name: this.props.location.state.name,
           date: this.props.location.state.date,
@@ -52,6 +51,26 @@ class Guests extends Component {
       })
       .catch(error => console.log(error));
   };
+
+  // sendEmail = () => {
+  //   const { eName, email, message } = this.state;
+  //   const date = this.props.location.state.date;
+  //   const name = this.props.location.state.name;
+  //   const restaurantId = this.props.location.state.restaurantId;
+  //   axios
+  //     .post("http://localhost:5000/api/guests", {
+  //       eName,
+  //       email,
+  //       message,
+  //       name,
+  //       date,
+  //       restaurantId
+  //     })
+  //     .then(() => {
+  //       this.props.getData();
+  //     })
+  //     .catch(error => console.log(error));
+  // };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -81,11 +100,14 @@ class Guests extends Component {
               {restaurantId.name}
             </div>
             <div className="col-sm">
-              <SendEmail name={name} date={date} restaurantId={restaurantId} submit={this.handleFormSubmit}/>
+              <SendEmail
+                submit={this.handleFormSubmit}
+                date={date}
+                name={name}
+                restaurantId={restaurantId}
+              />
             </div>
-            <div className="col-sm">
-              
-            </div>
+            <div className="col-sm"></div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import forkKnife from '../../images/forkknife.png'
+import forkKnife from "../../images/forkknife.png";
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -15,13 +15,9 @@ class CreateEvent extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { name, date } = this.state;
- 
+
     axios
-      .post(
-        "http://localhost:5000/api/projects",
-        { name, date },
-      
-      )
+      .post("http://localhost:5000/api/projects", { name, date })
       .then(() => {
         this.props.getData();
         this.setState({ title: "", description: "" });
@@ -33,17 +29,25 @@ class CreateEvent extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-  
 
   render() {
     return (
-      <div className="container ">
-        <div className="row">
- 
-          <div className="col">
-            <form className='creatingEventForm form-signin' onSubmit={this.handleFormSubmit}>
-            <img className="mb-4" src={forkKnife} alt="Event" width="72" height="72" />
-            <h1 className="h3 mb-3 font-weight-normal">Create your event</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm">
+            <form
+              className="creatingEventForm form-signin"
+              onSubmit={this.handleFormSubmit}
+            >
+              <img
+                className="mb-4"
+                src={forkKnife}
+                alt="Event"
+                width="72"
+                height="72"
+              />
+              <h1 className="h3 mb-3 font-weight-normal">Create your event</h1>
               <label>Name of the Event: </label>
               <br />
               <input
@@ -63,17 +67,21 @@ class CreateEvent extends Component {
                 onChange={e => this.handleChange(e)}
               />
               <br />
-              <Link to={{
-                pathname:'/zomato',
-                state: {
-                  name: this.state.name,
-                  date: this.state.date
-                }
-              }} className="btn btn-success ">Next</Link>
+              <Link
+                to={{
+                  pathname: "/zomato",
+                  state: {
+                    name: this.state.name,
+                    date: this.state.date
+                  }
+                }}
+                className="btn btn-success "
+              >
+                Next
+              </Link>
             </form>
           </div>
-          <div className="col-sm">
-          </div>
+          <div class="col-sm"></div>
         </div>
       </div>
     );
@@ -81,4 +89,3 @@ class CreateEvent extends Component {
 }
 
 export default CreateEvent;
-
