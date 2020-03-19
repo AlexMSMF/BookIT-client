@@ -30,8 +30,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="text-center loginDiv">
-        <form className="form-signin" onSubmit={this.handleFormSubmit}>
+   
+      <div className=" loginDiv">
+        <div className="text-center">
+        <form className="form-signin mt-5" onSubmit={this.handleFormSubmit}>
           <img className="mb-4" src={imgEvent} alt="Event" width="72" height="72" />
           <h1 className="h3 mb-3 font-weight-normal">Log in</h1>
           <label className="sr-only">Email:</label>
@@ -59,15 +61,17 @@ class Login extends Component {
               className="btn btn-lg btn-success btn-block"
               type="submit"
               value="Login"
-            />
-             <p>
+            /> 
+            <br/>
+            <br/>
+             <h5>
           Don't have account?
           <Link to={"/signup"}> Signup</Link>
-        </p>
+        </h5>
           </div>
         </form>
 
-       
+        </div>
       </div>
     );
   }

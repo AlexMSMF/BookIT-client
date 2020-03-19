@@ -35,10 +35,10 @@ class EventList extends Component {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
       const addEventComponent = (
         <div key={event._id} jwt={this.props.jwt}>
-          <Link  key={event._id} to={`/events/${event._id}`}>
+          <Link key={event._id} to={`/events/${event._id}`}>
             <ul>
               <li className="li-font">{event.name}</li>
-              <hr/>
+              <hr />
             </ul>
           </Link>
         </div>
@@ -51,15 +51,31 @@ class EventList extends Component {
           <div className="row">
             <div className="col tiago-design">
               <h3 className="h3-create-event">Your Events</h3>
+              <hr/>
               <br />
               {arrayOfEventsDivs}
             </div>
-            <div className="col tiago-design">
+            <hr/>
+            <div className="col tiago-design ">
               <h3 className="h3-create-event">Create a new Event</h3>
-              <br />
-              <Link to="/createEvent" className="btn btn-primary">
+       
+              <hr/>
+              <Link to="/createEvent" className="btn btn-success">
                 HERE!
               </Link>
+
+              <div className="row createDivCol mt-5">
+                <div className="row">
+                  <h3 className="h3-create-event">Find the perfect place with the help of</h3>
+                </div>
+                <div className="col mt-4">
+                <img
+                    className="zomatoImage"
+                    src="images/zomato-logo.jpg"
+                    alt="Zomato"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

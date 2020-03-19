@@ -32,11 +32,6 @@ class ZomatoApi extends Component {
           cuisineImg: "images/indian-cuisine.jpg"
         });
         break;
-      case "brasilian":
-        this.setState({
-          cuisineImg: "images/brasilian-cuisine.jpg"
-        });
-        break;
       case "mexican":
         this.setState({
           cuisineImg: "images/mexican-cuisine.jpg"
@@ -64,7 +59,12 @@ class ZomatoApi extends Component {
         break;
       case "japanese":
         this.setState({
-          cuisineImg: "images/japanese-cuisine.jpg"
+          cuisineImg: "images/japanese-cuisine.jpeg"
+        });
+        break;
+      case "brazilian":
+        this.setState({
+          cuisineImg: "images/brazilian-cuisine.jpg"
         });
         break;
       default:
@@ -171,7 +171,7 @@ class ZomatoApi extends Component {
                 >
                   <option>Select a Cuisine</option>
                   <option value="portuguese">Portuguese</option>
-                  <option value="brasilian">Brasilian</option>
+                  <option value="brazilian">Brazilian</option>
                   <option value="italian">Italian</option>
                   <option value="mexican">Mexican</option>
                   <option value="american">American</option>

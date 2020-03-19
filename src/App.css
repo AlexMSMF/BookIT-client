@@ -109,7 +109,7 @@
   background-color: white;
 }
 
-.saveDate > p {
+.saveDate>p {
   font-weight: bold;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -141,17 +141,26 @@
   height: 300px;
 }
 
-.navegacao > p {
+.navegacao>p {
   color: rgb(124, 124, 124);
   line-height: 1.5rem;
 }
 
 .loginDiv {
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url("./images/loginImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  height: 800px;
+}
+
+.text-center{
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 400px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+
+
 
 .creatingEventForm {
   width: 20rem;
@@ -256,6 +265,11 @@
   color: black;
 }
 
+.createDivCol {
+  display: flex;
+  justify-content: center;
+}
+
 .create-background {
   background-color: #ebf2f2;
   background-image: url("./images/create-page-background.jpg");
@@ -284,4 +298,9 @@
 .formNameDateRow {
   display: flex;
   justify-content: center;
+}
+
+.zomatoImage {
+  width: 12rem;
+  height: 6rem;
 }

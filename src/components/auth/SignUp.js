@@ -27,8 +27,9 @@ class SignUp extends Component {
   };
   render() {
     return (
-      <div className="text-center loginDiv">
-        <form className="form-signin" onSubmit={this.handleFormSubmit}>
+      <div className="loginDiv">
+      <div className="text-center">
+        <form className="form-signin mt-5" onSubmit={this.handleFormSubmit}>
           <img
             className="mb-4"
             src={imgEvent}
@@ -64,6 +65,7 @@ class SignUp extends Component {
             </p>
           </div>
         </form>
+      </div>
       </div>
     );
   }
