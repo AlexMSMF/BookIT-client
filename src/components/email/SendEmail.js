@@ -21,22 +21,27 @@ class SendEmail extends Component {
 
   sendEmail = event => {
     event.preventDefault();
-    const { eName, email, message } = this.state;
-    const { name, date, restaurantId } = this.props;
-    axios
-      .post("http://localhost:5000/api/guests", {
-        eName,
-        email,
-        message,
-        name,
-        date,
-        restaurantId
-      })
-      .then(() => {
-        this.props.getData();
-        this.submit();
-      })
-      .catch(error => console.log(error));
+    this.props.submit().then(res => {
+      //console.log("resposta", res);
+      const eventID = res.data._id;
+      const { eName, email, message } = this.state;
+      const { name, date, restaurantId } = this.props;
+      axios
+        .post("http://localhost:5000/api/guests", {
+          eName,
+          email,
+          message,
+          name,
+          date,
+          eventID,
+          restaurantId
+        }).then(() => {
+          console.log("acabei de enviar email");
+          this.props.getData();
+          this.props.history.push("/events");
+        })
+        .catch(error => console.log(error));
+    });
   };
 
   render() {

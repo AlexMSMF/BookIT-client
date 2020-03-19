@@ -12,7 +12,6 @@ import firebase from "firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EventDetails from "./components/events/EventDetails";
-//import ZomatoList from "./components/events/ZomatoList";
 import CreateEvent from "./components/events/CreateEvent";
 import Guests from "./components/events/Guests";
 
@@ -84,7 +83,6 @@ class App extends Component {
           loggedInUser: resp.user
         });
         this.getJWT(resp.user, callbackNavToProj);
-       
       })
       .catch(err => alert(err));
   };
@@ -150,6 +148,7 @@ class App extends Component {
             path="/guests"
             render={props => <Guests uid={uid} jwt={jwt} {...props} />}
           />
+          <Route exact path="/acceptInvitation"/>
         </Switch>
       </div>
     );
