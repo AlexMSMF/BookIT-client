@@ -61,7 +61,7 @@ class CreateEvent extends Component {
               <label className="namedate">Date of the Event: </label>
               <br />
               <input
-                type="date"
+                type="datetime-local"
                 className="form-control"
                 name="date"
                 value={this.state.date}

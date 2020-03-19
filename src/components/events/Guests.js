@@ -52,25 +52,25 @@ class Guests extends Component {
       .catch(error => console.log(error));
   };
 
-  // sendEmail = () => {
-  //   const { eName, email, message } = this.state;
-  //   const date = this.props.location.state.date;
-  //   const name = this.props.location.state.name;
-  //   const restaurantId = this.props.location.state.restaurantId;
-  //   axios
-  //     .post("http://localhost:5000/api/guests", {
-  //       eName,
-  //       email,
-  //       message,
-  //       name,
-  //       date,
-  //       restaurantId
-  //     })
-  //     .then(() => {
-  //       this.props.getData();
-  //     })
-  //     .catch(error => console.log(error));
-  // };
+  sendEmail = () => {
+    const { eName, email, message } = this.state;
+    const date = this.props.location.state.date;
+    const name = this.props.location.state.name;
+    const restaurantId = this.props.location.state.restaurantId;
+    axios
+      .post("http://localhost:5000/api/guests", {
+        eName,
+        email,
+        message,
+        name,
+        date,
+        restaurantId
+      })
+      .then(() => {
+        this.props.getData();
+      })
+      .catch(error => console.log(error));
+  };
 
   handleChange = event => {
     const { name, value } = event.target;
