@@ -9,6 +9,7 @@ class EditEvent extends Component {
     this.state = {
       name: this.props.theEvent.name,
       date: this.props.theEvent.date,
+      hour: this.props.theEvent.hour,
       restaurantName: this.props.theEvent.restaurantName,
       restaurantAddress: this.props.theEvent.restaurantAddress,
       restId: this.props.theEvent._id
@@ -19,6 +20,7 @@ class EditEvent extends Component {
     const {
       name,
       date,
+      hour,
       restaurantName,
       restaurantAddress,
     } = this.state;
@@ -28,6 +30,7 @@ class EditEvent extends Component {
       .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
         name,
         date,
+        hour,
         restaurantName,
         restaurantAddress,
       })
@@ -48,6 +51,12 @@ class EditEvent extends Component {
   handleChangeDate = event => {
     this.setState({
       date: event.target.value
+    });
+  };
+
+  handleChangeHour = event => {
+    this.setState({
+      hour: event.target.value
     });
   };
 
@@ -82,11 +91,22 @@ class EditEvent extends Component {
           <label>Date of the Event:</label>
           <br />
           <input
+          type='date'
             name="date"
             value={this.state.date}
             onChange={e => this.handleChangeDate(e)}
           />
           <br />
+          <label>Hour of the Event:</label>
+          <br />
+          <input
+            type='time'
+            name="hour"
+            value={this.state.hour}
+            onChange={e => this.handleChangeHour(e)}
+          />
+          <br />
+          <br/>
           <input type="submit" value="Edit" className="btn btn-success" />
         </form>
         <br />

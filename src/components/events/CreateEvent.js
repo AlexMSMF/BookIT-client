@@ -8,19 +8,20 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       name: "",
-      date: ""
+      date: "", 
+      hour: ''
     };
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { name, date } = this.state;
+    const { name, date, hour } = this.state;
 
     axios
-      .post("http://localhost:5000/api/projects", { name, date })
+      .post("http://localhost:5000/api/events", { name, date, hour })
       .then(() => {
         this.props.getData();
-        this.setState({ title: "", description: "" });
+        this.setState({ name: "", date: "", hour: "" });
       })
       .catch(error => console.log(error));
   };
@@ -61,19 +62,29 @@ class CreateEvent extends Component {
               <label className="namedate">Date of the Event: </label>
               <br />
               <input
-                type="datetime-local"
+                type="date"
                 className="form-control"
                 name="date"
                 value={this.state.date}
                 onChange={e => this.handleChange(e)}
               />
               <br />
+              <label className="namedate">Hour of the Event: </label>
+              <br />
+              <input
+                type="time"
+                className="form-control"
+                name="hour"
+                value={this.state.hour}
+                onChange={e => this.handleChange(e)}
+              />
               <Link
                 to={{
                   pathname: "/zomato",
                   state: {
                     name: this.state.name,
-                    date: this.state.date
+                    date: this.state.date,
+                    hour: this.state.hour
                   }
                 }}
                 className="btn btn-success "
