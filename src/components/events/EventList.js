@@ -38,8 +38,8 @@ class EventList extends Component {
           <Link key={event._id} to={`/events/${event._id}`}>
           
             <ul>
-              <li className="li-font">{event.hour}</li>
-              <li className="li-font">{event.name} <span>{event.date}</span></li>
+              <li className="li-font"><span>{event.hour}</span></li>
+              <li className="li-font">{event.date} - <strong>{event.name}</strong></li>
               <hr />
             </ul>
           </Link>
