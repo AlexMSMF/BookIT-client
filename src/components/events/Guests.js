@@ -14,8 +14,7 @@ class Guests extends Component {
     };
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  handleFormSubmit = () => {
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
     const restaurantName = this.props.location.state.restaurantId.name;
@@ -24,7 +23,7 @@ class Guests extends Component {
     const guests = this.state.guests;
     const headers = { Authorization: this.props.jwt };
 
-    axios
+    return axios
       .post(
         "http://localhost:5000/api/events",
         {
@@ -37,40 +36,18 @@ class Guests extends Component {
         { headers }
       )
       .then(res => {
-        //this.props.getData();
-        console.log(`=>`, res);
-        // this.sendEmail();
+        //console.log(`=>`, res);
         this.setState({
           name: this.props.location.state.name,
           date: this.props.location.state.date,
           restaurantName: this.props.location.state.restaurantId.name,
           restaurantAddress: this.props.location.state.restaurantId.location
-            .address,
-          guests: ""
+            .address
         });
+        return res;
       })
       .catch(error => console.log(error));
   };
-
-  // sendEmail = () => {
-  //   const { eName, email, message } = this.state;
-  //   const date = this.props.location.state.date;
-  //   const name = this.props.location.state.name;
-  //   const restaurantId = this.props.location.state.restaurantId;
-  //   axios
-  //     .post("http://localhost:5000/api/guests", {
-  //       eName,
-  //       email,
-  //       message,
-  //       name,
-  //       date,
-  //       restaurantId
-  //     })
-  //     .then(() => {
-  //       this.props.getData();
-  //     })
-  //     .catch(error => console.log(error));
-  // };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -116,3 +93,4 @@ class Guests extends Component {
 }
 
 export default Guests;
+
