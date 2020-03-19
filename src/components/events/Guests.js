@@ -8,6 +8,7 @@ class Guests extends Component {
     this.state = {
       name: "",
       date: "",
+      hour: "",
       restaurantName: "",
       restaurantAddress: "",
       guests: ""
@@ -17,6 +18,7 @@ class Guests extends Component {
   handleFormSubmit = () => {
     const name = this.props.location.state.name;
     const date = this.props.location.state.date;
+    const hour = this.props.location.state.hour;
     const restaurantName = this.props.location.state.restaurantId.name;
     const restaurantAddress = this.props.location.state.restaurantId.location
       .address;
@@ -29,6 +31,7 @@ class Guests extends Component {
         {
           name,
           date,
+          hour,
           restaurantName,
           restaurantAddress,
           guests
@@ -40,6 +43,7 @@ class Guests extends Component {
         this.setState({
           name: this.props.location.state.name,
           date: this.props.location.state.date,
+          hour: this.props.location.state.hour,
           restaurantName: this.props.location.state.restaurantId.name,
           restaurantAddress: this.props.location.state.restaurantId.location
             .address
@@ -57,6 +61,7 @@ class Guests extends Component {
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
+    const hour = this.props.location.state.hour;
     const restaurantId = this.props.location.state.restaurantId;
 
     return (
@@ -64,16 +69,19 @@ class Guests extends Component {
         <div className="container">
           <div className="row">
             <div className="col-sm">
-              <h5>Nome do Evento:</h5>
+              <h5>Name of the Event:</h5>
               {name}
               <br />
-              <h5>Data do Evento:</h5>
+              <h5>Date of the Event:</h5>
               {date}
               <br />
-              <h5>Morada do Evento:</h5>
+              <h5>Time of the Event:</h5>
+              {hour}
+              <br />
+              <h5>Address of the Event:</h5>
               {restaurantId.location.address}
               <br />
-              <h5>Nome do Restaurante:</h5>
+              <h5>Restaurant name:</h5>
               {restaurantId.name}
             </div>
             <div className="col-sm">
@@ -82,6 +90,7 @@ class Guests extends Component {
                 date={date}
                 name={name}
                 restaurantId={restaurantId}
+                hour={hour}
               />
             </div>
             <div className="col-sm"></div>

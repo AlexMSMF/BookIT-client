@@ -25,7 +25,7 @@ class SendEmail extends Component {
       //console.log("resposta", res);
       const eventID = res.data._id;
       const { eName, email, message } = this.state;
-      const { name, date, restaurantId } = this.props;
+      const { name, date, restaurantId, hour } = this.props;
       axios
         .post("http://localhost:5000/api/guests", {
           eName,
@@ -34,7 +34,8 @@ class SendEmail extends Component {
           name,
           date,
           eventID,
-          restaurantId
+          restaurantId,
+          hour
         }).then(() => {
           console.log("acabei de enviar email");
           this.props.getData();

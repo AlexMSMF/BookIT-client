@@ -108,6 +108,7 @@ class ZomatoApi extends Component {
   render() {
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
+    const hour = this.props.location.state.hour;
     const divStyle = {
       background: `linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url(${this.state.cuisineImg})`,
       backgroundSize: "cover",
@@ -121,11 +122,14 @@ class ZomatoApi extends Component {
         <div class="container">
           <div class="row">
             <div class="col">
-              <h5>Nome do Evento:</h5>
+              <h5>Name of the Event:</h5>
               {name}
               <br />
-              <h5>Data do Evento</h5>
+              <h5>Date of the Event</h5>
               {date}
+              <br />
+              <h5>Hour of the Event</h5>
+              {hour}
             </div>
             <div class="col">
               <form
@@ -219,6 +223,7 @@ class ZomatoApi extends Component {
                           state: {
                             name,
                             date,
+                            hour,
                             restaurantId: item.restaurant
                           }
                         }}

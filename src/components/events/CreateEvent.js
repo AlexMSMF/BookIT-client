@@ -8,8 +8,8 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       name: "",
-      date: "", 
-      hour: ''
+      date: "",
+      hour: ""
     };
   }
 
