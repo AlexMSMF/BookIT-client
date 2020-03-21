@@ -17,7 +17,7 @@ class EventList extends Component {
   getAllEvents = () => {
     const headers = { Authorization: this.props.jwt };
     axios
-      .get(`http://localhost:5000/api/events`, { headers })
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events`, { headers })
       .then(responseFromApi => {
         console.log(responseFromApi.data);
         console.log(headers);

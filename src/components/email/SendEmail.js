@@ -27,7 +27,7 @@ class SendEmail extends Component {
       const { eName, email, message } = this.state;
       const { name, date, restaurantId, hour } = this.props;
       axios
-        .post("http://localhost:5000/api/guests", {
+        .post("https://book-it-ironhack-2020.herokuapp.com/api/guests", {
           eName,
           email,
           message,

@@ -19,7 +19,7 @@ class CreateEvent extends Component {
     const { name, date, hour } = this.state;
 
     axios
-      .post("http://localhost:5000/api/events", { name, date, hour })
+      .post("https://book-it-ironhack-2020.herokuapp.com/api/events", { name, date, hour })
       .then(() => {
         this.props.getData();
         this.setState({ name: "", date: "", hour: "" });

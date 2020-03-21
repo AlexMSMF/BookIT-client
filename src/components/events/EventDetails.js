@@ -16,7 +16,7 @@ class EventDetails extends Component {
   getSingleEvent = () => {
     const { params } = this.props.match;
     axios
-      .get(`http://localhost:5000/api/events/${params.id}`)
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events/${params.id}`)
       .then(responseFromApi => {
         const theEvent = responseFromApi.data;
         this.setState(theEvent);

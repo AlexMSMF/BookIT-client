@@ -39,10 +39,13 @@ class ZomatoApi extends Component {
 
     event.preventDefault();
     axios
-      .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
-        restaurantName,
-        restaurantAddress
-      })
+      .put(
+        `https://book-it-ironhack-2020.herokuapp.com/api/events/${this.props.theEvent._id}`,
+        {
+          restaurantName,
+          restaurantAddress
+        }
+      )
       .then(() => {
         this.props.getTheEvent();
         // after submitting the form, redirect to '/events'
