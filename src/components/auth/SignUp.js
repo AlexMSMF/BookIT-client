@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import imgEvent from "../../images/event.png";
+import FooterPage from "../FooterPage";
 
 class SignUp extends Component {
   constructor(props) {
@@ -53,19 +54,22 @@ class SignUp extends Component {
             type="password"
             name="password"
             className="form-control"
-            placeholder="Email adress"
+            placeholder="Password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
           <br/>
           <div className="checkbox mb-3">
             <input className="btn btn-lg btn-success btn-block" type="submit" value="Signup" />
+            <br/>
+            <br/>
             <p>
               Already have account ?<Link to={"/login"}> Login </Link>
             </p>
           </div>
         </form>
       </div>
+      <FooterPage />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   constructor(props) {
@@ -50,23 +50,23 @@ class Footer extends Component {
           </div>
           <div className="tiago-footer-third">
             <h4>Need Help?</h4>
-            <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Private Policy</a>
+            <Link to="#">Terms &amp; Conditions</Link>
+            <Link to="#">Private Policy</Link>
           </div>
 
           <div className="tiago-footer-third">
             <h4>Creators</h4>
-            <a href="#">Tiago Pereira (Web Developer)</a>
-            <a href="#">Alexandre Florindo (Web Developer)</a>
-            <a href="#">Alexandra Sergiel (UX/UI)</a>
+            <Link to="#">Tiago Pereira (Web Developer)</Link>
+            <Link to="#">Alexandre Florindo (Web Developer)</Link>
+            <Link to="#">Aleksandra Sergiel (UX/UI)</Link>
           </div>
 
           <div className="tiago-footer-third">
             <h4>Resources</h4>
-            <a href="#">BootStrap</a>
-            <a href="#">React JS</a>
-            <a href="#">Firebase</a>
-            <a href="#">Github</a>
+            <Link to="#">BootStrap</Link>
+            <Link to="#">React JS</Link>
+            <Link to="#">Firebase</Link>
+            <Link to="#">Github</Link>
           </div>
         </div>
       </footer>

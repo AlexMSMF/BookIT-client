@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import forkKnife from "../../images/forkknife.png";
+import FooterPage from "../FooterPage";
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -28,15 +29,34 @@ class CreateEvent extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
+    
     this.setState({ [name]: value });
   };
 
+  
   render() {
     return (
-      <div class="container">
+      <div className="loginDiv">
+      <div class="container ">
         <div class="row">
-          <div class="col-sm"></div>
-          <div class="col-sm">
+          <div class="col-sm mt-3">
+          <div className="row createDivCol mt-5">
+                <div className="row">
+                  <h3 className="h3-create-event">Choose the name of the event and set the Date and Time</h3>
+                
+                </div>
+                <div className="col mt-4">
+                <img
+                    className="zomatoImage"
+                    src="images/zomato-logo.jpg"
+                    alt="Zomato"
+                  />
+                </div>
+               
+              </div>
+              <p>Find the perfect place with our help</p>
+          </div>
+          <div class="col-sm mb-5 mt-3">
             <form
               className="creatingEventForm form-signin"
               onSubmit={this.handleFormSubmit}
@@ -92,9 +112,14 @@ class CreateEvent extends Component {
                 Next
               </Link>
             </form>
+            
           </div>
-          <div class="col-sm"></div>
+    
+         
+        
         </div>
+      </div>
+      <FooterPage  />
       </div>
     );
   }

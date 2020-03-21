@@ -93,6 +93,11 @@
   color: #07b86b;
   list-style-type: none;
   font-size: 1.3rem;
+
+}
+
+.rightSideNav{
+  float: right
 }
 
 .footerContainer {
@@ -147,11 +152,14 @@
 }
 
 .loginDiv {
-  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url("./images/loginImage.jpg");
+  background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),url("./images/loginImage.jpg");
   background-size: cover;
+  background-position: right;
+  border: 10px solid #18181a;
+  /* background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
-  height: 800px;
+  height: 800px; */
 }
 
 .text-center{
@@ -179,7 +187,7 @@
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
-  padding: 70px 0;
+  padding: 45px 0;
   box-sizing: border-box;
   background-color: #18181a;
 }
@@ -248,8 +256,17 @@
   background-color: #ebf2f2;
 }
 
+.tiago-design-create{
+  border: 2px solid #18181a;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px 5px;
+  background-color: #ebf2f2;
+  height: 10rem
+}
+
 .container-tiago {
-  padding-top: 250px;
+  padding-top: 6rem;
 }
 
 .li-font {
@@ -303,4 +320,9 @@
 .zomatoImage {
   width: 12rem;
   height: 6rem;
+}
+
+.imageList{
+  width: 50px;
+  height: 50px
 }

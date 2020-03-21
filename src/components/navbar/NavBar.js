@@ -7,22 +7,21 @@ class NavBar extends Component {
     const { loggedInUser, logoutFbase } = this.props;
     if (!loggedInUser) {
       return (
-        <>
-          <li className="nav-item">
-            <Link className="nav-link greenTitle" to={`/login`}>
-              <ul>
-                <li className=" greenTitle">LogIn</li>
-              </ul>
+        <ul className='navbar-nav mr-auto '>
+          
+            <Link className=" nav-link " to={`/login`}>
+            <li className="nav-item greenTitle">
+            LogIn
+            </li>
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link greenTitle" to={`/signup`}>
-              <ul>
-                <li className=" greenTitle">Sign Up</li>
-              </ul>
-            </Link>
-          </li>
-        </>
+           
+          <Link className="nav-link " to={`/signup`}>
+          <li className="nav-item greenTitle">
+             Sign Up 
+             </li>
+          </Link>
+        
+        </ul>
       );
     } else {
       return (
@@ -60,10 +59,11 @@ class NavBar extends Component {
             <Link className="nav-link greenTitle" to={`/events`}>
               <li className=" greenTitle">Events</li>
             </Link>
-
             {this.renderAuthLinks()}
           </ul>
+          
         </div>
+        
       </nav>
     );
   }
