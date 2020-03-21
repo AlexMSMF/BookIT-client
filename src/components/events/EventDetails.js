@@ -24,6 +24,18 @@ class EventDetails extends Component {
       .catch(err => console.log(err));
   };
 
+  // for invitations
+  getSingleInvitation = () => {
+    const { params } = this.props.match;
+    axios
+      .get(`http://localhost:5000/api/invitation/${params.event_id}`)
+      .then(responseFromApi => {
+        const theEvent = responseFromApi.data;
+        this.setState(theEvent);
+      })
+      .catch(err => console.log(err));
+  };
+
   renderEditForm = () => {
     if (!this.state.name) {
       this.getSingleEvent();
@@ -39,7 +51,7 @@ class EventDetails extends Component {
     }
   };
 
-  // DELETE PROJECT:
+
   deleteEvent = () => {
     const { params } = this.props.match;
     axios

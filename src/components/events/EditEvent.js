@@ -115,19 +115,6 @@ class EditEvent extends Component {
         <h6>{this.state.restaurantAddress}</h6>
         <br />
         <br />
-        {/* <Link
-          to={{
-            pathname: `/zomato`,
-            state: {
-              name: this.state.name,
-              date: this.state.date,
-              restId: this.state.restId
-            }
-          }}
-          className="btn btn-info"
-        >
-          Change Restaurant
-        </Link> */}
         <ZomatoEdit
           theEvent={this.state}
           getTheEvent={this.getSingleEvent}

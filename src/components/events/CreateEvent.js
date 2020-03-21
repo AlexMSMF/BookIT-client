@@ -33,10 +33,10 @@ class CreateEvent extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-sm"></div>
-          <div class="col-sm">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm"></div>
+          <div className="col-sm">
             <form
               className="creatingEventForm form-signin"
               onSubmit={this.handleFormSubmit}
@@ -93,7 +93,7 @@ class CreateEvent extends Component {
               </Link>
             </form>
           </div>
-          <div class="col-sm"></div>
+          <div className="col-sm"></div>
         </div>
       </div>
     );

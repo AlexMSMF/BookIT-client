@@ -38,7 +38,7 @@ class Home extends Component {
           </div>
           <br/>
           <div>
-            <Link to="/events" className="btn-events">
+            <Link to="/createEvent" className="btn-events">
               <strong>BookIT Now</strong>
             </Link>
           </div>

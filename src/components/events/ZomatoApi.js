@@ -119,9 +119,9 @@ class ZomatoApi extends Component {
 
     return (
       <div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
+        <div className="container">
+          <div className="row">
+            <div className="col">
               <h5>Name of the Event:</h5>
               {name}
               <br />
@@ -131,18 +131,11 @@ class ZomatoApi extends Component {
               <h5>Hour of the Event</h5>
               {hour}
             </div>
-            <div class="col">
+            <div className="col">
               <form
                 className="creatingEventForm form-signin"
                 onSubmit={this.handleFormSubmit}
               >
-                {/* <img
-                  className="mb-4"
-                  src={this.state.cuisineImg}
-                  alt="Event"
-                  width="200"
-                  height="200"
-                /> */}
                 <h1 className="h3 mb-3 font-weight-normal">
                   Choose a Restaurant and Cuisine
                 </h1>
@@ -193,10 +186,10 @@ class ZomatoApi extends Component {
               <br />
             </div>
           </div>
-          <div class="row">
-            <div class="row justify-content-center ">
+          <div className="row">
+            <div className="row justify-content-center ">
               {this.state.restaurants.map((item, index) => {
-                console.log(item);
+                //console.log(item);
                 return (
                   <div
                     style={divStyle}

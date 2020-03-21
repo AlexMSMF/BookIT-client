@@ -18,8 +18,8 @@ class EventList extends Component {
     axios
       .get(`http://localhost:5000/api/events`, { headers })
       .then(responseFromApi => {
-        console.log(responseFromApi.data);
-        console.log(headers);
+        //console.log(responseFromApi.data);
+        //console.log(headers);
 
         this.setState({
           listOfEvents: responseFromApi.data
@@ -36,10 +36,13 @@ class EventList extends Component {
       const addEventComponent = (
         <div key={event._id} jwt={this.props.jwt}>
           <Link key={event._id} to={`/events/${event._id}`}>
-          
             <ul>
-              <li className="li-font"><span>{event.hour}</span></li>
-              <li className="li-font">{event.date} - <strong>{event.name}</strong></li>
+              <li className="li-font">
+                <span>{event.hour}</span>
+              </li>
+              <li className="li-font">
+                {event.date} - <strong>{event.name}</strong>
+              </li>
               <hr />
             </ul>
           </Link>
@@ -53,25 +56,27 @@ class EventList extends Component {
           <div className="row">
             <div className="col tiago-design">
               <h3 className="h3-create-event">Your Events</h3>
-              <hr/>
+              <hr />
               <br />
               {arrayOfEventsDivs}
             </div>
-            <hr/>
+            <hr />
             <div className="col tiago-design ">
               <h3 className="h3-create-event">Create a new Event</h3>
-       
-              <hr/>
+
+              <hr />
               <Link to="/createEvent" className="btn btn-success">
                 HERE!
               </Link>
 
               <div className="row createDivCol mt-5">
                 <div className="row">
-                  <h3 className="h3-create-event">Find the perfect place with the help of</h3>
+                  <h3 className="h3-create-event">
+                    Find the perfect place with the help of
+                  </h3>
                 </div>
                 <div className="col mt-4">
-                <img
+                  <img
                     className="zomatoImage"
                     src="images/zomato-logo.jpg"
                     alt="Zomato"

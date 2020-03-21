@@ -8,10 +8,28 @@ class SendEmail extends Component {
     this.state = {
       eName: "",
       email: "",
-      message: ""
+      message: "",
+      event_id: "",
+      guests: [],
     };
-
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('eid', this.props.location.state.event_id);
+    this.setState({ event_id: this.props.location.state.event_id });
+    this.getInvitedGuests(this.props.location.state.event_id);
+  }
+
+  getInvitedGuests = (eid) => {
+    console.log('GIG', eid)
+    axios.get(`http://localhost:5000/api/invitation/${eid}`)
+      .then((resp) => {
+        //console.log('resp id', resp._id);
+        console.log('received guest list', resp);
+        this.setState({ guests: resp.data});
+      })
+      .catch(error => console.log(error));
   }
 
   handleChange = event => {
@@ -19,70 +37,120 @@ class SendEmail extends Component {
     this.setState({ [name]: value });
   };
 
-  sendEmail = event => {
+  createDBInvitation = event => {
     event.preventDefault();
-    this.props.submit().then(res => {
-      //console.log("resposta", res);
-      const eventID = res.data._id;
-      const { eName, email, message } = this.state;
-      const { name, date, restaurantId, hour } = this.props;
-      axios
-        .post("http://localhost:5000/api/guests", {
-          eName,
-          email,
-          message,
-          name,
-          date,
-          eventID,
-          restaurantId,
-          hour
-        }).then(() => {
-          console.log("acabei de enviar email");
-          this.props.getData();
-          this.props.history.push("/events");
-        })
-        .catch(error => console.log(error));
-    });
+    console.log('creating the invite');
+
+    const { email, event_id } = this.state;
+    const postBody = { email, event_id };
+    axios.post("http://localhost:5000/api/invitation", postBody)
+      .then((res) => {
+        //console.log('resp id', resp._id);
+        console.log('invite was created');
+        this.getInvitedGuests(event_id);
+        this.sendEmail();
+      })
+      .catch(error => console.log(error));
+  }
+
+  sendEmail = () => {
+    console.log('sending the email');
+
+    const { eName, email, message } = this.state;
+
+    const date = this.props.location.state.date;
+    const name = this.props.location.state.name;
+    const hour = this.props.location.state.hour;
+    const restaurantName = this.props.location.state.restaurantName;
+    const restaurantAddress = this.props.location.state.restaurantAddress;
+
+    axios
+      .post("http://localhost:5000/api/sendEmail", {
+        eName,
+        email,
+        message,
+        name,
+        date,
+        restaurantName,
+        restaurantAddress,
+        hour
+      })
+      .then((resp) => {
+        console.log("acabei de enviar email");
+        this.setState({
+          eName: "",
+          email: "",
+          message: "",
+        });
+        // this.props.history.push("/events");
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.sendEmail}>
-          <label>Name:</label>
-          <br />
-          <input
-            type="text"
-            name="eName"
-            className="form-control"
-            id="exampleInputEmail1"
-            placeholder="Inser your name"
-            onChange={this.handleChange}
-          />
-          <br />
-          <label>Email:</label>
-          <br />
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-            onChange={this.handleChange}
-          />
-          <br />
-          <label>Personalize your message: (optional)</label>
-          <br />
-          <textarea
-            name="message"
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            rows="3"
-            onChange={this.handleChange}
-          ></textarea>
-          <br />
-          <button className="btn btn-primary">Send</button>
-        </form>
+        <h1>
+          Send an email to invite your friends!
+        </h1>
+        <br />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              Guests Invited
+              {this.state.guests.map((item, index) => {
+              //console.log('item', item);
+              return (
+                <div
+                  key={index}
+                >
+                  <div className="card-body">
+                    <p>{item.email}</p>
+                  </div>
+                </div>
+              );
+            })}
+            </div>
+            <div className="col-sm">
+              <form onSubmit={this.sendEmail}>
+                <label>Name:</label>
+                <br />
+                <input
+                  type="text"
+                  name="eName"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Inser your name"
+                  onChange={this.handleChange}
+                />
+                <br />
+                <label>Email:</label>
+                <br />
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                  onChange={this.handleChange}
+                />
+                <br />
+                <label>Personalize your message: (optional)</label>
+                <br />
+                <textarea
+                  name="message"
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  onChange={this.handleChange}
+                ></textarea>
+                <br />
+                <button onClick={this.createDBInvitation} className="btn btn-primary">Send</button>
+              </form>
+            </div>
+            <div className="col-sm"></div>
+          </div>
+        </div>
       </div>
     );
   }

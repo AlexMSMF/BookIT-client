@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import SendEmail from "../email/SendEmail";
+// import { Link } from "react-router-dom";
+// import SendEmail from "../email/SendEmail";
 
 class Guests extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Guests extends Component {
       hour: "",
       restaurantName: "",
       restaurantAddress: "",
-      guests: ""
+      guests: "",
+      event_id: ""
     };
   }
 
@@ -39,21 +41,23 @@ class Guests extends Component {
         { headers }
       )
       .then(res => {
-        //console.log(`=>`, res);
-        this.setState({
-          name: this.props.location.state.name,
-          date: this.props.location.state.date,
-          hour: this.props.location.state.hour,
-          restaurantName: this.props.location.state.restaurantId.name,
-          restaurantAddress: this.props.location.state.restaurantId.location
-            .address
+        console.log(`=>`, res);
+        this.props.history.push({
+          pathname: "/sendEmail",
+          state: {
+            name,
+            date,
+            hour,
+            restaurantName,
+            restaurantAddress,
+            event_id: res.data._id
+          }
         });
-        return res;
       })
       .catch(error => console.log(error));
   };
 
-   handleChange = event => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
@@ -66,9 +70,20 @@ class Guests extends Component {
 
     return (
       <div>
+        <h1>Your Event is Created</h1>
+        <br />
         <div className="container">
           <div className="row">
             <div className="col-sm">
+            </div>
+            <div className="col-sm">
+              {/* <SendEmail
+                submit={this.handleFormSubmit}
+                date={date}
+                name={name}
+                restaurantId={restaurantId}
+                hour={hour}
+              /> */}
               <h5>Name of the Event:</h5>
               {name}
               <br />
@@ -83,15 +98,10 @@ class Guests extends Component {
               <br />
               <h5>Restaurant name:</h5>
               {restaurantId.name}
-            </div>
-            <div className="col-sm">
-              <SendEmail
-                submit={this.handleFormSubmit}
-                date={date}
-                name={name}
-                restaurantId={restaurantId}
-                hour={hour}
-              />
+              <br />
+              <br />
+              <br />
+              <button onClick={this.handleFormSubmit} className="btn btn-success">Now invite your Friends!</button>
             </div>
             <div className="col-sm"></div>
           </div>
