@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 // import GoogleMap from "../GoogleMap"
 
 // import CreateEvent from "./CreateEvent"; // <== !!!
@@ -16,7 +17,7 @@ class EventList extends Component {
   getAllEvents = () => {
     const headers = { Authorization: this.props.jwt };
     axios
-      .get(`http://localhost:5000/api/events`, { headers })
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events`, { headers })
       .then(responseFromApi => {
         //console.log(responseFromApi.data);
         //console.log(headers);
@@ -31,21 +32,31 @@ class EventList extends Component {
     this.getAllEvents();
   }
 
+
+
   render() {
+
+    
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
       const addEventComponent = (
-        <div key={event._id} jwt={this.props.jwt}>
-          <Link key={event._id} to={`/events/${event._id}`}>
-            <ul>
-              <li className="li-font">
-                <span>{event.hour}</span>
-              </li>
-              <li className="li-font">
-                {event.date} - <strong>{event.name}</strong>
-              </li>
-              <hr />
-            </ul>
+        <div  jwt={this.props.jwt}>
+        
+          <Link to={`/events/${event._id}`}>
+          <div className="container">
+           <div className="row">
+             <div className="col">
+               <img className="imageList" src="images/italian-logo.jpg"  alt="EventList"/>
+             </div>
+             <div className="col">
+             <small>{event.date}</small>
+             <br/>
+               <strong>{event.name}</strong> 
+               </div>
+             <div className="col">{event.hour}</div>
+           </div>
+         </div>
           </Link>
+          <hr/>
         </div>
       );
       return <div> {this.props.uid && addEventComponent}</div>;
@@ -60,33 +71,23 @@ class EventList extends Component {
               <br />
               {arrayOfEventsDivs}
             </div>
-            <hr />
-            <div className="col tiago-design ">
+            <hr/>
+            <div className="col tiago-design-create ">
               <h3 className="h3-create-event">Create a new Event</h3>
 
               <hr />
               <Link to="/createEvent" className="btn btn-success">
-                HERE!
+                Create Event!
               </Link>
 
-              <div className="row createDivCol mt-5">
-                <div className="row">
-                  <h3 className="h3-create-event">
-                    Find the perfect place with the help of
-                  </h3>
-                </div>
-                <div className="col mt-4">
-                  <img
-                    className="zomatoImage"
-                    src="images/zomato-logo.jpg"
-                    alt="Zomato"
-                  />
-                </div>
-              </div>
+           
             </div>
           </div>
         </div>
+  
       </div>
+   
+      
     );
 
     return <div>{this.props.uid && eventsAppearing}</div>;

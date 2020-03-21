@@ -43,7 +43,7 @@ class SendEmail extends Component {
 
     const { email, event_id } = this.state;
     const postBody = { email, event_id };
-    axios.post("http://localhost:5000/api/invitation", postBody)
+    axios.post("https://book-it-ironhack-2020.herokuapp.com/api/invitation", postBody) 
       .then((res) => {
         //console.log('resp id', resp._id);
         console.log('invite was created');

@@ -27,7 +27,7 @@ class EditEvent extends Component {
 
     event.preventDefault();
     axios
-      .put(`http://localhost:5000/api/events/${this.props.theEvent._id}`, {
+      .put(`https://book-it-ironhack-2020.herokuapp.com/api/events/${this.props.theEvent._id}`, {
         name,
         date,
         hour,
@@ -63,7 +63,7 @@ class EditEvent extends Component {
   getSingleEvent = () => {
     const { params } = this.props.match;
     axios
-      .get(`http://localhost:5000/api/events/${params.id}`)
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events/${params.id}`)
       .then(responseFromApi => {
         const theEvent = responseFromApi.data;
         this.setState(theEvent);

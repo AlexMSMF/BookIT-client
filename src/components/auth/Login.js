@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import imgEvent from '../../images/event.png'
+import FooterPage from "../FooterPage";
 
 class Login extends Component {
   constructor(props) {
@@ -72,7 +73,9 @@ class Login extends Component {
         </form>
 
         </div>
+        <FooterPage />
       </div>
+   
     );
   }
 }

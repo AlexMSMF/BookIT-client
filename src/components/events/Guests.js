@@ -29,7 +29,7 @@ class Guests extends Component {
 
     return axios
       .post(
-        "http://localhost:5000/api/events",
+        "https://book-it-ironhack-2020.herokuapp.com/api/events",
         {
           name,
           date,
