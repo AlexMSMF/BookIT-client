@@ -28,7 +28,7 @@ class EventDetails extends Component {
   getSingleInvitation = () => {
     const { params } = this.props.match;
     axios
-      .get(`http://localhost:5000/api/invitation/${params.event_id}`)
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${params.event_id}`)
       .then(responseFromApi => {
         const theEvent = responseFromApi.data;
         this.setState(theEvent);
@@ -55,7 +55,7 @@ class EventDetails extends Component {
   deleteEvent = () => {
     const { params } = this.props.match;
     axios
-      .delete(`http://localhost:5000/api/events/${params.id}`)
+      .delete(`https://book-it-ironhack-2020.herokuapp.com/api/events/${params.id}`)
       .then(() => {
         this.props.history.push("/events");
       })

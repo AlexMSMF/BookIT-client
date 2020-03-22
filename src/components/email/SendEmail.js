@@ -23,7 +23,7 @@ class SendEmail extends Component {
 
   getInvitedGuests = (eid) => {
     console.log('GIG', eid)
-    axios.get(`http://localhost:5000/api/invitation/${eid}`)
+    axios.get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${eid}`)
       .then((resp) => {
         //console.log('resp id', resp._id);
         console.log('received guest list', resp);
@@ -65,7 +65,7 @@ class SendEmail extends Component {
     const restaurantAddress = this.props.location.state.restaurantAddress;
 
     axios
-      .post("http://localhost:5000/api/sendEmail", {
+      .post("https://book-it-ironhack-2020.herokuapp.com/api/sendEmail", {
         eName,
         email,
         message,
