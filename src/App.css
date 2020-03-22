@@ -160,7 +160,9 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-
+.container-event-list {
+  height: 643px;
+}
 
 .creatingEventForm {
   width: 20rem;
@@ -286,7 +288,7 @@ h2 {
 
 .create-background {
   background-color: #ebf2f2;
-  background-image: url("./images/create-page-background.jpg");
+  background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("./images/create-page-background.jpg");
   background-size: 100% 845px;
   background-repeat: no-repeat;
   background-position: top;

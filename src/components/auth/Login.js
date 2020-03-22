@@ -33,7 +33,7 @@ class Login extends Component {
     return (
    
       <div className=" loginDiv">
-        <div className="text-center">
+        <div className="text-center container-event-list">
         <form className="form-signin mt-5" onSubmit={this.handleFormSubmit}>
           <img className="mb-4" src={imgEvent} alt="Event" width="72" height="72" />
           <h1 className="h3 mb-3 font-weight-normal">Log in</h1>

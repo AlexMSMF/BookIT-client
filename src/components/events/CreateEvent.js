@@ -19,7 +19,11 @@ class CreateEvent extends Component {
     const { name, date, hour } = this.state;
 
     axios
-      .post("https://book-it-ironhack-2020.herokuapp.com/api/events", { name, date, hour })
+      .post("https://book-it-ironhack-2020.herokuapp.com/api/events", {
+        name,
+        date,
+        hour
+      })
       .then(() => {
         this.props.getData();
         this.setState({ name: "", date: "", hour: "" });
@@ -29,98 +33,95 @@ class CreateEvent extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    
+
     this.setState({ [name]: value });
   };
 
-  
   render() {
     return (
       <div className="loginDiv">
-      <div className="container ">
-        <div className="row">
-          <div className="col-sm mt-3">
-          <div className="row createDivCol mt-5">
+        <div className="container container-event-list">
+          <div className="row">
+            <div className="col-sm mt-3">
+              <div className="row createDivCol mt-5">
                 <div className="row">
-                  <h3 className="h3-create-event">Choose the name of the event and set the Date and Time</h3>
-                
+                  <h3 className="h3-create-event">
+                    Choose the name of the event and set the Date and Time
+                  </h3>
                 </div>
                 <div className="col mt-4">
-                <img
+                  <img
                     className="zomatoImage"
                     src="images/zomato-logo.jpg"
                     alt="Zomato"
                   />
                 </div>
-               
               </div>
               <p>Find the perfect place with our help</p>
-          </div>
-          <div className="col-sm mb-5 mt-3">
-            <form
-              className="creatingEventForm form-signin"
-              onSubmit={this.handleFormSubmit}
-            >
-              <img
-                className="mb-4"
-                src={forkKnife}
-                alt="Event"
-                width="72"
-                height="72"
-              />
-              <h1 className="h3 mb-3 font-weight-normal">Create your event</h1>
-              <label>Name of the Event: </label>
-              <br />
-              <input
-                className="form-control"
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={e => this.handleChange(e)}
-              />
-              <br />
-              <label className="namedate">Date of the Event: </label>
-              <br />
-              <input
-                type="date"
-                className="form-control"
-                name="date"
-                value={this.state.date}
-                onChange={e => this.handleChange(e)}
-              />
-              <br />
-              <label className="namedate">Hour of the Event: </label>
-              <br />
-              <input
-                type="time"
-                className="form-control"
-                name="hour"
-                value={this.state.hour}
-                onChange={e => this.handleChange(e)}
-              />
-              <br/>
-              <Link
-                to={{
-                  pathname: "/zomato",
-                  state: {
-                    name: this.state.name,
-                    date: this.state.date,
-                    hour: this.state.hour
-                  }
-                }}
-                className="btn btn-success "
+            </div>
+            <div className="col-sm mb-5 mt-3">
+              <form
+                className="creatingEventForm form-signin"
+                onSubmit={this.handleFormSubmit}
               >
-                Next
-              </Link>
-            </form>
-            
+                <img
+                  className="mb-4"
+                  src={forkKnife}
+                  alt="Event"
+                  width="72"
+                  height="72"
+                />
+                <h1 className="h3 mb-3 font-weight-normal">
+                  Create your event
+                </h1>
+                <label>Name of the Event: </label>
+                <br />
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={e => this.handleChange(e)}
+                />
+                <br />
+                <label className="namedate">Date of the Event: </label>
+                <br />
+                <input
+                  type="date"
+                  className="form-control"
+                  name="date"
+                  value={this.state.date}
+                  onChange={e => this.handleChange(e)}
+                />
+                <br />
+                <label className="namedate">Hour of the Event: </label>
+                <br />
+                <input
+                  type="time"
+                  className="form-control"
+                  name="hour"
+                  value={this.state.hour}
+                  onChange={e => this.handleChange(e)}
+                />
+                <br />
+                <Link
+                  to={{
+                    pathname: "/zomato",
+                    state: {
+                      name: this.state.name,
+                      date: this.state.date,
+                      hour: this.state.hour
+                    }
+                  }}
+                  className="btn btn-success "
+                >
+                  Next
+                </Link>
+              </form>
+            </div>
           </div>
-    
-         
-        
         </div>
-      </div>
-      <FooterPage  />
+        <FooterPage />
       </div>
     );
   }

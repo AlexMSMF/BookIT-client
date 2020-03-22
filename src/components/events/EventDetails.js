@@ -78,6 +78,7 @@ class EventDetails extends Component {
   render() {
     return (
       <div>
+        <br/>
         <h1>{this.state.name}</h1>
         <div>{this.renderEditForm()} </div>
         <br/>

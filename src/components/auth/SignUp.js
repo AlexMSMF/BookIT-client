@@ -29,7 +29,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="loginDiv">
-      <div className="text-center">
+      <div className="text-center container-event-list">
         <form className="form-signin mt-5" onSubmit={this.handleFormSubmit}>
           <img
             className="mb-4"
