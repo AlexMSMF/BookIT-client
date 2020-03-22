@@ -37,9 +37,9 @@ class CreateEvent extends Component {
   render() {
     return (
       <div className="loginDiv">
-      <div class="container ">
-        <div class="row">
-          <div class="col-sm mt-3">
+      <div className="container ">
+        <div className="row">
+          <div className="col-sm mt-3">
           <div className="row createDivCol mt-5">
                 <div className="row">
                   <h3 className="h3-create-event">Choose the name of the event and set the Date and Time</h3>
@@ -56,7 +56,7 @@ class CreateEvent extends Component {
               </div>
               <p>Find the perfect place with our help</p>
           </div>
-          <div class="col-sm mb-5 mt-3">
+          <div className="col-sm mb-5 mt-3">
             <form
               className="creatingEventForm form-signin"
               onSubmit={this.handleFormSubmit}
@@ -98,6 +98,7 @@ class CreateEvent extends Component {
                 value={this.state.hour}
                 onChange={e => this.handleChange(e)}
               />
+              <br/>
               <Link
                 to={{
                   pathname: "/zomato",

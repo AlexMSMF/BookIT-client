@@ -9,12 +9,15 @@ class Footer extends Component {
   }
   render() {
     return (
-    
       <footer className="tiago-footer">
         <div className="tiago-inner-footer">
           <div className="tiago-logo-container">
-            <img src="/images/logo.png" alt="logo" /><br/>
-            <address className="address">IronHack, <br/> Heden Santa Apolónia, Lisbon, Portugal</address>
+            <img src="/images/logo.png" alt="logo" />
+            <br />
+            <address className="address">
+              IronHack, <br />
+              Heden Santa Apolónia, Lisbon, Portugal
+            </address>
           </div>
           <div className="tiago-footer-third">
             <h4>Need Help?</h4>

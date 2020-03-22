@@ -17,8 +17,7 @@ class Home extends Component {
         <div
           className="backgroundImage div-size div-left"
           style={{ width: "50%", float: "left" }}
-        >
-        </div>
+        ></div>
 
         <div
           style={{ width: "50%", float: "right" }}
@@ -32,18 +31,17 @@ class Home extends Component {
             <p className="home-text">
               No more endeless chat groups to book an event, now you have
               BookIT. In 3 steps you enjoy time with your friends and family.
-              BookIT, it is a platform which helps you invite people for a dinner
-              and make a list in the easiest way.
+              BookIT, it is a platform which helps you invite people for a
+              dinner and make a list in the easiest way.
             </p>
           </div>
-          <br/>
+          <br />
           <div>
-            <Link to="/createEvent" className="btn-events">
+            <Link to="/signup" className="btn-events btn-events btn-lg">
               <strong>BookIT Now</strong>
             </Link>
           </div>
         </div>
-
         <FooterPage />
       </div>
     );

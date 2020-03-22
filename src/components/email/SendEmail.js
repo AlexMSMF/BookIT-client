@@ -27,7 +27,7 @@ class SendEmail extends Component {
       .then((resp) => {
         //console.log('resp id', resp._id);
         console.log('received guest list', resp);
-        this.setState({ guests: resp.data});
+        this.setState({ guests: resp.data });
       })
       .catch(error => console.log(error));
   }
@@ -43,7 +43,7 @@ class SendEmail extends Component {
 
     const { email, event_id } = this.state;
     const postBody = { email, event_id };
-    axios.post("https://book-it-ironhack-2020.herokuapp.com/api/invitation", postBody) 
+    axios.post("https://book-it-ironhack-2020.herokuapp.com/api/invitation", postBody)
       .then((res) => {
         //console.log('resp id', resp._id);
         console.log('invite was created');
@@ -90,14 +90,16 @@ class SendEmail extends Component {
   render() {
     return (
       <div>
-        <h1>
+        <br />
+        <h2>
           Send an email to invite your friends!
-        </h1>
+        </h2>
         <br />
         <div className="container">
           <div className="row">
-            <div className="col-sm">
-              Guests Invited
+            <div className="col-sm"></div>
+            <div className="col-4">
+              <h4 className="font-weight-light">Guests Invited</h4>
               {this.state.guests.map((item, index) => {
               //console.log('item', item);
               return (
@@ -111,9 +113,9 @@ class SendEmail extends Component {
               );
             })}
             </div>
-            <div className="col-sm">
+            <div className="col-6">
               <form onSubmit={this.sendEmail}>
-                <label>Name:</label>
+                <label className="font-weight-light">Name:</label>
                 <br />
                 <input
                   type="text"
@@ -124,7 +126,7 @@ class SendEmail extends Component {
                   onChange={this.handleChange}
                 />
                 <br />
-                <label>Email:</label>
+                <label className="font-weight-light">Email:</label>
                 <br />
                 <input
                   type="email"
@@ -135,7 +137,7 @@ class SendEmail extends Component {
                   onChange={this.handleChange}
                 />
                 <br />
-                <label>Personalize your message: (optional)</label>
+                <label className="font-weight-light">Personalize your message: (optional)</label>
                 <br />
                 <textarea
                   name="message"

@@ -69,7 +69,7 @@ class EventDetails extends Component {
       return (
         <div>
           {this.renderEditForm()}
-          <button onClick={() => this.deleteEvent()}>Delete Event</button>
+          <button className="btn btn-warning" onClick={() => this.deleteEvent()}>Delete Event</button>
         </div>
       );
     }
@@ -84,7 +84,7 @@ class EventDetails extends Component {
         <button onClick={() => this.deleteEvent()} className="btn-danger">Delete event</button>
         <br />
         <br />
-        <Link to={"/events"}> Back to Events </Link>
+        <Link className="btn btn-info" to={"/events"}> Back to Events </Link>
       </div>
     );
   }

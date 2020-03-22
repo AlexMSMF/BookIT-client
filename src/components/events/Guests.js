@@ -70,34 +70,28 @@ class Guests extends Component {
 
     return (
       <div>
-        <h1>Your Event is Created</h1>
+        <br/>
+        <h2>Your Event is Created</h2>
         <br />
-        <div className="container">
+        <div className="container tiago-container">
           <div className="row">
             <div className="col-sm">
             </div>
-            <div className="col-sm">
-              {/* <SendEmail
-                submit={this.handleFormSubmit}
-                date={date}
-                name={name}
-                restaurantId={restaurantId}
-                hour={hour}
-              /> */}
-              <h5>Name of the Event:</h5>
-              {name}
+            <div className="col-sm tiago-design">
+              <h5 className="font-weight-light">Name of the Event:</h5>
+              <h6>{name}</h6>
               <br />
-              <h5>Date of the Event:</h5>
-              {date}
+              <h5 className="font-weight-light">Date of the Event:</h5>
+              <h6>{date}</h6>
               <br />
-              <h5>Time of the Event:</h5>
-              {hour}
+              <h5 className="font-weight-light">Time of the Event:</h5>
+              <h6>{hour}</h6>
               <br />
-              <h5>Address of the Event:</h5>
-              {restaurantId.location.address}
+              <h5 className="font-weight-light">Address of the Event:</h5>
+              <h6>{restaurantId.location.address}</h6>
               <br />
-              <h5>Restaurant name:</h5>
-              {restaurantId.name}
+              <h5 className="font-weight-light">Restaurant name:</h5>
+              <h6>{restaurantId.name}</h6>
               <br />
               <br />
               <br />

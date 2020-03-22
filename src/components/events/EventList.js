@@ -17,7 +17,9 @@ class EventList extends Component {
   getAllEvents = () => {
     const headers = { Authorization: this.props.jwt };
     axios
-      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events`, { headers })
+      .get(`https://book-it-ironhack-2020.herokuapp.com/api/events`, {
+        headers
+      })
       .then(responseFromApi => {
         //console.log(responseFromApi.data);
         //console.log(headers);
@@ -32,31 +34,23 @@ class EventList extends Component {
     this.getAllEvents();
   }
 
-
-
   render() {
-
-    
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
       const addEventComponent = (
-        <div  jwt={this.props.jwt}>
-        
+        <div jwt={this.props.jwt}>
           <Link to={`/events/${event._id}`}>
-          <div className="container">
-           <div className="row">
-             <div className="col">
-               <img className="imageList" src="images/italian-logo.jpg"  alt="EventList"/>
-             </div>
-             <div className="col">
-             <small>{event.date}</small>
-             <br/>
-               <strong>{event.name}</strong> 
-               </div>
-             <div className="col">{event.hour}</div>
-           </div>
-         </div>
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <small>{event.date}</small>
+                  <br />
+                  <strong>{event.name}</strong>
+                </div>
+                <div className="col">{event.hour}</div>
+              </div>
+            </div>
           </Link>
-          <hr/>
+          <hr />
         </div>
       );
       return <div> {this.props.uid && addEventComponent}</div>;
@@ -71,7 +65,7 @@ class EventList extends Component {
               <br />
               {arrayOfEventsDivs}
             </div>
-            <hr/>
+            <hr />
             <div className="col tiago-design-create ">
               <h3 className="h3-create-event">Create a new Event</h3>
 
@@ -79,15 +73,10 @@ class EventList extends Component {
               <Link to="/createEvent" className="btn btn-success">
                 Create Event!
               </Link>
-
-           
             </div>
           </div>
         </div>
-  
       </div>
-   
-      
     );
 
     return <div>{this.props.uid && eventsAppearing}</div>;

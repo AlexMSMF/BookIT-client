@@ -119,17 +119,17 @@ class ZomatoApi extends Component {
 
     return (
       <div>
-        <div className="container">
+        <div className="container container-tiago">
           <div className="row">
-            <div className="col">
-              <h5>Name of the Event:</h5>
-              {name}
+            <div className="col tiago-design">
+              <h5 className="font-weight-light">Name of the Event:</h5>
+              <h6>{name}</h6>
               <br />
-              <h5>Date of the Event</h5>
-              {date}
-              <br />
-              <h5>Hour of the Event</h5>
-              {hour}
+              <h5 className="font-weight-light">Date of the Event</h5>
+              <h6>{date}</h6>
+              <br/>
+              <h5 className="font-weight-light">Hour of the Event</h5>
+              <h6>{hour}</h6>
             </div>
             <div className="col">
               <form
@@ -229,8 +229,6 @@ class ZomatoApi extends Component {
                 );
               })}
             </div>
-            {/* <div class="col">2 of 3</div>
-            <div class="col">3 of 3</div> */}
           </div>
         </div>
       </div>

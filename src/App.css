@@ -59,7 +59,7 @@
 }
 
 .div-size {
-  height: 800px;
+  height: 750px;
 }
 
 .div-right {
@@ -76,7 +76,7 @@
 .btn-events {
   background-color: #07b86b;
   color: #18181a;
-  padding: 10px 50px;
+  padding: 10px 35px;
   border-radius: 5px;
   border: 2px solid black;
 }
@@ -98,14 +98,6 @@
 
 .rightSideNav{
   float: right
-}
-
-.footerContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 350px;
 }
 
 .saveDate {
@@ -179,10 +171,10 @@
   height: 50px;
 }
 
-/* Tiago footer */
+/* Tiago footer -----------------------------------------------------*/
 
 .tiago-footer {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -194,7 +186,7 @@
 
 .tiago-inner-footer {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 2px;
   width: 1100px;
   height: 90px;
 }
@@ -278,7 +270,12 @@
 }
 
 .h3-create-event {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Lobster", serif;
+  color: black;
+}
+
+h2 {
+  font-family: "Lobster", serif;
   color: black;
 }
 

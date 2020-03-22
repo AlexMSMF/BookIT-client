@@ -75,54 +75,68 @@ class EditEvent extends Component {
   render() {
     return (
       <div>
-        <hr />
-        <h3>Details </h3>
-        <br />
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Name of the Event:</label>
-          <br />
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={e => this.handleChangeName(e)}
-          />
-          <br />
-          <label>Date of the Event:</label>
-          <br />
-          <input
-          type='date'
-            name="date"
-            value={this.state.date}
-            onChange={e => this.handleChangeDate(e)}
-          />
-          <br />
-          <label>Hour of the Event:</label>
-          <br />
-          <input
-            type='time'
-            name="hour"
-            value={this.state.hour}
-            onChange={e => this.handleChangeHour(e)}
-          />
-          <br />
-          <br/>
-          <input type="submit" value="Edit" className="btn btn-success" />
-        </form>
-        <br />
-        <h5>Name and Address of the Restaurant</h5>
-        <h6>{this.state.restaurantName}</h6>
-        <h6>{this.state.restaurantAddress}</h6>
         <br />
         <br />
-        <ZomatoEdit
-          theEvent={this.state}
-          getTheEvent={this.getSingleEvent}
-          {...this.props}
-        />
+        <div className="container">
+          <div className="row">
+            <div className="col"></div>
+            <div className=".col-6">
+              <form onSubmit={this.handleFormSubmit}>
+                <label className="font-weight-light">Name of the Event:</label>
+                <br />
+                <input
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={e => this.handleChangeName(e)}
+                  className="form-control"
+                />
+                <br />
+                <label className="font-weight-light">Date of the Event:</label>
+                <br />
+                <input
+                  type='date'
+                  name="date"
+                  value={this.state.date}
+                  onChange={e => this.handleChangeDate(e)}
+                  className="form-control"
+                />
+                <br />
+                <label className="font-weight-light">Hour of the Event:</label>
+                <br />
+                <input
+                  type='time'
+                  name="hour"
+                  value={this.state.hour}
+                  onChange={e => this.handleChangeHour(e)}
+                  className="form-control"
+                />
+                <br />
+                <input type="submit" value="Edit" className="btn btn-success" />
+              </form>
+            </div>
+            <div className="col"></div>
+            <div className=".col-6">
+              <h5 className="font-weight-light">Name of the Restaurant</h5>
+              <h6>{this.state.restaurantName}</h6>
+              <br/>
+              <h5 className="font-weight-light">Address of the Restaurant</h5>
+              <h6>{this.state.restaurantAddress}</h6>
+              <br />
+              <br />
+              <ZomatoEdit
+                theEvent={this.state}
+                getTheEvent={this.getSingleEvent}
+                {...this.props}
+              />
+            </div>
+            <div className="col"></div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default EditEvent;
+

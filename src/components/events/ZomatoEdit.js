@@ -34,7 +34,6 @@ class ZomatoApi extends Component {
 
   // Função que ao submeter irá mudar através do state o site abaixo da zomato.
   handleSubmit = event => {
-    //alert(`${this.state.city} ${this.state.cuisine}`);
     const { restaurantName, restaurantAddress } = this.state;
 
     event.preventDefault();
@@ -48,7 +47,6 @@ class ZomatoApi extends Component {
       )
       .then(() => {
         this.props.getTheEvent();
-        // after submitting the form, redirect to '/events'
         this.props.history.push("/events");
       })
       .catch(error => console.log(error));
@@ -176,8 +174,10 @@ class ZomatoApi extends Component {
   render() {
     return (
       <div>
+        <button className="btn btn-primary" onClick={() => this.showForm()}>Edit Restaurant</button>
+        <br />
+        <br/>
         {this.showFormHandler()}
-        <button onClick={() => this.showForm()}>Edit Restaurant</button>
       </div>
     );
   }
