@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ZomatoEdit from "./ZomatoEdit";
+
 
 class EditEvent extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class EditEvent extends Component {
       hour: this.props.theEvent.hour,
       restaurantName: this.props.theEvent.restaurantName,
       restaurantAddress: this.props.theEvent.restaurantAddress,
-      restId: this.props.theEvent._id
+      restId: this.props.theEvent._id,
+      guests: this.props.theEvent.guests
     };
   }
 
@@ -72,6 +74,19 @@ class EditEvent extends Component {
   };
 
 
+    getInvitedGuests = (eid) => {
+      console.log('GIG', eid)
+      axios.get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${eid}`)
+        .then((resp) => {
+          //console.log('resp id', resp._id);
+          console.log('received guest list', resp);
+          this.setState({ guests: resp.data });
+        })
+        .catch(error => console.log(error));
+    }
+
+
+
   render() {
     return (
       <div>
@@ -79,7 +94,7 @@ class EditEvent extends Component {
         <br />
         <div className="container">
           <div className="row">
-            <div className="col"></div>
+            <div className="col">
             <div className=".col-6">
               <form onSubmit={this.handleFormSubmit}>
                 <label className="font-weight-light">Name of the Event:</label>
@@ -115,7 +130,9 @@ class EditEvent extends Component {
                 <input type="submit" value="Edit" className="btn btn-success" />
               </form>
             </div>
-            <div className="col"></div>
+            </div>
+         
+            <div className="col">
             <div className=".col-6">
               <h5 className="font-weight-light">Name of the Restaurant</h5>
               <h6>{this.state.restaurantName}</h6>
@@ -130,7 +147,13 @@ class EditEvent extends Component {
                 {...this.props}
               />
             </div>
-            <div className="col"></div>
+            </div>
+        
+            <div className="col">
+             <h5 className="font-weight-light"> Event guests </h5>
+               <Link>Hello{this.getAllGuests}</Link>
+           
+              </div>
           </div>
         </div>
       </div>

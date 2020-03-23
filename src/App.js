@@ -8,7 +8,8 @@ import ZomatoApi from "./components/events/ZomatoApi";
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
 import firebase from "firebase";
-import SendEmail from "./components/email/SendEmail"
+import SendEmail from "./components/email/SendEmail";
+import ConfirmEmail from "./components/email/ConfirmEmail";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import EventDetails from "./components/events/EventDetails";
@@ -149,6 +150,7 @@ class App extends Component {
             render={props => <Guests uid={uid} jwt={jwt} {...props} />}
           />
           <Route exact path="/sendEmail" component={SendEmail}/>
+          <Route exact path="/confirm" component={ConfirmEmail}/>
         </Switch>
       </div>
     );

@@ -41,8 +41,8 @@ class SendEmail extends Component {
     event.preventDefault();
     console.log('creating the invite');
 
-    const { email, event_id } = this.state;
-    const postBody = { email, event_id };
+    const { eName, email, event_id } = this.state;
+    const postBody = { eName, email, event_id };
     axios.post("https://book-it-ironhack-2020.herokuapp.com/api/invitation", postBody)
       .then((res) => {
         //console.log('resp id', resp._id);
@@ -101,13 +101,13 @@ class SendEmail extends Component {
             <div className="col-4">
               <h4 className="font-weight-light">Guests Invited</h4>
               {this.state.guests.map((item, index) => {
-              //console.log('item', item);
+              console.log('item', item);
               return (
                 <div
                   key={index}
                 >
                   <div className="card-body">
-                    <p>{item.email}</p>
+                    <p>{item.eName}</p>
                   </div>
                 </div>
               );
