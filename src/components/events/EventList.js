@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Moment from 'react-moment';
 
 // import GoogleMap from "../GoogleMap"
 
@@ -36,19 +37,23 @@ class EventList extends Component {
 
   render() {
     const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
-      const addEventComponent = (
+      const addEventComponent = ( 
         <div jwt={this.props.jwt}>
           <Link to={`/events/${event._id}`}>
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <small>{event.date}</small>
-                  <br />
-                  <strong>{event.name}</strong>
-                </div>
-                <div className="col">{event.hour}</div>
-              </div>
-            </div>
+            <table className="table table-borderless">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" className="text-left">{event.date}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" className="text-left">{event.hour}</th>
+                  <td className="text-left">{event.name}</td>
+                </tr>
+              </tbody>
+            </table>
           </Link>
           <hr />
         </div>
@@ -61,17 +66,14 @@ class EventList extends Component {
           <div className="row">
             <div className="col tiago-design">
               <h3 className="h3-create-event">Your Events</h3>
-              <hr />
               <br />
               {arrayOfEventsDivs}
             </div>
-            <hr />
             <div className="col tiago-design-create ">
               <h3 className="h3-create-event">Create a new Event</h3>
-
               <hr />
-              <Link to="/createEvent" className="btn btn-success">
-                Create Event!
+              <Link to="/createEvent" className="create-event-button">
+                HERE!
               </Link>
             </div>
           </div>

@@ -118,7 +118,7 @@ class ZomatoApi extends Component {
     };
 
     return (
-      <div>
+      <div className="zomato-background">
         <div className="container container-tiago">
           <div className="row">
             <div className="col tiago-design">

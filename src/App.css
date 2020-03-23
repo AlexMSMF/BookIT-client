@@ -2,42 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* NAVBAR  */
 .navbar-color {
   background-color: #18181a;
@@ -81,6 +45,29 @@
   border: 2px solid black;
 }
 
+.create-event-button {
+  background-color: #07b86b;
+  border-radius: 5px;
+  border: 2px solid black;;
+  display: inline-block;
+  cursor: pointer;
+  color: #18181a;
+  font-family: "McLaren";
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+
+.myButton:hover {
+  background-color: #5cbf2a;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
 .h1-home-text {
   text-align: left;
 }
@@ -96,7 +83,7 @@
 
 }
 
-.rightSideNav{
+.rightSideNav {
   float: right
 }
 
@@ -144,7 +131,7 @@
 }
 
 .loginDiv {
-  background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),url("./images/loginImage.jpg");
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/loginImage.jpg");
   background-size: cover;
   background-position: right;
   border: 10px solid #18181a;
@@ -154,7 +141,7 @@
   height: 800px; */
 }
 
-.text-center{
+.text-center {
   display: flex;
   justify-content: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -247,15 +234,15 @@
   border-radius: 10px;
   margin: 20px;
   padding: 20px 5px;
-  background-color: #ebf2f2;
+  background-color: #fcfffd;
 }
 
-.tiago-design-create{
+.tiago-design-create {
   border: 2px solid #18181a;
   border-radius: 10px;
   margin: 20px;
   padding: 20px 5px;
-  background-color: #ebf2f2;
+  background-color: #fcfffd;
   height: 10rem
 }
 
@@ -288,10 +275,34 @@ h2 {
 
 .create-background {
   background-color: #ebf2f2;
-  background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("./images/create-page-background.jpg");
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/create-page-background.jpg");
   background-size: 100% 845px;
   background-repeat: no-repeat;
   background-position: top;
+  height: 845px;
+}
+
+.zomato-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/zomato-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.guests-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/guests-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.sendEmail-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/sendEmail-background.jpg");
+  background-size: cover;
+  background-position: center;
   height: 845px;
 }
 
@@ -321,7 +332,7 @@ h2 {
   height: 6rem;
 }
 
-.imageList{
+.imageList {
   width: 50px;
   height: 50px
 }
