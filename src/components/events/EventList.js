@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 
 // import GoogleMap from "../GoogleMap"
 
@@ -36,7 +36,7 @@ class EventList extends Component {
   }
 
   render() {
-    const arrayOfEventsDivs = this.state.listOfEvents.map(event => {
+    const arrayOfEventsDivs = this.state.listOfEvents.map((event,index) => {
       const addEventComponent = ( 
         <div jwt={this.props.jwt}>
           <Link to={`/events/${event._id}`}>
@@ -58,7 +58,7 @@ class EventList extends Component {
           <hr />
         </div>
       );
-      return <div> {this.props.uid && addEventComponent}</div>;
+      return <div key={index} > {this.props.uid && addEventComponent}</div>;
     });
     const eventsAppearing = (
       <div className="create-background">

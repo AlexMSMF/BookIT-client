@@ -14,8 +14,12 @@ class EditEvent extends Component {
       restaurantName: this.props.theEvent.restaurantName,
       restaurantAddress: this.props.theEvent.restaurantAddress,
       restId: this.props.theEvent._id,
-      guests: this.props.theEvent.guests
+      guests: []
     };
+  }
+
+  componentDidMount() {
+    this.getInvitedGuests();
   }
 
   handleFormSubmit = event => {
@@ -74,13 +78,15 @@ class EditEvent extends Component {
   };
 
 
-    getInvitedGuests = (eid) => {
-      console.log('GIG', eid)
-      axios.get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${eid}`)
+    getInvitedGuests = () => {
+      const params  = this.props.match;
+   
+      axios.get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${params.params.id}`)
         .then((resp) => {
-          //console.log('resp id', resp._id);
-          console.log('received guest list', resp);
+          
+         
           this.setState({ guests: resp.data });
+           
         })
         .catch(error => console.log(error));
     }
@@ -88,6 +94,18 @@ class EditEvent extends Component {
 
 
   render() {
+    const guestList = (
+    this.state.guests.map((guest, index) => {
+      if(guest.attending === false) {
+        return (
+          <div  key={index} >
+            <h5>{guest.eName}</h5>
+          </div>
+        )}
+      })
+    )
+
+
     return (
       <div>
         <br />
@@ -151,7 +169,10 @@ class EditEvent extends Component {
         
             <div className="col">
              <h5 className="font-weight-light"> Event guests </h5>
-       
+              {guestList}             
+
+              
+          
            
               </div>
           </div>
