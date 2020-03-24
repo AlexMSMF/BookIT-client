@@ -15,6 +15,7 @@ import "./App.css";
 import EventDetails from "./components/events/EventDetails";
 import CreateEvent from "./components/events/CreateEvent";
 import Guests from "./components/events/Guests";
+import notLogged from "./components/events/notLoggedIn";
 
 
 class App extends Component {
@@ -145,7 +146,7 @@ class App extends Component {
             path="/events/:id"
             render={props => <EventDetails uid={uid} user_email={user_email} {...props} />}
           />
-         
+         <Route exact path="/notlogged" component={notLogged} />
           <Route exact path="/zomato" component={ZomatoApi} />
           <Route
             exact

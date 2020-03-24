@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EditEvent from "./EditEvent";
+import notLogged from "./notLoggedIn";
 
 class EventDetails extends Component {
   constructor(props) {
@@ -175,12 +176,7 @@ class EventDetails extends Component {
       );
     } else if (this.props.uid === null) {
       return (
-        <div className="please-login-message">
-          <p>
-            Please <Link to="/login">Login</Link> or{" "}
-            <Link to="/login">Sign up</Link> to view this page
-          </p>
-        </div>
+      <notLogged />
       );
     } else if (this.state.event.owner === this.props.uid) {
       return this.renderOwnership();
