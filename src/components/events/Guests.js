@@ -69,7 +69,7 @@ class Guests extends Component {
     const restaurantId = this.props.location.state.restaurantId;
 
     return (
-      <div>
+      <div className="guests-background">
         <br/>
         <h2>Your Event is Created</h2>
         <br />

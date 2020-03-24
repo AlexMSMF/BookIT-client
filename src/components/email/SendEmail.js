@@ -47,7 +47,9 @@ class SendEmail extends Component {
   }
   sendEmail = () => {
     console.log('sending the email');
+
     const { eName, email, message, event_id } = this.state;
+
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
     const hour = this.props.location.state.hour;
@@ -77,7 +79,7 @@ class SendEmail extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="sendEmail-background">
         <br />
         <h2>
           Send an email to invite your friends!

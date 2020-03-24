@@ -2,42 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* NAVBAR  */
 .navbar-color {
   background-color: #18181a;
@@ -79,6 +43,29 @@
   padding: 10px 35px;
   border-radius: 5px;
   border: 2px solid black;
+}
+
+.create-event-button {
+  background-color: #07b86b;
+  border-radius: 5px;
+  border: 2px solid black;;
+  display: inline-block;
+  cursor: pointer;
+  color: #18181a;
+  font-family: "McLaren";
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+
+.myButton:hover {
+  background-color: #5cbf2a;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
 }
 
 .h1-home-text {
@@ -247,7 +234,7 @@
   border-radius: 10px;
   margin: 20px;
   padding: 20px 5px;
-  background-color: #ebf2f2;
+  background-color: #fcfffd;
 }
 
 .tiago-design-create {
@@ -255,7 +242,7 @@
   border-radius: 10px;
   margin: 20px;
   padding: 20px 5px;
-  background-color: #ebf2f2;
+  background-color: #fcfffd;
   height: 10rem
 }
 
@@ -295,6 +282,30 @@ h2 {
   height: 845px;
 }
 
+.zomato-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/zomato-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.guests-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/guests-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.sendEmail-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/sendEmail-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
 .zomatoResponse {
   margin: 10px;
   width: 18rem;
@@ -325,202 +336,3 @@ h2 {
   width: 50px;
   height: 50px
 }
-
-.bouncy {
-  animation: bouncy 5s infinite linear;
-  position: relative;
-}
-
-@keyframes bouncy {
-  0% {
-    top: 0em
-  }
-
-  40% {
-    top: 0em
-  }
-
-  43% {
-    top: -0.9em
-  }
-
-  46% {
-    top: 0em
-  }
-
-  48% {
-    top: -0.4em
-  }
-
-  50% {
-    top: 0em
-  }
-
-  100% {
-    top: 0em;
-  }
-}
-
-.progress-button {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-}
-
-.progress-button button {
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  width: 250px;
-  height: 70px;
-  border: 2px solid #07b86b;
-  border-radius: 40px;
-  background: transparent;
-  color: #07b86b;
-  letter-spacing: 1px;
-  font-size: 25px;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
-  transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
-
-}
-
-.progress-buttonError button {
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  width: 250px;
-  height: 70px;
-  border: 2px solid red;
-  border-radius: 40px;
-  background: transparent;
-  color: red;
-  letter-spacing: 1px;
-  font-size: 25px;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
-  transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
-
-}
-
-.progress-button button:hover {
-  background-color: #07b86b;
-  color: #fff;
-
-}
-
-.progress-buttonError button:hover {
-  background-color: red;
-  color: #fff;
-
-}
-
-
-.success.progress-button button {
-  border-color: #07b86b;
-  background-color: #07b86b;
-
-}
-
-.error.progress-button button {
-  border-color: #FB797E;
-  background-color: #FB797E;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .buttonHolder{
-  margin:80px auto;
-  width:400px;
-}
-
-
-        .button{
-            background-image: -webkit-linear-gradient(to bottom, #f4f1ee, #fff);
-            background-image: linear-gradient(to bottom, #f4f1ee, #fff);
-            border-radius: 50%;
-            box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-            float:left;
-            height: 70px;
-            margin: 0 30px 30px 0;
-            position: relative;
-            width: 70px;            
-            -webkit-transition: all .1s linear;
-            transition: all .1s linear;
-        }
-
-        .button:after{
-            color:#e9e6e4;
-            content: "";
-            display: block;
-            font-size: 30px;
-            height: 30px;
-            text-decoration: none;
-            text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
-            position: absolute;
-            width: 30px;
-        }
-
-
-        .tick:after{
-            content: "✔";
-            left:21px;
-            top:15px;
-        }
-
-        .cross:after{
-            content: "✖";
-            left: 20px;
-            top: 12px;
-        }
-
-        .button:hover{
-            background-image: -webkit-linear-gradient(to bottom, #fff, #f4f1ee);
-            background-image: linear-gradient(to bottom, #fff, #f4f1ee);
-            color:#0088cc;
-        }
-
-
-        .tick:hover:after{
-            color:#07b86b;
-            text-shadow:0px 0px 6px #07b86b;
-        }
-
-        .cross:hover:after{
-            color:#eb2f2f;
-            text-shadow:0px 0px 6px #eb2f2f;
-        }
-
-        
-
-        .button:active{
-            background-image: -webkit-linear-gradient(to bottom, #efedec, #f7f4f4);
-            background-image: linear-gradient(to bottom, #efedec, #f7f4f4);
-            box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
-        }
-
-        .button:active:after{
-            color:#dbd2d2;
-            text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
-        } */

@@ -74,10 +74,12 @@ class ZomatoApi extends Component {
       });
   }
 
-  showForm() {
-    this.setState({
-      showForm: true
-    });
+  showForm = () => {
+    if (!this.state.isShowing) {
+      this.setState({ showForm: true });
+    } else {
+      this.setState({ showForm: false });
+    }
   }
 
   showFormHandler() {
@@ -174,9 +176,11 @@ class ZomatoApi extends Component {
   render() {
     return (
       <div>
-        <button className="btn btn-primary" onClick={() => this.showForm()}>Edit Restaurant</button>
+        <button className="btn btn-primary" onClick={this.showForm}>
+          Edit Restaurant
+        </button>
         <br />
-        <br/>
+        <br />
         {this.showFormHandler()}
       </div>
     );
