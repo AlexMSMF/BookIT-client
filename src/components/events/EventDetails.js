@@ -104,18 +104,25 @@ class EventDetails extends Component {
     );
   }
 
-
+  changeStatusAttend (isAttending) {
+    // console.log('responding to invite');
+    // console.log('all guests', this.props.uid, this.state.guests)
+    const invitation_id = this.state.guests.find(g => g.email === this.props.user_email)._id;
+    // console.log('my invite idf ', invitation_id);
+    const putBody = { invitation_id, attending: isAttending };
+    axios.put("https://book-it-ironhack-2020.herokuapp.com/api/invitation", putBody)
+      .then((res) => {
+        //console.log('resp id', resp._id);
+        // console.log('invite was responed to', res);
+        this.getSingleInvitation();
+      })
+      .catch(error => console.log(error));
+  }
 
 
   renderGuestView() { 
 
-    let guest_attend = this.state.guests.map(item => item.attending);
-
-    console.log(guest_attend)
-    let changeStatusAttend = () => {
-      guest_attend = true
-      console.log(this.state.guests)
-    }
+   
     return (
       <div className="container">
         <h1>Hello, I would be delighted if you can come to my event</h1>
@@ -131,7 +138,7 @@ class EventDetails extends Component {
               className="  bouncy progress-button"
               style={{ textDecoration: "none" }}
             >
-              <button onClick={changeStatusAttend()}>
+              <button onClick={this.changeStatusAttend(true)}>
                 <span>Accept</span>
               </button>
             </Link>
@@ -143,8 +150,8 @@ class EventDetails extends Component {
               className="  bouncy progress-button progress-button-refuse"
               style={{ textDecoration: "none" }}
             >
-              <button>
-    <span>Refuse </span>
+              <button onClick={this.changeStatusAttend(false)}>
+                <span>Refuse </span>
               </button>
             </Link>
           </div>
