@@ -109,13 +109,13 @@ class EventDetails extends Component {
 
   renderGuestView() { 
 
-   
+    let guest_attend = this.state.guests.map(item => item.attending);
 
-    console.log("-----", this.state.guests.forEach(item => item.attending ))
-    // let changeStatusAttend = () => {
-    //   guest_attend = true
-    //   console.log(this.state.guests)
-    // }
+    console.log(guest_attend)
+    let changeStatusAttend = () => {
+      guest_attend = true
+      console.log(this.state.guests)
+    }
     return (
       <div className="container">
         <h1>Hello, I would be delighted if you can come to my event</h1>
@@ -131,7 +131,7 @@ class EventDetails extends Component {
               className="  bouncy progress-button"
               style={{ textDecoration: "none" }}
             >
-              <button >
+              <button onClick={changeStatusAttend()}>
                 <span>Accept</span>
               </button>
             </Link>
@@ -166,12 +166,14 @@ class EventDetails extends Component {
           <p>loading...</p>
         </div>
       );
+    } else if (this.props.uid === null) {
+      return <div><p>Please login or signup to view this page</p></div>;
     } else if (this.state.event.owner === this.props.uid) {
       return this.renderOwnership();
     } else if (guest_emails.includes(this.props.user_email)) {
       return this.renderGuestView();
     } else {
-      return null
+      return <div><p>You have have not been invited to this event! sorry :/</p></div>;
     }
 
   }
