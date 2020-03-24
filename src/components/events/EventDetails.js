@@ -175,8 +175,11 @@ class EventDetails extends Component {
       );
     } else if (this.props.uid === null) {
       return (
-        <div>
-          <p>Please login or signup to view this page</p>
+        <div className="please-login-message">
+          <p>
+            Please <Link to="/login">Login</Link> or{" "}
+            <Link to="/login">Sign up</Link> to view this page
+          </p>
         </div>
       );
     } else if (this.state.event.owner === this.props.uid) {
@@ -185,7 +188,7 @@ class EventDetails extends Component {
       return this.renderGuestView();
     } else {
       return (
-        <div>
+        <div className="not-invited">
           <p>You have have not been invited to this event! sorry :/</p>
         </div>
       );
