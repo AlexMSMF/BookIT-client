@@ -16,6 +16,7 @@ import EventDetails from "./components/events/EventDetails";
 import CreateEvent from "./components/events/CreateEvent";
 import Guests from "./components/events/Guests";
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -143,6 +144,7 @@ class App extends Component {
             path="/events/:id"
             render={props => <EventDetails uid={uid} {...props} />}
           />
+         
           <Route exact path="/zomato" component={ZomatoApi} />
           <Route
             exact

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 class SendEmail extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       eName: "",
       email: "",
@@ -14,13 +12,11 @@ class SendEmail extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
   componentDidMount() {
     console.log('eid', this.props.location.state.event_id);
     this.setState({ event_id: this.props.location.state.event_id });
     this.getInvitedGuests(this.props.location.state.event_id);
   }
-
   getInvitedGuests = (eid) => {
     console.log('GIG', eid)
     axios.get(`https://book-it-ironhack-2020.herokuapp.com/api/invitation/${eid}`)
@@ -31,18 +27,15 @@ class SendEmail extends Component {
       })
       .catch(error => console.log(error));
   }
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-
   createDBInvitation = event => {
     event.preventDefault();
     console.log('creating the invite');
-
-    const { eName, email, event_id } = this.state;
-    const postBody = { eName, email, event_id };
+    const { email, event_id } = this.state;
+    const postBody = { email, event_id };
     axios.post("https://book-it-ironhack-2020.herokuapp.com/api/invitation", postBody)
       .then((res) => {
         //console.log('resp id', resp._id);
@@ -52,18 +45,14 @@ class SendEmail extends Component {
       })
       .catch(error => console.log(error));
   }
-
   sendEmail = () => {
     console.log('sending the email');
-
-    const { eName, email, message } = this.state;
-
+    const { eName, email, message, event_id } = this.state;
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
     const hour = this.props.location.state.hour;
     const restaurantName = this.props.location.state.restaurantName;
     const restaurantAddress = this.props.location.state.restaurantAddress;
-
     axios
       .post("https://book-it-ironhack-2020.herokuapp.com/api/sendEmail", {
         eName,
@@ -73,7 +62,8 @@ class SendEmail extends Component {
         date,
         restaurantName,
         restaurantAddress,
-        hour
+        hour,
+        event_id
       })
       .then((resp) => {
         console.log("acabei de enviar email");
@@ -82,11 +72,9 @@ class SendEmail extends Component {
           email: "",
           message: "",
         });
-        // this.props.history.push("/events");
       })
       .catch(error => console.log(error));
   };
-
   render() {
     return (
       <div>
@@ -101,13 +89,13 @@ class SendEmail extends Component {
             <div className="col-4">
               <h4 className="font-weight-light">Guests Invited</h4>
               {this.state.guests.map((item, index) => {
-              console.log('item', item);
+              //console.log('item', item);
               return (
                 <div
                   key={index}
                 >
                   <div className="card-body">
-                    <p>{item.eName}</p>
+                    <p>{item.email}</p>
                   </div>
                 </div>
               );
@@ -157,5 +145,4 @@ class SendEmail extends Component {
     );
   }
 }
-
 export default SendEmail;

@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EditEvent from "./EditEvent";
+import Confirm from "../email/ConfirmEmail";
 
 class EventDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      guests: [],
+    };
   }
 
   componentDidMount() {
@@ -40,8 +43,7 @@ class EventDetails extends Component {
     if (!this.state.name) {
       this.getSingleEvent();
     } else {
-      //   {...props} => so we can have 'this.props.history' in Edit.js                                                                                 |
-      return (
+    return (
         <EditEvent
           theEvent={this.state}
           getTheEvent={this.getSingleEvent}
@@ -64,7 +66,7 @@ class EventDetails extends Component {
       });
   };
 
-  renderEventOwnerSection() {
+  renderEventOwnerSection = () => {
     if (this.state.owner === this.props.uid) {
       return (
         <div>
@@ -76,6 +78,7 @@ class EventDetails extends Component {
   }
 
   render() {
+
     return (
       <div>
         <br/>

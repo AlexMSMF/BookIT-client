@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import ZomatoEdit from "./ZomatoEdit";
 
 
@@ -151,7 +151,7 @@ class EditEvent extends Component {
         
             <div className="col">
              <h5 className="font-weight-light"> Event guests </h5>
-               <Link>Hello{this.getAllGuests}</Link>
+       
            
               </div>
           </div>

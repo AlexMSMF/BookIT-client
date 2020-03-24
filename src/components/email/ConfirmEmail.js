@@ -18,7 +18,7 @@ class ConfirmEmail extends Component {
         <br />
         <div className="row">
           <div className=" col ">
-            <Link to="login" id="progress-button" class="  bouncy progress-button" style={{ textDecoration: 'none' }}>
+            <Link to="/events/:id" id="progress-button" class="  bouncy progress-button" style={{ textDecoration: 'none' }}>
               <button>
                 <span>Accept</span>
               </button>
