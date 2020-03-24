@@ -50,6 +50,8 @@ class SendEmail extends Component {
 
     const { eName, email, message, event_id } = this.state;
 
+    console.log("((((((8((((",this.state.event_id)
+
     const date = this.props.location.state.date;
     const name = this.props.location.state.name;
     const hour = this.props.location.state.hour;
