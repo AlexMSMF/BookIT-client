@@ -104,18 +104,14 @@ class EventDetails extends Component {
     );
   }
 
-
-
-
-  renderGuestView() { 
-
+  renderGuestView() {
     let guest_attend = this.state.guests.map(item => item.attending);
 
-    console.log(guest_attend)
+    console.log(guest_attend);
     let changeStatusAttend = () => {
-      guest_attend = true
-      console.log(this.state.guests)
-    }
+      guest_attend = true;
+      console.log(this.state.guests);
+    };
     return (
       <div className="container">
         <h1>Hello, I would be delighted if you can come to my event</h1>
@@ -144,21 +140,18 @@ class EventDetails extends Component {
               style={{ textDecoration: "none" }}
             >
               <button>
-    <span>Refuse </span>
+                <span>Refuse </span>
               </button>
             </Link>
           </div>
         </div>
       </div>
-    );  
-    
+    );
   }
 
-
   render() {
-    
     const guest_emails = this.state.guests.map(g => g.email);
-  
+
     if (Object.keys(this.state.event).length === 0) {
       console.log("loading");
       return (
@@ -167,15 +160,24 @@ class EventDetails extends Component {
         </div>
       );
     } else if (this.props.uid === null) {
-      return <div><p>Please login or signup to view this page</p></div>;
+      return (
+        <div className="please-login-message">
+          <p>
+            Please <Link to="/login">Login</Link> or <Link to="/login">Sign up</Link> to view this page
+          </p>
+        </div>
+      );
     } else if (this.state.event.owner === this.props.uid) {
       return this.renderOwnership();
     } else if (guest_emails.includes(this.props.user_email)) {
       return this.renderGuestView();
     } else {
-      return <div><p>You have have not been invited to this event! sorry :/</p></div>;
+      return (
+        <div className="not-invited">
+          <p>You have have not been invited to this event! sorry :/</p>
+        </div>
+      );
     }
-
   }
 }
 
