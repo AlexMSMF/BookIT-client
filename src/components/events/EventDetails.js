@@ -31,19 +31,6 @@ class EventDetails extends Component {
         console.log("---------%%%%%%%%%%", theEvent);
 
         this.setState({ event: theEvent });
-
-        // console.log("tyypee?? ", typeof theEvent.owner)
-        // this.setState({
-        //   event: {
-        //     _id: theEvent._id,
-        //     name: theEvent.name,
-        //     date: theEvent.date,
-        //     hour: theEvent.hour,
-        //     restaurantName: theEvent.restaurantName,
-        //     restaurantAddress: theEvent.restaurantAddress,
-        //     owner: theEvent.owner,
-        //   }
-        // });
       })
       .catch(err => console.log(err));
   };
@@ -117,7 +104,18 @@ class EventDetails extends Component {
     );
   }
 
-  renderGuestView() {
+
+
+
+  renderGuestView() { 
+
+   
+
+    console.log("-----", this.state.guests.forEach(item => item.attending ))
+    // let changeStatusAttend = () => {
+    //   guest_attend = true
+    //   console.log(this.state.guests)
+    // }
     return (
       <div className="container">
         <h1>Hello, I would be delighted if you can come to my event</h1>
@@ -133,7 +131,7 @@ class EventDetails extends Component {
               className="  bouncy progress-button"
               style={{ textDecoration: "none" }}
             >
-              <button>
+              <button >
                 <span>Accept</span>
               </button>
             </Link>
@@ -146,30 +144,21 @@ class EventDetails extends Component {
               style={{ textDecoration: "none" }}
             >
               <button>
-                <span>Refuse</span>
+    <span>Refuse </span>
               </button>
             </Link>
           </div>
         </div>
       </div>
-    );
+    );  
+    
   }
 
-  // renderEventOwnerSection = () => {
-  //   if (this.state.owner === this.props.uid) {
-  //     return (
-  //       <div>
-  //         {this.renderEditForm()}
-  //         <button className="btn btn-warning" onClick={() => this.deleteEvent()}>Delete Event</button>
-  //       </div>
-  //     );
-  //   }
-  // }
 
   render() {
-    // console.log('another check', this.state.guests);
+    
     const guest_emails = this.state.guests.map(g => g.email);
-    // console.log(guest_emails)
+  
     if (Object.keys(this.state.event).length === 0) {
       console.log("loading");
       return (
@@ -182,8 +171,7 @@ class EventDetails extends Component {
     } else if (guest_emails.includes(this.props.user_email)) {
       return this.renderGuestView();
     } else {
-      // console.log('ELSE, RETURN NULLLLLL')
-      return null;
+      return null
     }
 
   }
