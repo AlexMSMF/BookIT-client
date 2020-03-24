@@ -104,25 +104,14 @@ class EventDetails extends Component {
     );
   }
 
-  changeStatusAttend (isAttending) {
-    // console.log('responding to invite');
-    // console.log('all guests', this.props.uid, this.state.guests)
-    const invitation_id = this.state.guests.find(g => g.email === this.props.user_email)._id;
-    // console.log('my invite idf ', invitation_id);
-    const putBody = { invitation_id, attending: isAttending };
-    axios.put("https://book-it-ironhack-2020.herokuapp.com/api/invitation", putBody)
-      .then((res) => {
-        //console.log('resp id', resp._id);
-        // console.log('invite was responed to', res);
-        this.getSingleInvitation();
-      })
-      .catch(error => console.log(error));
-  }
+  renderGuestView() {
+    let guest_attend = this.state.guests.map(item => item.attending);
 
-
-  renderGuestView() { 
-
-   
+    console.log(guest_attend);
+    let changeStatusAttend = () => {
+      guest_attend = true;
+      console.log(this.state.guests);
+    };
     return (
       <div className="container">
         <h1>Hello, I would be delighted if you can come to my event</h1>
@@ -150,22 +139,19 @@ class EventDetails extends Component {
               className="  bouncy progress-button progress-button-refuse"
               style={{ textDecoration: "none" }}
             >
-              <button onClick={this.changeStatusAttend(false)}>
+              <button>
                 <span>Refuse </span>
               </button>
             </Link>
           </div>
         </div>
       </div>
-    );  
-    
+    );
   }
 
-
   render() {
-    
     const guest_emails = this.state.guests.map(g => g.email);
-  
+
     if (Object.keys(this.state.event).length === 0) {
       console.log("loading");
       return (
@@ -174,15 +160,24 @@ class EventDetails extends Component {
         </div>
       );
     } else if (this.props.uid === null) {
-      return <div><p>Please login or signup to view this page</p></div>;
+      return (
+        <div className="please-login-message">
+          <p>
+            Please <Link to="/login">Login</Link> or <Link to="/login">Sign up</Link> to view this page
+          </p>
+        </div>
+      );
     } else if (this.state.event.owner === this.props.uid) {
       return this.renderOwnership();
     } else if (guest_emails.includes(this.props.user_email)) {
       return this.renderGuestView();
     } else {
-      return <div><p>You have have not been invited to this event! sorry :/</p></div>;
+      return (
+        <div className="not-invited">
+          <p>You have have not been invited to this event! sorry :/</p>
+        </div>
+      );
     }
-
   }
 }
 
